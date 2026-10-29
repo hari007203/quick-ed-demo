@@ -1,0 +1,575 @@
+/* ==========================================================================
+   QuickEd Solutions - High-Energy Cosmic Courses Page
+   Designed to attract students immediately with neon glows, dark glass,
+   and vivid color accents.
+   ========================================================================== */
+
+.courses-page-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+  animation: fadeIn 0.35s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header Section */
+.courses-header-section {
+  text-align: center;
+  max-width: 840px;
+  margin: 0 auto 52px;
+}
+
+.courses-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(163, 28, 27, 0.12);
+  border: 1px solid rgba(163, 28, 27, 0.35);
+  color: #A31C1B;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 7px 18px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  box-shadow: 0 0 20px rgba(163, 28, 27, 0.2);
+}
+
+.dot-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #A31C1B;
+  box-shadow: 0 0 10px #A31C1B, 0 0 20px rgba(163, 28, 27, 0.6);
+  animation: pulseNeon 2s infinite;
+}
+
+@keyframes pulseNeon {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.8; }
+}
+
+.courses-main-title {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin: 0 0 18px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.title-gradient {
+  background: linear-gradient(135deg, #FFFFFF 0%, #D6DDD8 40%, #A31C1B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 25px rgba(163, 28, 27, 0.35));
+}
+
+.courses-subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.15rem;
+  color: #9BA69F;
+  line-height: 1.6;
+  margin: 0 auto 36px;
+}
+
+/* Filter Tabs */
+.filter-tabs-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-pill {
+  font-family: 'Sora', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #171717;
+  color: #D6DDD8;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.filter-pill:hover {
+  border-color: rgba(163, 28, 27, 0.4);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  background: rgba(163, 28, 27, 0.14);
+}
+
+.filter-pill.active {
+  background: #A31C1B;
+  color: #FFFFFF;
+  font-weight: 700;
+  border-color: #A31C1B;
+  box-shadow: 0 0 20px rgba(163, 28, 27, 0.4);
+}
+
+/* Courses Cards Grid */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 30px;
+}
+
+/* High-Tech Dark Glass Card */
+.course-card-premium {
+  background: #171717;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.28s ease, 
+              border-color 0.28s ease;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.course-card-premium:hover {
+  transform: translateY(-6px);
+  border-color: var(--card-accent);
+  box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.8),
+              0 0 25px rgba(var(--card-accent-rgb, 124, 58, 237), 0.25);
+}
+
+/* Neon Top Strip */
+.card-top-strip {
+  height: 4.5px;
+  width: 100%;
+  box-shadow: 0 0 12px currentColor;
+}
+
+.card-inner-content {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Meta Row */
+.card-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.course-badge-pill {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.course-duration {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #94A3B8;
+}
+
+.course-card-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin: 0 0 10px;
+}
+
+.course-card-tagline {
+  font-size: 0.92rem;
+  color: #94A3B8;
+  line-height: 1.55;
+  margin: 0 0 22px;
+  flex-grow: 1;
+}
+
+/* Dark Stats Bar */
+.course-stats-bar {
+  display: flex;
+  align-items: center;
+  background: rgba(6, 9, 18, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 12px 18px;
+  margin-bottom: 22px;
+}
+
+.stat-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748B;
+  letter-spacing: 0.06em;
+}
+
+.stat-val {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #F8FAFC;
+  margin-top: 2px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 26px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 0 14px;
+}
+
+/* Skills Cloud */
+.skills-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 26px;
+}
+
+.skill-chip {
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 5px 11px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #E2E8F0;
+  transition: all 0.15s ease;
+}
+
+.course-card-premium:hover .skill-chip {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.skill-chip.more {
+  background: transparent;
+  color: #94A3B8;
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+}
+
+/* Action Buttons */
+.card-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.btn-syllabus {
+  flex: 1;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  color: #F8FAFC;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-syllabus:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.btn-enroll {
+  flex: 1.25;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-enroll:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 20px currentColor;
+}
+
+/* Enrollment HUD Toast */
+.enrollment-toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: rgba(13, 17, 32, 0.95);
+  backdrop-filter: blur(20px);
+  color: #FFFFFF;
+  border-radius: 16px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(16, 185, 129, 0.3);
+  z-index: 2000;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.toast-icon {
+  font-size: 1.6rem;
+}
+
+.toast-content strong {
+  display: block;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  color: #34D399;
+}
+
+.toast-content p {
+  margin: 3px 0 0;
+  font-size: 0.84rem;
+  color: #94A3B8;
+}
+
+.toast-content span {
+  color: #38BDF8;
+  font-weight: 700;
+}
+
+.toast-close {
+  background: transparent;
+  border: none;
+  color: #64748B;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.toast-close:hover {
+  color: #FFFFFF;
+}
+
+/* Syllabus Dark Glass Modal */
+.syllabus-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(6, 8, 18, 0.82);
+  backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 2050;
+}
+
+.syllabus-modal-content {
+  background: #0D1224;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  max-width: 640px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.9), 0 0 30px rgba(124, 58, 237, 0.2);
+  animation: modalScale 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalScale {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-header {
+  padding: 26px 30px 18px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-eyebrow {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.modal-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  margin: 4px 0 0;
+}
+
+.modal-close-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #94A3B8;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+}
+
+.modal-body {
+  padding: 26px 30px;
+}
+
+.modal-desc {
+  font-size: 0.98rem;
+  color: #CBD5E1;
+  line-height: 1.6;
+  margin-bottom: 26px;
+}
+
+.section-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 22px 0 12px;
+}
+
+.modal-highlights-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-highlights-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.92rem;
+  color: #94A3B8;
+  line-height: 1.45;
+}
+
+.highlight-bullet {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-top: 7px;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px currentColor;
+}
+
+.modal-skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.modal-tech-badge {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #F8FAFC;
+}
+
+.modal-footer {
+  padding: 18px 30px 26px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+.modal-back-btn {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 11px 20px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  color: #94A3B8;
+  cursor: pointer;
+}
+
+.modal-back-btn:hover {
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.modal-enroll-btn {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 11px 24px;
+  border: none;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  box-shadow: 0 0 20px currentColor;
+}
+
+@media (max-width: 768px) {
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+}

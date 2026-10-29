@@ -1,0 +1,135 @@
+/* ==========================================================================
+   Background Logo Animation
+   Transforms the logo into an ambient floating 3D watermark
+   Theme: Charcoal Black (#171717) + Forest Green (#06110C) + Crimson Red (#A31C1B)
+   ========================================================================== */
+
+.logo-bg-viewport {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Primary Watermark positioned near the upper right/hero */
+.logo-bg-watermark.watermark-hero {
+  position: absolute;
+  top: 8%;
+  right: -5%;
+  width: clamp(380px, 45vw, 650px);
+  height: clamp(380px, 45vw, 650px);
+  animation: logoFloat 16s ease-in-out infinite, logoPulseGlow 8s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Secondary Watermark near the lower-left */
+.logo-bg-watermark.watermark-secondary {
+  position: absolute;
+  bottom: 12%;
+  left: -8%;
+  width: clamp(300px, 35vw, 480px);
+  height: clamp(300px, 35vw, 480px);
+  animation: logoFloatSecondary 20s ease-in-out infinite alternate, logoPulseGlow 10s ease-in-out infinite 3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.watermark-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 0.12;
+  filter: contrast(1.2) brightness(0.85) drop-shadow(0 0 50px rgba(163, 28, 27, 0.35));
+  mix-blend-mode: screen;
+}
+
+.watermark-secondary-img {
+  opacity: 0.08;
+  filter: contrast(1.1) brightness(0.75) drop-shadow(0 0 40px rgba(10, 28, 19, 0.6));
+}
+
+/* Glowing rotating aura behind the logo */
+.watermark-glow-ring {
+  position: absolute;
+  inset: -15%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(163, 28, 27, 0.16) 0%, rgba(10, 28, 19, 0.25) 45%, transparent 70%);
+  filter: blur(40px);
+  animation: ringRotate 24s linear infinite;
+}
+
+@keyframes ringRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes logoFloatSecondary {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(0.95);
+  }
+  100% {
+    transform: translateY(-25px) rotate(-3deg) scale(1.05);
+  }
+}
+
+/* Matrix Background Grid */
+.logo-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 85%);
+  opacity: 0.5;
+}
+
+/* Ambient Flares in Crimson & Forest Green */
+.ambient-flare {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+.flare-crimson,
+.flare-orange {
+  width: 550px;
+  height: 550px;
+  top: 15%;
+  left: 20%;
+  background: radial-gradient(circle, rgba(163, 28, 27, 0.12) 0%, transparent 70%);
+  animation: flarePulse 12s ease-in-out infinite alternate;
+}
+
+.flare-forest,
+.flare-gold {
+  width: 600px;
+  height: 600px;
+  bottom: 10%;
+  right: 15%;
+  background: radial-gradient(circle, rgba(10, 28, 19, 0.45) 0%, transparent 70%);
+  animation: flarePulse 14s ease-in-out infinite alternate 2s;
+}
+
+@keyframes flarePulse {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.15); opacity: 0.95; }
+}
+
+@media (max-width: 768px) {
+  .logo-bg-watermark.watermark-hero {
+    right: -25%;
+    width: 320px;
+    height: 320px;
+  }
+  .logo-bg-watermark.watermark-secondary {
+    display: none;
+  }
+}

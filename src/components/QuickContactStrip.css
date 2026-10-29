@@ -1,0 +1,135 @@
+/* Contact Trio Strip: Make a call | Send an email | Social media logos
+   Theme: Charcoal Black (#171717) + Forest Green (#06110C) + Crimson Red (#A31C1B)
+*/
+.contact-strip-section {
+  padding: 60px 24px 80px;
+  background: rgba(6, 17, 12, 0.85);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 1;
+}
+
+.contact-strip-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.contact-trio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.contact-action-box {
+  background: #171717;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 22px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.7);
+}
+
+.contact-action-box:hover {
+  transform: translateY(-5px);
+  background: #1c1c1c;
+  border-color: #A31C1B;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(163, 28, 27, 0.25);
+}
+
+.action-icon-circle {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  background: rgba(163, 28, 27, 0.15);
+  border: 1px solid rgba(163, 28, 27, 0.35);
+}
+
+.action-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #9BA69F;
+  letter-spacing: 0.06em;
+  display: block;
+}
+
+.action-main-text {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 4px 0 6px;
+}
+
+.action-detail {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #D6DDD8;
+  margin: 0 0 8px;
+}
+
+.action-avail {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  color: #A31C1B;
+  font-weight: 600;
+}
+
+.action-arrow-tag {
+  align-self: flex-end;
+  font-family: 'Sora', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #A31C1B;
+  margin-top: 18px;
+}
+
+/* Social cluster */
+.social-icons-cluster {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.social-logo-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.social-logo-chip:hover {
+  background: rgba(163, 28, 27, 0.15);
+  border-color: #A31C1B;
+  transform: translateY(-2px);
+  box-shadow: 0 0 14px rgba(163, 28, 27, 0.35);
+}
+
+.soc-emoji {
+  font-size: 1.1rem;
+}
+
+.soc-label {
+  font-family: 'Sora', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}

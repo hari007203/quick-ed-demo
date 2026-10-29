@@ -1,0 +1,203 @@
+/* Brochure Modal Styling
+   Theme: Charcoal Black (#171717) + Forest Green (#06110C) + Crimson Red (#A31C1B)
+*/
+.brochure-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(6, 17, 12, 0.9);
+  backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 2600;
+  animation: fadeIn 0.25s ease;
+}
+
+.brochure-modal-box {
+  background: #171717;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  max-width: 560px;
+  width: 100%;
+  padding: 30px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.95), 0 0 25px rgba(163, 28, 27, 0.2);
+  animation: popScale 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brochure-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.brochure-pill {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #A31C1B;
+  background: rgba(163, 28, 27, 0.12);
+  border: 1px solid rgba(163, 28, 27, 0.35);
+  padding: 4px 12px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.brochure-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 6px;
+}
+
+.brochure-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  color: #D6DDD8;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.brochure-sub strong {
+  color: #FFFFFF;
+}
+
+.brochure-close {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #9BA69F;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.brochure-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+}
+
+.brochure-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #1c1c1c;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 22px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.feature-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.feature-item strong {
+  display: block;
+  font-family: 'Sora', sans-serif;
+  font-size: 0.92rem;
+  color: #FFFFFF;
+}
+
+.feature-item p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  color: #9BA69F;
+  margin: 2px 0 0;
+}
+
+.brochure-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.input-group label {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #D6DDD8;
+  margin-bottom: 6px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #FFFFFF;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.input-group input:focus {
+  border-color: #A31C1B;
+  box-shadow: 0 0 16px rgba(163, 28, 27, 0.4);
+}
+
+.brochure-submit-btn {
+  font-family: 'Sora', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: #A31C1B;
+  color: #FFFFFF;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(163, 28, 27, 0.4);
+  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+
+.brochure-submit-btn:hover {
+  background: #C02725;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(192, 39, 37, 0.5);
+}
+
+.brochure-success-state {
+  text-align: center;
+  padding: 24px 10px;
+  animation: fadeIn 0.3s ease;
+}
+
+.success-icon {
+  font-size: 2.8rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.brochure-success-state h4 {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.35rem;
+  color: #A31C1B;
+  margin: 0 0 6px;
+}
+
+.brochure-success-state p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #D6DDD8;
+  font-size: 0.9rem;
+}

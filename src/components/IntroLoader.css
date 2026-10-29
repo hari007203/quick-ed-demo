@@ -1,0 +1,315 @@
+/* ==========================================================================
+   Opening Animation Sequence
+   Theme: Charcoal Black (#171717) + Forest Green (#06110C) + Crimson Red (#A31C1B)
+   ========================================================================== */
+
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #06110C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.75s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.6s ease;
+}
+
+/* Exit Curtain Slide Up */
+.intro-overlay.intro-exit {
+  transform: translateY(-100%);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* Skip Button */
+.intro-skip-btn {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  z-index: 100;
+  background: rgba(23, 23, 23, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #D6DDD8;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.intro-skip-btn:hover {
+  background: rgba(163, 28, 27, 0.25);
+  border-color: #A31C1B;
+  color: #FFFFFF;
+}
+
+/* Ambient Depth Flares */
+.intro-flare {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+.intro-flare-crimson {
+  width: 600px;
+  height: 600px;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(163, 28, 27, 0.22) 0%, transparent 70%);
+}
+
+.intro-flare-forest {
+  width: 550px;
+  height: 550px;
+  bottom: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(circle, rgba(10, 32, 22, 0.6) 0%, transparent 70%);
+}
+
+.intro-cyber-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.5;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+}
+
+/* Central Stage */
+.intro-stage {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  gap: 18px;
+}
+
+/* Phase 1: Logo Photo Frame with Halo Ring */
+.intro-logo-container {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.65) translateY(20px);
+  transition: all 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intro-logo-container.revealed {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.intro-halo-ring {
+  position: absolute;
+  inset: -14px;
+  border-radius: 28px;
+  background: radial-gradient(circle, rgba(163, 28, 27, 0.6) 0%, rgba(6, 17, 12, 0.4) 70%);
+  filter: blur(16px);
+  opacity: 0.75;
+  animation: haloPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes haloPulse {
+  0% { transform: scale(0.95); opacity: 0.5; }
+  100% { transform: scale(1.15); opacity: 0.9; }
+}
+
+.intro-logo-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 2px solid rgba(163, 28, 27, 0.5);
+  box-shadow: 0 0 35px rgba(163, 28, 27, 0.45), 0 10px 30px rgba(0, 0, 0, 0.8);
+  background: #171717;
+}
+
+.intro-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Futuristic Scanline sweep */
+.intro-scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #C02725, transparent);
+  animation: scanSweep 2s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+@keyframes scanSweep {
+  0% { top: 0%; opacity: 0; }
+  50% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Phase 2: Brand Name */
+.intro-brand-name {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intro-brand-name.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.brand-word-white {
+  color: #FFFFFF;
+}
+
+.brand-word-gradient {
+  background: linear-gradient(135deg, #FFFFFF 0%, #D6DDD8 40%, #A31C1B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px rgba(163, 28, 27, 0.3));
+}
+
+/* Phase 3: Tagline */
+.intro-tagline-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intro-tagline-box.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro-crimson-tagline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(0.95rem, 2.5vw, 1.25rem);
+  font-weight: 800;
+  color: #A31C1B;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-shadow: 0 0 15px rgba(163, 28, 27, 0.4);
+}
+
+.intro-sub-programs {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(0.72rem, 1.8vw, 0.85rem);
+  font-weight: 600;
+  color: #9BA69F;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Progress HUD */
+.intro-progress-box {
+  width: min(440px, 86vw);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.5s ease;
+}
+
+.intro-progress-box.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro-bar-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.intro-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #A31C1B 0%, #C02725 100%);
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(163, 28, 27, 0.65);
+  transition: width 0.08s linear;
+}
+
+.intro-status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+}
+
+.status-label {
+  color: #9BA69F;
+}
+
+.status-pct {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+/* Reticles in Corners */
+.reticle {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+
+.reticle-tl {
+  top: 24px;
+  left: 24px;
+  border-top: 2px solid #A31C1B;
+  border-left: 2px solid #A31C1B;
+}
+
+.reticle-tr {
+  top: 24px;
+  right: 24px;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  border-right: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.reticle-bl {
+  bottom: 24px;
+  left: 24px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.reticle-br {
+  bottom: 24px;
+  right: 24px;
+  border-bottom: 2px solid #A31C1B;
+  border-right: 2px solid #A31C1B;
+}
