@@ -27,19 +27,19 @@ export default function Navbar({ activeSection = 'home', onNavigate }) {
     }
   };
 
-  // Nav items styled with the Charcoal Black, Forest Green, Crimson Red design system
+  // Nav items exactly matching wireframe: logo, home, courses, help (email/contact), about, trainers, contact
   const navItems = [
-    { key: 'home', label: 'Home', color: '#A31C1B' },
-    { key: 'courses', label: 'Courses', color: '#A31C1B', hasDropdown: true },
-    { key: 'help', label: 'Help', color: '#A31C1B', isHelp: true },
-    { key: 'about', label: 'About Agency', color: '#A31C1B' },
-    { key: 'trainers', label: 'Trainers', color: '#A31C1B' },
-    { key: 'contact', label: 'Contact', color: '#A31C1B' },
+    { key: 'home', label: 'Home' },
+    { key: 'courses', label: 'Courses', hasDropdown: true },
+    { key: 'help', label: 'Help', isHelp: true },
+    { key: 'about', label: 'About Agency' },
+    { key: 'trainers', label: 'Trainers' },
+    { key: 'contact', label: 'Contact' },
   ];
 
   const courseMenuItems = [
     { name: 'Python Full Stack', desc: 'Django, FastAPI, Next.js & REST APIs', color: '#06B6D4' },
-    { name: 'Java Full Stack', desc: 'Spring Boot 3, Microservices & React', color: '#A31C1B' },
+    { name: 'Java Full Stack', desc: 'Spring Boot 3, Microservices & React', color: '#DC2626' },
     { name: 'Cybersecurity', desc: 'Ethical Hacking, SOC, PenTesting & Defense', color: '#10B981' },
     { name: 'GenAI & LLMs', desc: 'LangChain, RAG Pipelines & Autonomous Agents', color: '#8B5CF6' },
     { name: 'Software Testing', desc: 'Playwright, Selenium & QA Automation', color: '#F43F5E' },
@@ -48,16 +48,13 @@ export default function Navbar({ activeSection = 'home', onNavigate }) {
   return (
     <>
       <nav className="qed-navbar">
-        {/* Top Accent Line */}
-        <div className="qed-top-colorbar" />
-
         <div className="qed-navbar-content">
-          {/* 1. Brand Logo */}
+          {/* 1. Logo */}
           <div className="qed-logo-wrapper" onClick={() => handleLinkClick('home')}>
             <Logo />
           </div>
 
-          {/* 2. Desktop Navigation */}
+          {/* 2. Menu Links */}
           <ul className="qed-menu">
             {navItems.map((item) => {
               const isActive = currentTab === item.key;
@@ -75,7 +72,6 @@ export default function Navbar({ activeSection = 'home', onNavigate }) {
                       type="button"
                       className={`qed-nav-btn ${isActive ? 'active' : ''}`}
                       onClick={() => handleLinkClick('courses')}
-                      style={{ '--nav-accent': item.color }}
                     >
                       <span>{item.label}</span>
                       <span className="qed-courses-counter">5</span>
@@ -132,8 +128,7 @@ export default function Navbar({ activeSection = 'home', onNavigate }) {
                       type="button"
                       className="qed-nav-btn help-btn"
                       onClick={() => setHelpModalOpen(true)}
-                      style={{ '--nav-accent': item.color }}
-                      title="Click for Email & Contact details"
+                      title="Direct Support: Email & Contact details"
                     >
                       <span className="help-icon">📞</span>
                       <span>{item.label}</span>
@@ -149,7 +144,6 @@ export default function Navbar({ activeSection = 'home', onNavigate }) {
                     type="button"
                     className={`qed-nav-btn ${isActive ? 'active' : ''}`}
                     onClick={() => handleLinkClick(item.key)}
-                    style={{ '--nav-accent': item.color }}
                   >
                     <span>{item.label}</span>
                   </button>
@@ -158,19 +152,19 @@ export default function Navbar({ activeSection = 'home', onNavigate }) {
             })}
           </ul>
 
-          {/* Mobile Hamburger Toggle */}
-          <button 
-            type="button" 
-            className="qed-mobile-toggle"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle navigation"
-          >
-            {mobileMenuOpen ? '✕' : '☰'}
-          </button>
+          {/* Right side: Mobile Toggle only */}
+          <div className="qed-nav-actions">
+            {/* Mobile Toggle */}
+            <button 
+              type="button" 
+              className="qed-mobile-toggle"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle navigation"
+            >
+              {mobileMenuOpen ? '✕' : '☰'}
+            </button>
+          </div>
         </div>
-
-        {/* Horizontal Divider Line */}
-        <div className="qed-sketch-divider" />
 
         {/* Mobile Drawer */}
         {mobileMenuOpen && (
@@ -182,19 +176,16 @@ export default function Navbar({ activeSection = 'home', onNavigate }) {
                 className={`qed-mobile-link ${currentTab === item.key ? 'active' : ''}`}
                 onClick={() => handleLinkClick(item.key)}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: item.color }} />
-                  <span>{item.label}</span>
-                </div>
+                <span>{item.label}</span>
                 {item.key === 'courses' && <span className="mobile-badge">5 Programs</span>}
-                {item.key === 'help' && <span className="mobile-badge" style={{ color: '#A31C1B', borderColor: '#A31C1B' }}>Phone / Mail</span>}
+                {item.key === 'help' && <span className="mobile-badge" style={{ color: '#DC2626', borderColor: '#DC2626' }}>Phone / Mail</span>}
               </button>
             ))}
           </div>
         )}
       </nav>
 
-      {/* Help Modal displaying Email & Contact No */}
+      {/* Help Modal displaying Email & Contact No as per wireframe arrow */}
       <HelpModal isOpen={helpModalOpen} onClose={() => setHelpModalOpen(false)} />
     </>
   );

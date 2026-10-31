@@ -1,7 +1,7 @@
 /* ==========================================================================
    Courses Section — Premium Dark Design
    Theme: Charcoal Black (#171717) + Forest Green (#06110C) + Crimson Red (#A31C1B)
-   Fonts: Sora + Plus Jakarta Sans + JetBrains Mono
+   Fonts: Inter + Inter + Inter
    ========================================================================== */
 
 .courses-section-wrapper {
@@ -25,7 +25,7 @@
   background: rgba(163, 28, 27, 0.12);
   border: 1px solid rgba(163, 28, 27, 0.35);
   color: #A31C1B;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.78rem;
   font-weight: 700;
   padding: 6px 16px;
@@ -44,7 +44,7 @@
 }
 
 .section-main-heading {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(2.4rem, 4.5vw, 3.4rem);
   font-weight: 800;
   color: #FFFFFF;
@@ -61,7 +61,7 @@
 }
 
 .section-subtitle {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.1rem;
   color: #D6DDD8;
   line-height: 1.65;
@@ -96,7 +96,7 @@
 
 .brochure-bar-text strong {
   display: block;
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.05rem;
   color: #FFFFFF;
 }
@@ -108,7 +108,7 @@
 }
 
 .global-brochure-btn {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
   padding: 12px 24px;
@@ -138,7 +138,7 @@
 }
 
 .filter-btn {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
   font-weight: 600;
   padding: 8px 20px;
@@ -210,7 +210,7 @@
 }
 
 .badge-tag {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.72rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -221,14 +221,14 @@
 }
 
 .duration-tag {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.8rem;
   color: #9BA69F;
   font-weight: 600;
 }
 
 .course-title-text {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.4rem;
   font-weight: 800;
   color: #FFFFFF;
@@ -237,7 +237,7 @@
 }
 
 .course-summary {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.92rem;
   color: #9BA69F;
   line-height: 1.55;
@@ -263,7 +263,7 @@
 }
 
 .unit-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.66rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -272,7 +272,7 @@
 }
 
 .unit-val {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.92rem;
   font-weight: 700;
   color: #FFFFFF;
@@ -295,7 +295,7 @@
 }
 
 .skill-pill {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.72rem;
   font-weight: 600;
   padding: 4px 10px;
@@ -322,7 +322,7 @@
 }
 
 .split-btn {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.88rem;
   font-weight: 700;
   padding: 11px 12px;
@@ -395,14 +395,14 @@
 }
 
 .modal-tag {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.76rem;
   font-weight: 800;
   text-transform: uppercase;
 }
 
 .modal-heading {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.5rem;
   font-weight: 800;
   color: #FFFFFF;
@@ -429,7 +429,7 @@
 }
 
 .modal-description {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
   color: #D6DDD8;
   line-height: 1.6;
@@ -437,7 +437,7 @@
 }
 
 .block-title {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
   color: #FFFFFF;
@@ -480,7 +480,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   padding: 5px 12px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.8rem;
   color: #FFFFFF;
 }
@@ -495,7 +495,7 @@
 }
 
 .modal-brochure-action {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.92rem;
   font-weight: 700;
   padding: 11px 20px;
@@ -512,7 +512,7 @@
 }
 
 .modal-enroll-action {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.92rem;
   font-weight: 800;
   padding: 11px 22px;
@@ -551,7 +551,7 @@
 
 .hud-toast strong {
   display: block;
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
   color: #FFFFFF;
 }

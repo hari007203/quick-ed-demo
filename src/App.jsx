@@ -88,7 +88,7 @@ export default function App() {
         {/* Tools Display Scroll */}
         <ToolsMarquee />
 
-        {/* Hero + About Agency + Animated Video */}
+        {/* Hero + About Agency */}
         <RevealSection id="about">
           <HeroAboutAgency
             onExploreCoursesClick={() => scrollToSection('courses')}

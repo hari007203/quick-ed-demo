@@ -31,7 +31,7 @@
   background: rgba(23, 23, 23, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.15);
   color: #D6DDD8;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.78rem;
   padding: 8px 16px;
   border-radius: 999px;
@@ -166,7 +166,7 @@
 
 /* Phase 2: Brand Name */
 .intro-brand-name {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(2.2rem, 5vw, 3.6rem);
   font-weight: 800;
   display: flex;
@@ -209,7 +209,7 @@
 }
 
 .intro-crimson-tagline {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(0.95rem, 2.5vw, 1.25rem);
   font-weight: 800;
   color: #A31C1B;
@@ -219,7 +219,7 @@
 }
 
 .intro-sub-programs {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(0.72rem, 1.8vw, 0.85rem);
   font-weight: 600;
   color: #9BA69F;
@@ -265,7 +265,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.74rem;
 }
 

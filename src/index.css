@@ -1,54 +1,44 @@
 /* ==========================================================================
-   Quick Ed Solutions — Premium Dark Design System
-   Brand Palette: Charcoal Black (#171717) + Forest Green (#06110C) + Crimson Red (#A31C1B)
-   Fonts: Sora (Headings) + Plus Jakarta Sans (Body) + JetBrains Mono (Tech/Mono)
+   Quick Ed Solutions — Design System
+   Exact Reference Palette from Image:
+   Background: Deep Forest Green (#050C08)
+   Surfaces / Cards: Deep Charcoal-Forest (#0B130E / #0E1712)
+   Brand Primary Red: Crimson Red (#B91C1B / #DC2626 / #C62828)
+   Text: Pure White (#FFFFFF) & Muted Slate (#9CA3AF)
+   Typography: Inter (400–800 weights) — unified across all elements
    ========================================================================== */
 
 :root {
-  /* Typography */
-  --font-display: 'Sora', sans-serif;
-  --font-body: 'Plus Jakarta Sans', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  /* Typography — Inter unified across all elements */
+  --font-display: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Inter', sans-serif;
 
   /* Brand Palette */
-  --c-crimson: #A31C1B;
-  --c-crimson-hover: #C02725;
-  --c-crimson-glow: rgba(163, 28, 27, 0.4);
-  --c-crimson-deep: #7A1413;
-  --c-crimson-subtle: rgba(163, 28, 27, 0.12);
+  --c-crimson: #C82028;
+  --c-crimson-bright: #FF303A;
+  --c-crimson-hover: #D4242C;
+  --c-crimson-glow: rgba(255, 48, 58, 0.45);
+  --c-crimson-subtle: rgba(200, 32, 40, 0.12);
 
-  /* Legacy brand variable mappings for backwards compatibility */
-  --c-orange: #A31C1B;
-  --c-orange-bright: #C02725;
-  --c-orange-glow: rgba(163, 28, 27, 0.4);
-  --c-gold: #A31C1B;
-  --c-gold-bright: #C02725;
-  --c-gold-glow: rgba(163, 28, 27, 0.35);
-  --c-amber: #8B1615;
-
-  /* Accent Gradients */
-  --grad-logo: linear-gradient(135deg, #A31C1B 0%, #C02725 100%);
-  --grad-logo-subtle: linear-gradient(135deg, rgba(163, 28, 27, 0.18) 0%, rgba(163, 28, 27, 0.08) 100%);
-  --grad-glow: radial-gradient(circle, rgba(163, 28, 27, 0.25) 0%, rgba(6, 17, 12, 0.4) 60%, transparent 80%);
-
-  /* Surface System: Deep Forest Green (#06110C) & Charcoal Black (#171717) */
-  --c-bg: #06110C;
-  --c-surface-1: #171717;
-  --c-surface-2: #1c1c1c;
-  --c-surface-3: #242424;
-  --c-surface-glass: rgba(23, 23, 23, 0.92);
+  /* Deep Emerald & Charcoal Surfaces */
+  --c-bg: #020B08;
+  --c-surface-1: #06120D;
+  --c-surface-2: #092017;
+  --c-surface-3: #102C20;
+  --c-surface-glass: rgba(6, 18, 13, 0.92);
 
   /* Borders & Dividers */
-  --c-border: rgba(255, 255, 255, 0.1);
-  --c-border-hover: rgba(163, 28, 27, 0.5);
+  --c-border: rgba(255, 255, 255, 0.09);
+  --c-border-hover: rgba(255, 48, 58, 0.45);
 
   /* Typography Colors */
-  --c-text-primary: #FFFFFF;
-  --c-text-secondary: #D6DDD8;
-  --c-text-muted: #9BA69F;
-  --c-text-dim: #6B7770;
+  --c-text-primary: #F5F7F6;
+  --c-text-secondary: #AAB5AF;
+  --c-text-muted: #6B7280;
+  --c-text-dim: #4B5563;
 
-  /* Smooth Transitions */
+  /* Transitions */
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
   --t-fast: 0.2s;
@@ -64,32 +54,34 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 86px;
+  scroll-padding-top: 76px;   /* matches fixed navbar height */
   font-size: 16px;
+  background-color: var(--c-bg);
 }
 
 body {
   font-family: var(--font-body);
   font-size: 1rem;
-  line-height: 1.65;
+  line-height: 1.6;
   color: var(--c-text-secondary);
   background-color: var(--c-bg);
-  /* Forest Green deep canvas with subtle ambient depth & controlled crimson hints */
+  /* Atmospheric deep dark emerald canvas with soft volumetric crimson haze on the right */
   background-image:
-    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(163, 28, 27, 0.12) 0%, transparent 65%),
-    radial-gradient(ellipse 70% 50% at 90% 25%, rgba(10, 28, 19, 0.5) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 10% 60%, rgba(10, 28, 19, 0.4) 0%, transparent 65%),
-    radial-gradient(ellipse 80% 55% at 50% 100%, rgba(163, 28, 27, 0.08) 0%, transparent 70%),
-    linear-gradient(180deg, #06110C 0%, #081610 50%, #06110C 100%);
+    radial-gradient(ellipse 70% 55% at 95% 30%, rgba(200, 32, 40, 0.14) 0%, transparent 65%),
+    radial-gradient(ellipse 65% 50% at 85% 15%, rgba(9, 32, 23, 0.5) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 45% at 5% 45%, rgba(6, 18, 13, 0.45) 0%, transparent 65%),
+    linear-gradient(180deg, #020B08 0%, #06120D 50%, #020B08 100%);
   background-attachment: fixed;
   overflow-x: hidden;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Headings use Sora */
+/* Headings use Inter */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 800;
   color: var(--c-text-primary);
   line-height: 1.2;
   letter-spacing: -0.025em;
@@ -105,16 +97,7 @@ a {
   color: inherit;
 }
 
-/* Gradient Text Utility */
-.grad-text-logo {
-  background: linear-gradient(135deg, #FFFFFF 20%, #D6DDD8 60%, #A31C1B 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 0 20px rgba(163, 28, 27, 0.3));
-}
-
-/* Custom Scrollbar in Dark Theme */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -124,38 +107,11 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #171717;
+  background: #14201A;
   border-radius: 999px;
   border: 2px solid var(--c-bg);
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--c-crimson);
-}
-
-/* Animation utilities */
-@keyframes logoFloat {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg) scale(1);
-  }
-  50% {
-    transform: translateY(-16px) rotate(2deg) scale(1.02);
-  }
-}
-
-@keyframes logoPulseGlow {
-  0%, 100% {
-    opacity: 0.14;
-    filter: drop-shadow(0 0 35px rgba(163, 28, 27, 0.25));
-  }
-  50% {
-    opacity: 0.26;
-    filter: drop-shadow(0 0 65px rgba(163, 28, 27, 0.45));
-  }
-}
-
-@keyframes sweepGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }

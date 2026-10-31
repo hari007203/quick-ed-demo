@@ -27,7 +27,7 @@
 }
 
 .footer-tagline {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
   color: #9BA69F;
   line-height: 1.65;
@@ -35,7 +35,7 @@
 }
 
 .footer-reg-pill {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
   color: #A31C1B;
@@ -47,7 +47,7 @@
 }
 
 .footer-heading {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.15rem;
   font-weight: 800;
   color: #FFFFFF;
@@ -66,7 +66,7 @@
 .footer-nav-list button {
   background: transparent;
   border: none;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.92rem;
   font-weight: 600;
   color: #9BA69F;
@@ -175,7 +175,7 @@
   background: #A31C1B;
   border: none;
   color: #FFFFFF;
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 0.82rem;
   padding: 0 16px;
@@ -206,7 +206,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.78rem;
   color: #6B7770;
   flex-wrap: wrap;

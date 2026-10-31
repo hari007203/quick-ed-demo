@@ -20,7 +20,7 @@
 
 .why-pill {
   display: inline-block;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -34,7 +34,7 @@
 }
 
 .why-title {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(2.4rem, 4.5vw, 3.4rem);
   font-weight: 800;
   color: #FFFFFF;
@@ -51,7 +51,7 @@
 }
 
 .why-sub {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.1rem;
   color: #D6DDD8;
   line-height: 1.65;
@@ -94,7 +94,7 @@
 }
 
 .pillar-title {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.22rem;
   font-weight: 800;
   color: #FFFFFF;
@@ -102,7 +102,7 @@
 }
 
 .pillar-desc {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.92rem;
   color: #9BA69F;
   line-height: 1.6;
@@ -124,7 +124,7 @@
 
 .speech-quote-badge {
   display: inline-block;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.74rem;
   font-weight: 800;
   color: #A31C1B;
@@ -137,7 +137,7 @@
 }
 
 .speech-heading {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(1.6rem, 3vw, 2.1rem);
   font-weight: 800;
   color: #FFFFFF;
@@ -146,7 +146,7 @@
 }
 
 .speech-quote {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.02rem;
   color: #D6DDD8;
   line-height: 1.7;
@@ -180,7 +180,7 @@
 
 .speaker-meta strong {
   display: block;
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.05rem;
   color: #FFFFFF;
 }
@@ -212,7 +212,7 @@
 }
 
 .player-tag {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.74rem;
   font-weight: 700;
   color: #D6DDD8;
@@ -255,7 +255,7 @@
 }
 
 .speech-play-btn {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
   font-weight: 800;
   padding: 12px 24px;
@@ -280,7 +280,7 @@
 }
 
 .player-stats {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.76rem;
   color: #9BA69F;
 }

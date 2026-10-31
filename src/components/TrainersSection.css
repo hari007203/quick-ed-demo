@@ -28,7 +28,7 @@
   background: rgba(163, 28, 27, 0.12);
   border: 1px solid rgba(163, 28, 27, 0.35);
   color: #A31C1B;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.8rem;
   font-weight: 700;
   padding: 6px 16px;
@@ -43,7 +43,7 @@
 }
 
 .trainers-title {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(2.4rem, 4.5vw, 3.4rem);
   font-weight: 800;
   color: #FFFFFF;
@@ -60,7 +60,7 @@
 }
 
 .trainers-sub {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.1rem;
   color: #D6DDD8;
   line-height: 1.65;
@@ -122,7 +122,7 @@
 }
 
 .exp-pill {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.74rem;
   font-weight: 700;
   color: #D6DDD8;
@@ -133,7 +133,7 @@
 }
 
 .rating-pill {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
   color: #FFFFFF;
@@ -151,7 +151,7 @@
 }
 
 .trainer-name {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.35rem;
   font-weight: 800;
   color: #FFFFFF;
@@ -159,7 +159,7 @@
 }
 
 .trainer-role {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.88rem;
   color: #9BA69F;
   margin: 0 0 14px;
@@ -174,7 +174,7 @@
 }
 
 .company-badge {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
   color: #FFFFFF;
@@ -194,7 +194,7 @@
 
 .specialty-label {
   display: block;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.68rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -204,7 +204,7 @@
 }
 
 .specialty-desc {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.84rem;
   color: #D6DDD8;
   margin: 0;
@@ -212,7 +212,7 @@
 }
 
 .trainer-bio {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.88rem;
   color: #9BA69F;
   line-height: 1.6;
@@ -229,14 +229,14 @@
 }
 
 .students-count {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   color: #9BA69F;
 }
 
 .book-mentor-btn {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.86rem;
   font-weight: 700;
   padding: 8px 16px;
