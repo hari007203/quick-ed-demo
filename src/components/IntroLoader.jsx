@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import quickLogo from '../assets/quick-ed-logo.png';
 import './IntroLoader.css';
 
 /**
@@ -66,7 +67,7 @@ export default function IntroLoader({ onComplete }) {
           <div className="intro-halo-ring" />
           <div className="intro-logo-frame">
             <img 
-              src="/quick-ed-logo.jpg" 
+              src={quickLogo} 
               alt="Quick Ed Solutions" 
               className="intro-logo-img"
             />

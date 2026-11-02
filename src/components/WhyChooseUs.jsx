@@ -1,16 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './WhyChooseUs.css';
 
-export default function WhyChooseUs() {
-  const [speechPlaying, setSpeechPlaying] = useState(false);
+// Clean single import for the founder photo
+import Founder from '../assets/Founder.png'; 
 
+export default function WhyChooseUs() {
   const pillars = [
-    {
-      icon: '🎯',
-      title: '100% Corporate Placement Drive',
-      desc: 'Direct hiring referrals with 500+ MNCs & high-growth unicorns. Dedicated placement cell prepares you with mock technical rounds and resume critiques.',
-      accent: '#A31C1B'
-    },
     {
       icon: '💻',
       title: 'Production-Grade GitHub Repos',
@@ -22,19 +17,13 @@ export default function WhyChooseUs() {
       title: '1-on-1 Senior Architect Mentorship',
       desc: 'Weekly code reviews and live debugging sessions with corporate leads who review your pull requests just like in top engineering teams.',
       accent: '#A31C1B'
-    },
-    {
-      icon: '⚡',
-      title: 'Lifetime Curriculum & LMS Access',
-      desc: 'Tech evolves fast. When Java 22 or Llama 4 drops, our course modules are updated and you get lifetime access to all future masterclasses.',
-      accent: '#A31C1B'
     }
   ];
 
   return (
     <section className="why-choose-section" id="why-us">
       <div className="why-choose-container">
-        {/* Section Header */}
+        {/* Section Header (Unchanged) */}
         <div className="why-header">
           <span className="why-pill">Why Quick Ed Solutions</span>
           <h2 className="why-title">
@@ -45,7 +34,7 @@ export default function WhyChooseUs() {
           </p>
         </div>
 
-        {/* 4 Pillars Grid */}
+        {/* Pillars Grid (Unchanged) */}
         <div className="pillars-grid">
           {pillars.map((pillar, idx) => (
             <div 
@@ -62,8 +51,10 @@ export default function WhyChooseUs() {
           ))}
         </div>
 
-        {/* MOTIVATIONAL SPEECH SPOTLIGHT */}
+        {/* MOTIVATIONAL SPEECH CARD — 40% TEXT / 60% IMAGE LAYOUT */}
         <div className="motivational-speech-card">
+          
+          {/* Left Column: Speech Content (40%) */}
           <div className="speech-left-col">
             <div className="speech-quote-badge">
               <span>🎙️ FOUNDER'S MOTIVATIONAL SPEECH</span>
@@ -78,42 +69,25 @@ export default function WhyChooseUs() {
               <strong> LEARN. BUILD. SUCCEED.</strong>"
             </blockquote>
             <div className="speaker-meta">
-              <span className="speaker-avatar">⚡</span>
               <div>
-                <strong>Aakash Vardhan</strong>
-                <span>Founder & Chief Mentor, Quick Ed Solutions • Ex-Google Staff Architect</span>
+                <strong>Suhas Nagulapalli</strong>
+                <span>Founder & Chief Mentor, Quick Ed Solutions • MBA</span>
               </div>
             </div>
           </div>
 
-          <div className="speech-player-col">
-            <div className="audio-player-glass">
-              <span className="player-tag">Audio Keynote • 3 min 45 sec</span>
-              
-              {/* Equalizer animation */}
-              <div className={`equalizer-wave ${speechPlaying ? 'active' : ''}`}>
-                <span className="eq eq1" />
-                <span className="eq eq2" />
-                <span className="eq eq3" />
-                <span className="eq eq4" />
-                <span className="eq eq5" />
-                <span className="eq eq6" />
-                <span className="eq eq7" />
-                <span className="eq eq8" />
-              </div>
-
-              <button 
-                type="button" 
-                className={`speech-play-btn ${speechPlaying ? 'playing' : ''}`}
-                onClick={() => setSpeechPlaying(!speechPlaying)}
-              >
-                <span>{speechPlaying ? '⏸ Pause Speech' : '▶ Play Full Speech'}</span>
-              </button>
-
-              <span className="player-stats">⚡ 48,200+ Students Inspired</span>
+          {/* Right Column: Founder Photo (60%) */}
+          <div className="speech-image-col">
+            <div className="image-wrapper">
+              <img 
+                src={Founder} 
+                alt="Nagulapalli Suhas - Founder" 
+                className="founder-img"
+              />
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );

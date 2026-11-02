@@ -1,16 +1,27 @@
 import React from 'react';
 import Logo from './Logo';
 import './Footer.css';
+// 1. Import official brand icons from react-icons
+import { FaLinkedin, FaYoutube, FaInstagram, FaGithub, FaDiscord } from 'react-icons/fa6';
 
 export default function Footer({ onNavigate }) {
   const currentYear = new Date().getFullYear();
+
+  // Social media configuration with official brand colors
+  const footerSocials = [
+    { name: 'LinkedIn', url: 'https://linkedin.com', icon: <FaLinkedin />, color: '#0A66C2' },
+    { name: 'YouTube', url: 'https://youtube.com', icon: <FaYoutube />, color: '#FF0000' },
+    { name: 'Instagram', url: 'https://instagram.com', icon: <FaInstagram />, color: '#E4405F' },
+    { name: 'GitHub', url: 'https://github.com', icon: <FaGithub />, color: '#FFFFFF' },
+    // { name: 'Discord', url: 'https://discord.com', icon: <FaDiscord />, color: '#5865F2' },
+  ];
 
   return (
     <footer className="qed-footer-root">
       <div className="qed-footer-container">
         {/* Wireframe Section 7: logo | quick links | contact us | social media logos */}
         <div className="footer-columns-grid">
-          {/* 1. Logo & Mission */}
+          {/* 1. Logo & Mission - UNCHANGED */}
           <div className="footer-col col-brand">
             <Logo size="small" />
             <p className="footer-tagline">
@@ -20,7 +31,7 @@ export default function Footer({ onNavigate }) {
             <span className="footer-reg-pill">● LEARN. BUILD. SUCCEED.</span>
           </div>
 
-          {/* 2. Quick Links */}
+          {/* 2. Quick Links - UNCHANGED */}
           <div className="footer-col col-links">
             <h4 className="footer-heading">Quick Links</h4>
             <ul className="footer-nav-list">
@@ -32,7 +43,7 @@ export default function Footer({ onNavigate }) {
             </ul>
           </div>
 
-          {/* 3. Contact Us */}
+          {/* 3. Contact Us - UNCHANGED */}
           <div className="footer-col col-contact">
             <h4 className="footer-heading">Contact Us</h4>
             <ul className="footer-contact-list">
@@ -48,32 +59,41 @@ export default function Footer({ onNavigate }) {
                 <span className="c-icon">✉️</span>
                 <a href="mailto:admissions@quickedsolutions.com">admissions@quickedsolutions.com</a>
               </li>
-              <li>
-                <span className="c-icon">⏰</span>
-                <span>Mon - Sun: 9:00 AM - 9:00 PM IST</span>
-              </li>
             </ul>
           </div>
 
-          {/* 4. Social Media Logos */}
+          {/* 4. Social Media Logos - UPDATED WITH react-icons */}
           <div className="footer-col col-social">
             <h4 className="footer-heading">Social Media</h4>
-            <p className="social-sub">Follow for daily architecture tips & placement alerts:</p>
+            <p className="social-sub">Follow for daily architecture tips :</p>
             <div className="footer-social-icons">
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="f-soc" title="LinkedIn">💼</a>
-              <a href="https://youtube.com" target="_blank" rel="noreferrer" className="f-soc" title="YouTube">▶️</a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="f-soc" title="Instagram">📸</a>
-              <a href="https://github.com" target="_blank" rel="noreferrer" className="f-soc" title="GitHub">🐙</a>
-              <a href="https://discord.com" target="_blank" rel="noreferrer" className="f-soc" title="Discord">💬</a>
+              {footerSocials.map((social, idx) => (
+                <a 
+                  key={idx}
+                  href={social.url} 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="f-soc" 
+                  title={social.name}
+                  style={{ 
+                    color: social.color, 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center'
+                  }}
+                >
+                  {social.icon}
+                </a>
+              ))}
             </div>
-            <div className="newsletter-box">
+            {/* <div className="newsletter-box">
               <input type="email" placeholder="Student email for updates..." />
               <button type="button">Join</button>
-            </div>
+            </div> */}
           </div>
         </div>
 
-        {/* Bottom Horizontal Underline from the wireframe sketch */}
+        {/* Bottom Horizontal Underline from the wireframe sketch - UNCHANGED */}
         <div className="footer-sketch-underline" />
 
         <div className="footer-bottom-bar">
@@ -82,8 +102,8 @@ export default function Footer({ onNavigate }) {
             <a href="#privacy">Privacy Policy</a>
             <span>•</span>
             <a href="#terms">Terms of Service</a>
-            <span>•</span>
-            <a href="#placement">Placement Policy</a>
+            {/* <span>•</span>
+            <a href="#placement">Placement Policy</a> */}
           </div>
         </div>
       </div>

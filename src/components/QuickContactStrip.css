@@ -123,8 +123,15 @@
   box-shadow: 0 0 14px rgba(163, 28, 27, 0.35);
 }
 
+/* ─── Refined SVG Alignment for Official Brand Icons ─── */
 .soc-emoji {
   font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.2em;
+  height: 1.2em;
+  line-height: 1;
 }
 
 .soc-label {

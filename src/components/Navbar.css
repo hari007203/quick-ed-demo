@@ -41,8 +41,15 @@
   align-items: center;
   cursor: pointer;
   flex-shrink: 0;
-  transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)
 }
+/* This targets the subtext line inside your Logo component */
+.qed-logo-wrapper span:last-child, 
+.qed-logo-wrapper .logo-subtitle { 
+  margin-left: 8px; /* Adjust this number (e.g., 6px or 8px) to move it further right */
+  letter-spacing: 0.15em; /* This also helps align it by spreading the letters */
+}
+
 
 .qed-logo-wrapper:hover {
   opacity: 0.88;

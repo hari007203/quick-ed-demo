@@ -1,14 +1,40 @@
 import React from 'react';
 import './QuickContactStrip.css';
+// 1. Import official brand icons from react-icons
+import { FaLinkedin, FaYoutube, FaInstagram, FaGithub, FaXTwitter } from 'react-icons/fa6';
 
 export default function QuickContactStrip() {
   const socials = [
-    { name: 'LinkedIn', icon: '💼', url: 'https://linkedin.com', color: '#0A66C2' },
-    { name: 'YouTube', icon: '▶️', url: 'https://youtube.com', color: '#FF0000' },
-    { name: 'Instagram', icon: '📸', url: 'https://instagram.com', color: '#E4405F' },
-    { name: 'GitHub', icon: '🐙', url: 'https://github.com', color: '#8B5CF6' },
-    { name: 'Discord', icon: '💬', url: 'https://discord.com', color: '#5865F2' },
-    { name: 'X / Twitter', icon: '𝕏', url: 'https://x.com', color: '#38BDF8' },
+    { 
+      name: 'LinkedIn', 
+      icon: <FaLinkedin />, 
+      url: 'https://linkedin.com', 
+      color: '#0A66C2' 
+    },
+    { 
+      name: 'YouTube', 
+      icon: <FaYoutube />, 
+      url: 'https://youtube.com', 
+      color: '#FF0000' 
+    },
+    { 
+      name: 'Instagram', 
+      icon: <FaInstagram />, 
+      url: 'https://instagram.com', 
+      color: '#E4405F' 
+    },
+    { 
+      name: 'GitHub', 
+      icon: <FaGithub />, 
+      url: 'https://github.com', 
+      color: '#FFFFFF' // Crisp white for GitHub on dark charcoal background
+    },
+    { 
+      name: 'X / Twitter', 
+      icon: <FaXTwitter />, 
+      url: 'https://x.com', 
+      color: '#FFFFFF' // Crisp white for the modern X logo
+    },
   ];
 
   return (
@@ -16,7 +42,7 @@ export default function QuickContactStrip() {
       <div className="contact-strip-container">
         {/* Wireframe Section 6: make a call | send an email | social media logos */}
         <div className="contact-trio-grid">
-          {/* 1. Make A Call */}
+          {/* 1. Make A Call - PRESERVED EXACTLY AS IS */}
           <a href="tel:+919876543210" className="contact-action-box call-box">
             <div className="action-icon-circle call-icon-bg">
               <span>📞</span>
@@ -30,7 +56,7 @@ export default function QuickContactStrip() {
             <span className="action-arrow-tag">Call Now ↗</span>
           </a>
 
-          {/* 2. Send An Email */}
+          {/* 2. Send An Email - PRESERVED EXACTLY AS IS */}
           <a href="mailto:admissions@quickedsolutions.com" className="contact-action-box email-box">
             <div className="action-icon-circle email-icon-bg">
               <span>✉️</span>
@@ -44,12 +70,11 @@ export default function QuickContactStrip() {
             <span className="action-arrow-tag">Write Mail ↗</span>
           </a>
 
-          {/* 3. Social Media Logos */}
+          {/* 3. Social Media Logos - UPDATED WITH react-icons */}
           <div className="contact-action-box socials-box">
             <div className="action-text-content">
               <span className="action-eyebrow">Join Student Community</span>
               <h3 className="action-main-text">Connect on Social</h3>
-              <p className="action-detail">50k+ Engineers across channels</p>
             </div>
 
             <div className="social-icons-cluster">
@@ -63,7 +88,17 @@ export default function QuickContactStrip() {
                   title={social.name}
                   style={{ '--soc-color': social.color }}
                 >
-                  <span className="soc-emoji">{social.icon}</span>
+                  <span 
+                    className="soc-emoji" 
+                    style={{ 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      justifyContent: 'center',
+                      color: social.color 
+                    }}
+                  >
+                    {social.icon}
+                  </span>
                   <span className="soc-label">{social.name}</span>
                 </a>
               ))}
