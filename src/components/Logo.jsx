@@ -33,9 +33,9 @@ export default function Logo({ size = 'default', showSubtitle = true }) {
           height: `${imgDimension}px`,
           borderRadius: '10px',
           overflow: 'hidden',
-          border: '1.5px solid rgba(185, 28, 28, 0.45)',
-          boxShadow: '0 0 16px rgba(185, 28, 28, 0.25), 0 4px 12px rgba(0, 0, 0, 0.6)',
-          background: '#0B130E',
+          border: '1.5px solid rgba(163, 28, 27, 0.45)',
+          boxShadow: '0 0 16px rgba(163, 28, 27, 0.25), 0 4px 12px rgba(0, 0, 0, 0.6)',
+          background: '#0B1712',
           flexShrink: 0,
           transition: 'transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease'
         }}
@@ -61,16 +61,16 @@ export default function Logo({ size = 'default', showSubtitle = true }) {
         />
       </div>
 
-      {/* Brand Typography matching screenshot */}
+      {/* Brand Typography */}
       <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15 }}>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: '5px' }}>
           <span 
             style={{ 
               fontSize: isSmall ? '1.15rem' : '1.38rem', 
-              fontWeight: 800, 
-              color: '#FFFFFF',
+              fontWeight: 700, 
+              color: '#F5F7F6',
               letterSpacing: '-0.025em',
-              fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif"
+              fontFamily: "var(--font-display, 'Space Grotesk', sans-serif)"
             }}
           >
             Quick Ed
@@ -78,10 +78,10 @@ export default function Logo({ size = 'default', showSubtitle = true }) {
           <span 
             style={{ 
               fontSize: isSmall ? '1.15rem' : '1.38rem', 
-              fontWeight: 800, 
-              color: '#DC2626',
+              fontWeight: 700, 
+              color: '#D92332',
               letterSpacing: '-0.025em',
-              fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif"
+              fontFamily: "var(--font-display, 'Space Grotesk', sans-serif)"
             }}
           >
             Solutions
@@ -91,13 +91,14 @@ export default function Logo({ size = 'default', showSubtitle = true }) {
         {showSubtitle && (
           <div style={{ display: 'flex', alignItems: 'center', marginTop: '3px' }}>
             <span 
+              className="logo-subtitle"
               style={{ 
                 fontSize: isSmall ? '0.6rem' : '0.66rem', 
                 fontWeight: 700, 
-                color: '#DC2626',
+                color: '#D92332',
                 letterSpacing: '0.18em',
                 textTransform: 'uppercase',
-                fontFamily: "'JetBrains Mono', monospace"
+                fontFamily: "var(--font-mono, 'Space Grotesk', monospace)"
               }}
             >
               LEARN. BUILD. SUCCEED.

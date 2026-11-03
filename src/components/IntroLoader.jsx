@@ -12,14 +12,14 @@ export default function IntroLoader({ onComplete }) {
   const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
-    // Stage timings
-    const t1 = setTimeout(() => setPhase(1), 250);  // Logo burst & glow
-    const t2 = setTimeout(() => setPhase(2), 800);  // Brand name reveal
-    const t3 = setTimeout(() => setPhase(3), 1400); // Tagline reveal
+    // Stage timings — tuned to a cinematic 1.2–1.5s total duration
+    const t1 = setTimeout(() => setPhase(1), 150);  // Logo burst & halo
+    const t2 = setTimeout(() => setPhase(2), 450);  // Brand name reveal
+    const t3 = setTimeout(() => setPhase(3), 800);  // Tagline reveal
 
-    // Progress counter animation from 0 to 100
+    // Progress counter animation from 0 to 100 in 800ms
     let startTime = null;
-    const duration = 1600;
+    const duration = 850;
     const animateCount = (timestamp) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
@@ -28,13 +28,13 @@ export default function IntroLoader({ onComplete }) {
         requestAnimationFrame(animateCount);
       }
     };
-    const t4 = setTimeout(() => requestAnimationFrame(animateCount), 1200);
+    const t4 = setTimeout(() => requestAnimationFrame(animateCount), 450);
 
-    // Exit transition
+    // Exit transition smoothly transitioning into the hero section
     const t5 = setTimeout(() => {
       setIsExiting(true);
-      setTimeout(onComplete, 750);
-    }, 3200);
+      setTimeout(onComplete, 450);
+    }, 1450);
 
     return () => {
       [t1, t2, t3, t4, t5].forEach(clearTimeout);

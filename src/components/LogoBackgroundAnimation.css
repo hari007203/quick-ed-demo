@@ -26,11 +26,11 @@
   position: absolute;
   inset: -5%;
   background:
-    radial-gradient(circle 900px at 50% 30%, rgba(185, 28, 28, 0.14) 0%, transparent 60%),
-    radial-gradient(circle 800px at 50% 50%, rgba(9, 32, 23, 0.42) 0%, transparent 65%),
-    radial-gradient(circle 650px at 15% 45%, rgba(6, 18, 13, 0.42) 0%, transparent 58%),
-    radial-gradient(circle 500px at 85% 65%, rgba(9, 32, 23, 0.25) 0%, transparent 55%),
-    linear-gradient(180deg, #020B08 0%, #06120D 50%, #020B08 100%);
+    radial-gradient(circle 900px at 50% 30%, rgba(163, 28, 27, 0.12) 0%, transparent 60%),
+    radial-gradient(circle 800px at 50% 50%, rgba(11, 23, 18, 0.45) 0%, transparent 65%),
+    radial-gradient(circle 650px at 15% 45%, rgba(16, 27, 22, 0.40) 0%, transparent 58%),
+    radial-gradient(circle 500px at 85% 65%, rgba(11, 23, 18, 0.3) 0%, transparent 55%),
+    linear-gradient(180deg, #050B08 0%, #0B1712 50%, #050B08 100%);
   animation: ambientAtmosphereDrift 22s ease-in-out infinite alternate;
   will-change: transform;
 }
@@ -72,7 +72,7 @@
   opacity: 0.45;
 }
 
-/* ─── 4. Single Global 3D Brand Container — SLIGHTLY RIGHT OF CENTER ─── */
+/* ─── 4. Single Global Ambient Brand Container — RESTRAINED WATERMARK ─── */
 .qe-hero-3d-col {
   position: absolute;
   top: 0;
@@ -83,22 +83,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 24px; /* Optical balance accounting for top navbar */
+  padding-top: 24px;
   perspective: 1200px;
   pointer-events: none;
-  z-index: 2;
-  opacity: 0.78;
+  z-index: 1;
+  opacity: 0.18; /* Restrained so it never competes with foreground content */
   mask-image: radial-gradient(
-    ellipse 90% 80% at 55% 50%,
-    black 45%,
-    rgba(0, 0, 0, 0.7) 70%,
-    transparent 100%
+    ellipse 85% 75% at 50% 50%,
+    black 30%,
+    rgba(0, 0, 0, 0.4) 65%,
+    transparent 90%
   );
   -webkit-mask-image: radial-gradient(
-    ellipse 90% 80% at 55% 50%,
-    black 45%,
-    rgba(0, 0, 0, 0.7) 70%,
-    transparent 100%
+    ellipse 85% 75% at 50% 50%,
+    black 30%,
+    rgba(0, 0, 0, 0.4) 65%,
+    transparent 90%
   );
 }
 

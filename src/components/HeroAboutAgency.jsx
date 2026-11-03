@@ -1,12 +1,7 @@
-import React from 'react';
+import Hero3DVisual from './Hero3DVisual';
 import './HeroAboutAgency.css';
 
-// Note: The 3D monument visual (laser, lens flare, brand text, particles)
-// lives exclusively in LogoBackgroundAnimation (position: fixed) so it
-// persists across the entire page during scrolling.
-// The hero section right column has been removed to eliminate duplication.
-
-export default function HeroAboutAgency({ onExploreCoursesClick, onBrochureClick }) {
+export default function HeroAboutAgency({ onExploreCoursesClick }) {
   const highlights = [
     {
       icon: (
@@ -61,7 +56,7 @@ export default function HeroAboutAgency({ onExploreCoursesClick, onBrochureClick
       <div className="agency-orb orb-forest" />
 
       <div className="agency-container">
-        {/* Left Column: Hero Content — spans full width; global animation covers right side */}
+        {/* Left Column: Hero Content */}
         <div className="agency-text-col">
           {/* Pill Badge */}
           <div className="agency-badge hero-anim-badge">
@@ -91,69 +86,13 @@ export default function HeroAboutAgency({ onExploreCoursesClick, onBrochureClick
               <span>Explore Courses</span>
               <span className="btn-arrow">→</span>
             </button>
-            {/* <button
-              type="button"
-              className="agency-brochure-btn"
-              onClick={onBrochureClick}
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="brochure-icon">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="16" y1="13" x2="8" y2="13"/>
-                <line x1="16" y1="17" x2="8" y2="17"/>
-                <polyline points="10 9 9 9 8 9"/>
-              </svg>
-              <span>Download Brochure</span>
-            </button> */}
-          </div>
-
-          {/* Key Agency Statistics */}
-          <div className="agency-metrics-grid hero-anim-metrics">
-            {/* <div className="metric-box metric-stagger-1">
-              <div className="metric-icon-wrap">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
-              </div>
-              {/* <div className="metric-text-group"> */}
-                {/* <span className="metric-number">500+</span>
-                <span className="metric-label">Hiring MNCs</span> */}
-              {/* </div> */}
-            {/* </div> */} 
-
-            {/* <div className="metric-box metric-stagger-2">
-              <div className="metric-icon-wrap">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
-                  <polyline points="17 6 23 6 23 12"/>
-                </svg>
-              </div>
-              <div className="metric-text-group">
-                <span className="metric-number">18.5 LPA</span>
-                <span className="metric-label">Highest Package</span>
-              </div>
-            </div> */}
-
-            {/* <div className="metric-box metric-stagger-3">
-              <div className="metric-icon-wrap">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                </svg>
-              </div>
-              <div className="metric-text-group">
-                <span className="metric-number">10k+</span>
-                <span className="metric-label">Engineers Placed</span>
-              </div>
-            </div> */}
           </div>
         </div>
-        {/* RIGHT COLUMN REMOVED — the global LogoBackgroundAnimation (position:fixed)
-            renders the cinematic Quick Ed Solutions monument on the right side
-            of the viewport across the entire website. No duplicate needed here. */}
+
+        {/* Right Column: Sophisticated 3D Visual */}
+        <div className="agency-visual-col">
+          <Hero3DVisual />
+        </div>
       </div>
 
       {/* 4 Feature Highlight Cards Row at Bottom of Hero */}

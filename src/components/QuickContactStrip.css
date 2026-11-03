@@ -1,44 +1,46 @@
 /* Contact Trio Strip: Make a call | Send an email | Social media logos
-   Theme: Charcoal Black (#171717) + Forest Green (#06110C) + Crimson Red (#A31C1B)
+   Theme: #050B08 (Main) + #0B1712 (Secondary) + #101B16 (Cards)
+   Accents: #A31C1B (Brand Red) + #D92332 (Highlight Red)
 */
 .contact-strip-section {
-  padding: 60px 24px 80px;
-  background: rgba(6, 17, 12, 0.85);
+  padding: 70px 24px 90px;
+  background: #0B1712;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
   z-index: 1;
 }
 
 .contact-strip-container {
-  max-width: 1240px;
+  max-width: 1320px;
   margin: 0 auto;
 }
 
 .contact-trio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 24px;
+  gap: 28px;
+  align-items: stretch;
 }
 
 .contact-action-box {
-  background: #171717;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #101B16;
+  border: 1px solid rgba(255, 255, 255, 0.10);
   border-radius: 22px;
-  padding: 28px;
+  padding: 32px 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-decoration: none;
   position: relative;
   transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
 }
 
 .contact-action-box:hover {
   transform: translateY(-5px);
-  background: #1c1c1c;
-  border-color: #A31C1B;
-  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(163, 28, 27, 0.25);
+  background: #16241E;
+  border-color: rgba(217, 35, 50, 0.5);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.8), 0 0 24px rgba(163, 28, 27, 0.25);
 }
 
 .action-icon-circle {
@@ -49,83 +51,94 @@
   align-items: center;
   justify-content: center;
   font-size: 1.6rem;
-  margin-bottom: 20px;
-  background: rgba(163, 28, 27, 0.15);
-  border: 1px solid rgba(163, 28, 27, 0.35);
+  margin-bottom: 22px;
+  background: rgba(163, 28, 27, 0.14);
+  border: 1px solid rgba(217, 35, 50, 0.35);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.contact-action-box:hover .action-icon-circle {
+  transform: scale(1.05);
+  background: rgba(163, 28, 27, 0.24);
+  border-color: #D92332;
 }
 
 .action-eyebrow {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.72rem;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 0.74rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: #9BA69F;
-  letter-spacing: 0.06em;
+  color: #94A3A0;
+  letter-spacing: 0.08em;
   display: block;
 }
 
 .action-main-text {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
   font-size: 1.45rem;
-  font-weight: 800;
-  color: #FFFFFF;
-  margin: 4px 0 6px;
+  font-weight: 700;
+  color: #F5F7F6;
+  margin: 6px 0 8px;
 }
 
 .action-detail {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #D6DDD8;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #F5F7F6;
   margin: 0 0 8px;
 }
 
 .action-avail {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.78rem;
-  color: #A31C1B;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.8rem;
+  color: #D92332;
   font-weight: 600;
 }
 
 .action-arrow-tag {
   align-self: flex-end;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.88rem;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 0.9rem;
   font-weight: 700;
-  color: #A31C1B;
-  margin-top: 18px;
+  color: #D92332;
+  margin-top: 24px;
+  transition: transform 0.2s ease;
+}
+
+.contact-action-box:hover .action-arrow-tag {
+  transform: translateX(4px);
 }
 
 /* Social cluster */
 .social-icons-cluster {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
-  margin-top: 18px;
+  margin-top: 20px;
 }
 
 .social-logo-chip {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 8px 12px;
-  border-radius: 10px;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 14px;
+  border-radius: 12px;
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
 .social-logo-chip:hover {
-  background: rgba(163, 28, 27, 0.15);
-  border-color: #A31C1B;
+  background: rgba(163, 28, 27, 0.16);
+  border-color: rgba(217, 35, 50, 0.5);
   transform: translateY(-2px);
-  box-shadow: 0 0 14px rgba(163, 28, 27, 0.35);
+  box-shadow: 0 0 16px rgba(163, 28, 27, 0.3);
 }
 
-/* ─── Refined SVG Alignment for Official Brand Icons ─── */
 .soc-emoji {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -135,8 +148,17 @@
 }
 
 .soc-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #FFFFFF;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #F5F7F6;
+}
+
+@media (max-width: 768px) {
+  .contact-strip-section {
+    padding: 50px 16px 70px;
+  }
+  .contact-trio-grid {
+    grid-template-columns: 1fr;
+  }
 }

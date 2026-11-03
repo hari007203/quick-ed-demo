@@ -1,0 +1,346 @@
+/* ==========================================================================
+   Hero 3D Tech Visual — Quick Ed Solutions
+   Theme: Dark Metallic Surfaces (#101B16), Brand Red (#A31C1B / #D92332)
+   Hardware-accelerated CSS 3D transforms & soft reflections
+   ========================================================================== */
+
+.hero-3d-scene-container {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  height: 480px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  user-select: none;
+}
+
+/* Ambient Radial Glow in Brand Red & Forest Green */
+.hero-3d-ambient-glow {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(163, 28, 27, 0.22) 0%, rgba(11, 23, 18, 0.4) 50%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 1;
+  animation: hero3dGlowPulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes hero3dGlowPulse {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.1); opacity: 0.95; }
+}
+
+/* 3D Stage with smooth floating animation */
+.hero-3d-stage {
+  position: relative;
+  width: 380px;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: hero3dLevitate 8s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes hero3dLevitate {
+  0%, 100% {
+    transform: translateY(0) rotateX(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateX(2deg);
+  }
+}
+
+/* Concentric Tech Rings */
+.hero-3d-ring {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.ring-outer {
+  width: 380px;
+  height: 380px;
+  animation: ringRotateClockwise 45s linear infinite;
+}
+
+.ring-middle {
+  width: 300px;
+  height: 300px;
+  animation: ringRotateCounter 35s linear infinite;
+}
+
+@keyframes ringRotateClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ringRotateCounter {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.ring-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ring-track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.05);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 10;
+}
+
+.ring-pulse {
+  fill: none;
+  stroke: rgba(217, 35, 50, 0.4);
+  stroke-width: 2;
+  stroke-dasharray: 40 160;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px #D92332);
+}
+
+.ring-track-mid {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.06);
+  stroke-width: 1.5;
+  stroke-dasharray: 12 18;
+}
+
+.ring-pulse-mid {
+  fill: none;
+  stroke: rgba(163, 28, 27, 0.5);
+  stroke-width: 2;
+  stroke-dasharray: 60 220;
+  stroke-linecap: round;
+}
+
+/* Inner Laser Halo Ring */
+.hero-3d-laser-halo {
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  border: 1px dashed rgba(217, 35, 50, 0.35);
+  box-shadow: 
+    0 0 24px rgba(163, 28, 27, 0.25),
+    inset 0 0 16px rgba(163, 28, 27, 0.2);
+  pointer-events: none;
+  animation: haloBreathe 5s ease-in-out infinite alternate;
+}
+
+@keyframes haloBreathe {
+  0% { transform: scale(0.97); opacity: 0.5; }
+  100% { transform: scale(1.03); opacity: 0.85; }
+}
+
+/* Central Metallic Monument Core */
+.hero-3d-core {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-3d-monument-frame {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #16241E 0%, #0B1712 60%, #050B08 100%);
+  border: 1.5px solid rgba(217, 35, 50, 0.45);
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.85),
+    0 0 30px rgba(163, 28, 27, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-3d-scene-container:hover .hero-3d-monument-frame {
+  border-color: rgba(217, 35, 50, 0.7);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.9),
+    0 0 45px rgba(217, 35, 50, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.hero-3d-logo-img {
+  width: 82%;
+  height: 82%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.7));
+}
+
+.hero-3d-sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+/* Horizontal Laser Horizon Beam */
+.hero-3d-laser-beam {
+  position: absolute;
+  width: 320px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent 0%, rgba(217, 35, 50, 0.3) 20%, #F5F7F6 50%, rgba(217, 35, 50, 0.3) 80%, transparent 100%);
+  box-shadow: 0 0 12px #D92332, 0 0 24px rgba(163, 28, 27, 0.6);
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.85;
+}
+
+/* Abstract Network Nodes / Floating Pills */
+.hero-3d-node {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  background: rgba(16, 27, 22, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #F5F7F6;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 12;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.hero-3d-node .node-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #D92332;
+  box-shadow: 0 0 8px #D92332;
+}
+
+.node-1 {
+  top: 18px;
+  right: 8px;
+  animation: nodeFloat1 7s ease-in-out infinite;
+}
+
+.node-2 {
+  bottom: 34px;
+  right: 12px;
+  animation: nodeFloat2 6.5s ease-in-out infinite 1s;
+}
+
+.node-3 {
+  bottom: 24px;
+  left: 6px;
+  animation: nodeFloat1 8s ease-in-out infinite 0.5s;
+}
+
+.node-4 {
+  top: 36px;
+  left: 10px;
+  animation: nodeFloat2 7.5s ease-in-out infinite 1.5s;
+}
+
+@keyframes nodeFloat1 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes nodeFloat2 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(7px); }
+}
+
+/* Corner Reticle Brackets */
+.hero-corner-bracket {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: rgba(255, 255, 255, 0.18);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.bracket-tl { top: 0; left: 0; border-width: 1.5px 0 0 1.5px; }
+.bracket-tr { top: 0; right: 0; border-width: 1.5px 1.5px 0 0; }
+.bracket-bl { bottom: 0; left: 0; border-width: 0 0 1.5px 1.5px; }
+.bracket-br { bottom: 0; right: 0; border-width: 0 1.5px 1.5px 0; }
+
+/* Responsive adjustments */
+@media (max-width: 990px) {
+  .hero-3d-scene-container {
+    height: 380px;
+    max-width: 400px;
+    margin-top: 24px;
+  }
+  .hero-3d-stage {
+    width: 320px;
+    height: 320px;
+  }
+  .ring-outer {
+    width: 320px;
+    height: 320px;
+  }
+  .ring-middle {
+    width: 250px;
+    height: 250px;
+  }
+  .hero-3d-monument-frame {
+    width: 115px;
+    height: 115px;
+  }
+  .hero-3d-laser-halo {
+    width: 175px;
+    height: 175px;
+  }
+  .hero-3d-node {
+    font-size: 0.7rem;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-3d-scene-container {
+    height: 300px;
+    max-width: 320px;
+  }
+  .hero-3d-stage {
+    width: 280px;
+    height: 280px;
+  }
+  .hero-3d-node {
+    display: none; /* Keep clean on small mobile */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-3d-stage,
+  .ring-outer,
+  .ring-middle,
+  .hero-3d-ambient-glow,
+  .hero-3d-laser-halo,
+  .hero-3d-node {
+    animation: none !important;
+  }
+}

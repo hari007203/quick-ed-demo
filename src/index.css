@@ -1,42 +1,47 @@
 /* ==========================================================================
-   Quick Ed Solutions — Design System
-   Exact Reference Palette from Image:
-   Background: Deep Forest Green (#050C08)
-   Surfaces / Cards: Deep Charcoal-Forest (#0B130E / #0E1712)
-   Brand Primary Red: Crimson Red (#B91C1B / #DC2626 / #C62828)
-   Text: Pure White (#FFFFFF) & Muted Slate (#9CA3AF)
-   Typography: Inter (400–800 weights) — unified across all elements
+   Quick Ed Solutions — Premium Tech Academy Design System
+   Exact Brand Palette:
+   Main background: #050B08
+   Secondary background: #0B1712
+   Card background: #101B16
+   Brand red: #A31C1B
+   Highlight red: #D92332
+   Primary text: #F5F7F6
+   Secondary text: #94A3A0
+   Subtle borders: rgba(255, 255, 255, 0.10)
+   Typography: Space Grotesk (Headings) + Inter (Body)
    ========================================================================== */
 
 :root {
-  /* Typography — Inter unified across all elements */
-  --font-display: 'Inter', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-mono: 'Inter', sans-serif;
+  /* Typography */
+  --font-display: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
 
   /* Brand Palette */
-  --c-crimson: #C82028;
-  --c-crimson-bright: #FF303A;
-  --c-crimson-hover: #D4242C;
-  --c-crimson-glow: rgba(255, 48, 58, 0.45);
-  --c-crimson-subtle: rgba(200, 32, 40, 0.12);
+  --c-crimson: #A31C1B;
+  --c-crimson-bright: #D92332;
+  --c-crimson-hover: #BF2022;
+  --c-crimson-glow: rgba(217, 35, 50, 0.35);
+  --c-crimson-subtle: rgba(163, 28, 27, 0.12);
 
-  /* Deep Emerald & Charcoal Surfaces */
-  --c-bg: #020B08;
-  --c-surface-1: #06120D;
-  --c-surface-2: #092017;
-  --c-surface-3: #102C20;
-  --c-surface-glass: rgba(6, 18, 13, 0.92);
+  /* Deep Emerald & Tech Academy Surfaces */
+  --c-bg: #050B08;
+  --c-surface-1: #0B1712;
+  --c-surface-2: #101B16;
+  --c-surface-3: #16241E;
+  --c-surface-glass: rgba(11, 23, 18, 0.88);
 
   /* Borders & Dividers */
-  --c-border: rgba(255, 255, 255, 0.09);
-  --c-border-hover: rgba(255, 48, 58, 0.45);
+  --c-border: rgba(255, 255, 255, 0.10);
+  --c-border-subtle: rgba(255, 255, 255, 0.06);
+  --c-border-hover: rgba(217, 35, 50, 0.45);
 
   /* Typography Colors */
   --c-text-primary: #F5F7F6;
-  --c-text-secondary: #AAB5AF;
-  --c-text-muted: #6B7280;
-  --c-text-dim: #4B5563;
+  --c-text-secondary: #94A3A0;
+  --c-text-muted: #6B7B76;
+  --c-text-dim: #45524E;
 
   /* Transitions */
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
@@ -65,12 +70,12 @@ body {
   line-height: 1.6;
   color: var(--c-text-secondary);
   background-color: var(--c-bg);
-  /* Atmospheric deep dark emerald canvas with soft volumetric crimson haze on the right */
+  /* Atmospheric deep dark emerald canvas with soft volumetric brand red & dark green haze */
   background-image:
-    radial-gradient(ellipse 70% 55% at 95% 30%, rgba(200, 32, 40, 0.14) 0%, transparent 65%),
-    radial-gradient(ellipse 65% 50% at 85% 15%, rgba(9, 32, 23, 0.5) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 45% at 5% 45%, rgba(6, 18, 13, 0.45) 0%, transparent 65%),
-    linear-gradient(180deg, #020B08 0%, #06120D 50%, #020B08 100%);
+    radial-gradient(ellipse 60% 45% at 92% 25%, rgba(163, 28, 27, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 65% 50% at 85% 15%, rgba(11, 23, 18, 0.6) 0%, transparent 70%),
+    radial-gradient(ellipse 55% 45% at 8% 45%, rgba(16, 27, 22, 0.5) 0%, transparent 65%),
+    linear-gradient(180deg, #050B08 0%, #0B1712 50%, #050B08 100%);
   background-attachment: fixed;
   overflow-x: hidden;
   min-height: 100vh;
@@ -78,10 +83,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Headings use Inter */
+/* Headings use Space Grotesk with crisp spacing */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--c-text-primary);
   line-height: 1.2;
   letter-spacing: -0.025em;
@@ -92,9 +97,25 @@ button {
   cursor: pointer;
 }
 
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--c-crimson-bright);
+  outline-offset: 3px;
+}
+
 a {
   text-decoration: none;
   color: inherit;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Custom Scrollbar */

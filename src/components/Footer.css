@@ -1,23 +1,25 @@
 /* Footer: Logo | Quick Links | Contact Us | Social Media Logos
-   Theme: Charcoal Black (#171717) + Forest Green (#06110C) + Crimson Red (#A31C1B)
+   Theme: #050B08 (Main) + #0B1712 (Secondary) + #101B16 (Cards)
+   Accents: #A31C1B (Brand Red) + #D92332 (Highlight Red)
+   Typography: Space Grotesk (Headings) + Inter (Body)
 */
 .qed-footer-root {
-  background: #06110C;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 70px 24px 36px;
+  background: #050B08;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 80px 24px 36px;
   position: relative;
   z-index: 1;
 }
 
 .qed-footer-container {
-  max-width: 1240px;
+  max-width: 1320px;
   margin: 0 auto;
 }
 
 .footer-columns-grid {
   display: grid;
   grid-template-columns: 1.3fr 0.9fr 1.2fr 1.1fr;
-  gap: 40px;
+  gap: 48px;
   margin-bottom: 50px;
 }
 
@@ -27,31 +29,33 @@
 }
 
 .footer-tagline {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body, 'Inter', sans-serif);
   font-size: 0.9rem;
-  color: #9BA69F;
-  line-height: 1.65;
-  margin: 16px 0 16px;
+  color: #94A3A0;
+  line-height: 1.68;
+  margin: 18px 0 16px;
 }
 
 .footer-reg-pill {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
   font-size: 0.72rem;
   font-weight: 700;
-  color: #A31C1B;
+  color: #D92332;
   background: rgba(163, 28, 27, 0.12);
-  border: 1px solid rgba(163, 28, 27, 0.35);
-  padding: 4px 12px;
+  border: 1px solid rgba(217, 35, 50, 0.35);
+  padding: 4px 14px;
   border-radius: 999px;
   width: fit-content;
+  letter-spacing: 0.06em;
 }
 
 .footer-heading {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
   font-size: 1.15rem;
-  font-weight: 800;
-  color: #FFFFFF;
+  font-weight: 700;
+  color: #F5F7F6;
   margin: 0 0 18px;
+  letter-spacing: -0.01em;
 }
 
 .footer-nav-list {
@@ -66,10 +70,10 @@
 .footer-nav-list button {
   background: transparent;
   border: none;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body, 'Inter', sans-serif);
   font-size: 0.92rem;
-  font-weight: 600;
-  color: #9BA69F;
+  font-weight: 500;
+  color: #94A3A0;
   cursor: pointer;
   padding: 0;
   text-align: left;
@@ -77,7 +81,7 @@
 }
 
 .footer-nav-list button:hover {
-  color: #A31C1B;
+  color: #D92332;
   transform: translateX(4px);
 }
 
@@ -94,8 +98,9 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
+  font-family: var(--font-body, 'Inter', sans-serif);
   font-size: 0.88rem;
-  color: #9BA69F;
+  color: #94A3A0;
   line-height: 1.5;
 }
 
@@ -105,86 +110,87 @@
 }
 
 .footer-contact-list a {
-  color: #D6DDD8;
+  color: #F5F7F6;
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .footer-contact-list a:hover {
-  color: #A31C1B;
+  color: #D92332;
 }
 
 .social-sub {
-  font-size: 0.84rem;
-  color: #9BA69F;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.85rem;
+  color: #94A3A0;
   line-height: 1.5;
-  margin: 0 0 14px;
+  margin: 0 0 16px;
 }
 
 .footer-social-icons {
   display: flex;
-  gap: 10px;
-  /* margin-bottom: 20px; */
+  gap: 12px;
 }
 
 .f-soc {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #101B16;
+  border: 1px solid rgba(255, 255, 255, 0.10);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
   text-decoration: none;
-  transition: all 0.2s;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .f-soc:hover {
-  background: rgba(163, 28, 27, 0.18);
-  border-color: #A31C1B;
-  transform: translateY(-2px);
-  box-shadow: 0 0 14px rgba(163, 28, 27, 0.4);
+  background: #16241E;
+  border-color: rgba(217, 35, 50, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(163, 28, 27, 0.3);
 }
 
 .newsletter-box {
   display: flex;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  background: #101B16;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 12px;
   overflow: hidden;
 }
 
 .newsletter-box input {
   background: transparent;
   border: none;
-  padding: 10px 12px;
+  padding: 10px 14px;
   font-family: inherit;
   font-size: 0.82rem;
-  color: #FFFFFF;
+  color: #F5F7F6;
   outline: none;
   width: 100%;
 }
 
 .newsletter-box input::placeholder {
-  color: #6B7770;
+  color: #6B7B76;
 }
 
 .newsletter-box button {
-  background: #A31C1B;
+  background: linear-gradient(135deg, #A31C1B 0%, #D92332 100%);
   border: none;
   color: #FFFFFF;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
   font-weight: 700;
   font-size: 0.82rem;
-  padding: 0 16px;
+  padding: 0 18px;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
 .newsletter-box button:hover {
-  background: #C02725;
+  background: linear-gradient(135deg, #BF2022 0%, #E62A39 100%);
 }
 
 /* Bottom Horizontal Underline */
@@ -195,7 +201,7 @@
     90deg, 
     transparent 0%, 
     rgba(163, 28, 27, 0.45) 20%, 
-    rgba(255, 255, 255, 0.15) 50%, 
+    rgba(255, 255, 255, 0.12) 50%, 
     rgba(163, 28, 27, 0.45) 80%, 
     transparent 100%
   );
@@ -206,9 +212,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.78rem;
-  color: #6B7770;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.8rem;
+  color: #6B7B76;
   flex-wrap: wrap;
   gap: 12px;
 }
@@ -220,26 +226,30 @@
 .legal-links {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .legal-links a {
-  color: #9BA69F;
+  color: #94A3A0;
   text-decoration: none;
+  transition: color 0.2s;
 }
 
 .legal-links a:hover {
-  color: #A31C1B;
+  color: #D92332;
 }
 
 @media (max-width: 960px) {
   .footer-columns-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 32px;
   }
 }
 
 @media (max-width: 600px) {
+  .qed-footer-root {
+    padding: 60px 16px 28px;
+  }
   .footer-columns-grid {
     grid-template-columns: 1fr;
   }

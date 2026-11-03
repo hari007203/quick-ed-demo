@@ -1,6 +1,6 @@
 /* ==========================================================================
    Quick Ed Solutions – Navbar
-   Position: fixed | Font: Inter | Theme: Deep Forest Green + Crimson
+   Position: fixed | Font: Space Grotesk / Inter | Theme: Deep Forest Green + Crimson
    ========================================================================== */
 
 /* ── Base navbar shell ──────────────────────────────────────────────────── */
@@ -11,28 +11,28 @@
   right: 0;
   width: 100%;
   z-index: 1000;
-  /* Glassmorphism panel */
-  background: rgba(2, 11, 8, 0.82);
-  backdrop-filter: blur(22px) saturate(160%);
-  -webkit-backdrop-filter: blur(22px) saturate(160%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  /* Glassmorphism panel matching #050B08 palette */
+  background: rgba(5, 11, 8, 0.88);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   /* Subtle top accent line */
   box-shadow:
     0 1px 0 0 rgba(255, 255, 255, 0.04) inset,
-    0 4px 32px rgba(0, 0, 0, 0.45);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+    0 8px 32px rgba(0, 0, 0, 0.55);
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 /* ── Inner content row ──────────────────────────────────────────────────── */
 .qed-navbar-content {
-  max-width: 1280px;
-  height: 72px;
+  max-width: 1320px;
+  height: 74px;
   margin: 0 auto;
-  padding: 0 36px;
+  padding: 0 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 28px;
 }
 
 /* ── Logo ──────────────────────────────────────────────────────────────── */
@@ -41,18 +41,11 @@
   align-items: center;
   cursor: pointer;
   flex-shrink: 0;
-  transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1)
+  transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
-/* This targets the subtext line inside your Logo component */
-.qed-logo-wrapper span:last-child, 
-.qed-logo-wrapper .logo-subtitle { 
-  margin-left: 8px; /* Adjust this number (e.g., 6px or 8px) to move it further right */
-  letter-spacing: 0.15em; /* This also helps align it by spreading the letters */
-}
-
 
 .qed-logo-wrapper:hover {
-  opacity: 0.88;
+  opacity: 0.92;
   transform: translateY(-1px);
 }
 
@@ -60,7 +53,7 @@
 .qed-menu {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -77,11 +70,11 @@
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  padding: 8px 15px;
-  font-family: 'Inter', sans-serif;
+  padding: 8px 16px;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
   font-size: 0.92rem;
   font-weight: 500;
-  color: #B0BAB5;
+  color: #94A3A0;
   background: transparent;
   border: 1px solid transparent;
   border-radius: 10px;
@@ -91,46 +84,47 @@
   transition:
     color 0.22s ease,
     background 0.22s ease,
-    border-color 0.22s ease;
+    border-color 0.22s ease,
+    transform 0.22s ease;
 }
 
 .qed-nav-btn:hover {
-  color: #F0F4F2;
-  background: rgba(255, 255, 255, 0.055);
+  color: #F5F7F6;
+  background: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.08);
 }
 
 /* Active pill with crimson glow underline */
 .qed-nav-btn.active {
-  color: #FFFFFF;
+  color: #F5F7F6;
   font-weight: 600;
-  background: rgba(200, 32, 40, 0.1);
-  border-color: rgba(200, 32, 40, 0.28);
+  background: rgba(163, 28, 27, 0.12);
+  border-color: rgba(163, 28, 27, 0.35);
 }
 
 .qed-nav-btn.active::after {
   content: '';
   position: absolute;
-  bottom: 5px;
+  bottom: 4px;
   left: 18px;
   right: 18px;
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #C82028, #FF303A);
-  box-shadow: 0 0 10px rgba(255, 48, 58, 0.7);
+  background: linear-gradient(90deg, #A31C1B, #D92332);
+  box-shadow: 0 0 10px rgba(217, 35, 50, 0.7);
 }
 
 /* ── Help button special ─────────────────────────────────────────────────── */
 .help-btn {
-  border-color: rgba(200, 32, 40, 0.32) !important;
-  background: rgba(200, 32, 40, 0.07) !important;
-  color: #F0F4F2 !important;
+  border-color: rgba(163, 28, 27, 0.35) !important;
+  background: rgba(163, 28, 27, 0.08) !important;
+  color: #F5F7F6 !important;
 }
 
 .help-btn:hover {
-  background: rgba(200, 32, 40, 0.15) !important;
-  border-color: rgba(255, 48, 58, 0.55) !important;
-  box-shadow: 0 0 18px rgba(200, 32, 40, 0.3) !important;
+  background: rgba(163, 28, 27, 0.18) !important;
+  border-color: rgba(217, 35, 50, 0.55) !important;
+  box-shadow: 0 0 18px rgba(163, 28, 27, 0.3) !important;
   color: #FFFFFF !important;
 }
 
@@ -144,27 +138,28 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #FF303A;
-  background: rgba(200, 32, 40, 0.15);
-  padding: 2px 6px;
-  border-radius: 5px;
+  color: #D92332;
+  background: rgba(163, 28, 27, 0.16);
+  padding: 2px 7px;
+  border-radius: 6px;
+  border: 1px solid rgba(217, 35, 50, 0.25);
 }
 
 /* ── Courses counter badge ───────────────────────────────────────────────── */
 .qed-courses-counter {
   font-size: 0.66rem;
   font-weight: 800;
-  background: #B91C1B;
+  background: #A31C1B;
   color: #FFFFFF;
-  padding: 2px 6px;
+  padding: 2px 7px;
   border-radius: 999px;
-  box-shadow: 0 0 8px rgba(185, 28, 28, 0.55);
+  box-shadow: 0 0 8px rgba(163, 28, 27, 0.55);
   line-height: 1.4;
 }
 
 /* ── Chevron ─────────────────────────────────────────────────────────────── */
 .chevron-icon {
-  color: #6B7280;
+  color: #6B7B76;
   transition: transform 0.22s ease, color 0.22s ease;
   flex-shrink: 0;
 }
@@ -172,7 +167,7 @@
 .qed-nav-btn:hover .chevron-icon,
 .chevron-icon.rotated {
   transform: rotate(180deg);
-  color: #D1D5DB;
+  color: #D92332;
 }
 
 /* ── Courses dropdown ────────────────────────────────────────────────────── */
@@ -181,17 +176,17 @@
   top: calc(100% + 12px);
   left: 50%;
   transform: translateX(-50%) translateY(10px);
-  width: 360px;
-  background: rgba(6, 15, 10, 0.97);
+  width: 370px;
+  background: #101B16;
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.10);
   border-radius: 18px;
   padding: 18px;
   box-shadow:
-    0 28px 56px -8px rgba(0, 0, 0, 0.85),
-    0 0 0 1px rgba(255,255,255,0.03),
-    0 0 32px rgba(200, 32, 40, 0.14);
+    0 28px 56px -8px rgba(0, 0, 0, 0.88),
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 0 32px rgba(163, 28, 27, 0.16);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -212,33 +207,36 @@
   justify-content: space-between;
   padding-bottom: 12px;
   margin-bottom: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
   font-size: 0.72rem;
   font-weight: 700;
-  color: #6B7280;
+  color: #94A3A0;
   text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.08em;
 }
 
 .see-all-courses-link {
   background: transparent;
   border: none;
-  color: #C82028;
+  color: #D92332;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
   font-weight: 700;
   font-size: 0.78rem;
   cursor: pointer;
-  transition: color 0.2s;
+  transition: color 0.2s, transform 0.2s;
   padding: 0;
 }
 
 .see-all-courses-link:hover {
   color: #FF303A;
+  transform: translateX(2px);
 }
 
 .dropdown-courses-list {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 4px;
 }
 
 .dropdown-course-row {
@@ -249,12 +247,13 @@
   border-radius: 12px;
   cursor: pointer;
   border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.02);
   transition: all 0.2s ease;
 }
 
 .dropdown-course-row:hover {
-  background: rgba(255, 255, 255, 0.045);
-  border-color: rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(217, 35, 50, 0.3);
   transform: translateX(4px);
 }
 
@@ -271,14 +270,15 @@
 }
 
 .course-row-name {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
   font-size: 0.92rem;
   font-weight: 600;
-  color: #EAEDEC;
+  color: #F5F7F6;
 }
 
 .course-row-desc {
   font-size: 0.75rem;
-  color: #7A8880;
+  color: #94A3A0;
   margin-top: 2px;
   line-height: 1.4;
 }
@@ -296,32 +296,33 @@
   display: none;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.10);
   border-radius: 10px;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   cursor: pointer;
-  color: #D1D5DB;
+  color: #F5F7F6;
   transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .qed-mobile-toggle:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(163, 28, 27, 0.2);
+  border-color: #A31C1B;
 }
 
 /* ── Mobile Drawer ───────────────────────────────────────────────────────── */
 .qed-mobile-drawer {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  padding: 12px 20px 20px;
-  background: rgba(6, 15, 10, 0.98);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
+  gap: 6px;
+  padding: 14px 20px 22px;
+  background: #0B1712;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
 }
 
 .qed-mobile-link {
@@ -329,11 +330,12 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
-  font-size: 0.97rem;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 0.98rem;
   font-weight: 500;
-  color: #C0CAC5;
-  background: transparent;
-  border: 1px solid transparent;
+  color: #94A3A0;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 10px;
   cursor: pointer;
   text-align: left;
@@ -342,18 +344,18 @@
 
 .qed-mobile-link.active,
 .qed-mobile-link:hover {
-  background: rgba(200, 32, 40, 0.1);
-  color: #FF303A;
-  border-color: rgba(200, 32, 40, 0.3);
+  background: rgba(163, 28, 27, 0.15);
+  color: #F5F7F6;
+  border-color: rgba(217, 35, 50, 0.4);
 }
 
 .mobile-badge {
   font-size: 0.7rem;
   font-weight: 700;
   color: #FFFFFF;
-  background: rgba(200, 32, 40, 0.22);
-  border: 1px solid rgba(200, 32, 40, 0.42);
-  padding: 2px 9px;
+  background: rgba(163, 28, 27, 0.35);
+  border: 1px solid rgba(217, 35, 50, 0.45);
+  padding: 2px 10px;
   border-radius: 999px;
 }
 
