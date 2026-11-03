@@ -38,7 +38,7 @@ export default function Navbar({ activeSection = 'home', onNavigate }) {
   ];
 
   const courseMenuItems = [
-    { name: 'Python Full Stack', desc: 'Django, FastAPI, Next.js & REST APIs', color: '#06B6D4' },
+    { name: 'Python Full Stack', desc: 'Django, FastAPI & REST APIs', color: '#06B6D4' },
     { name: 'Java Full Stack', desc: 'Spring Boot 3, Microservices & React', color: '#DC2626' },
     { name: 'Cybersecurity', desc: 'Ethical Hacking, SOC, PenTesting & Defense', color: '#10B981' },
     { name: 'GenAI & LLMs', desc: 'LangChain, RAG Pipelines & Autonomous Agents', color: '#8B5CF6' },
@@ -189,4 +189,4 @@ export default function Navbar({ activeSection = 'home', onNavigate }) {
       <HelpModal isOpen={helpModalOpen} onClose={() => setHelpModalOpen(false)} />
     </>
   );
-}
+} 

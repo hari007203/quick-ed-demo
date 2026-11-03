@@ -43,7 +43,7 @@ export default function QuickContactStrip() {
         {/* Wireframe Section 6: make a call | send an email | social media logos */}
         <div className="contact-trio-grid">
           {/* 1. Make A Call - PRESERVED EXACTLY AS IS */}
-          <a href="tel:+919876543210" className="contact-action-box call-box">
+          <a href="tel:+9183748 52001" className="contact-action-box call-box">
             <div className="action-icon-circle call-icon-bg">
               <span>📞</span>
             </div>

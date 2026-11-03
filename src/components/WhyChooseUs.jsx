@@ -71,7 +71,7 @@ export default function WhyChooseUs() {
             <div className="speaker-meta">
               <div>
                 <strong>Suhas Nagulapalli</strong>
-                <span>Founder & Chief Mentor, Quick Ed Solutions • MBA</span>
+                <span>Founder & Chief Mentor, Quick Ed Solutions •Hr, Marketing, Enterpreneur</span>
               </div>
             </div>
           </div>

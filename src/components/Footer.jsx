@@ -47,13 +47,13 @@ export default function Footer({ onNavigate }) {
           <div className="footer-col col-contact">
             <h4 className="footer-heading">Contact Us</h4>
             <ul className="footer-contact-list">
-              <li>
+              {/* <li>
                 <span className="c-icon">📍</span>
                 <span>Tech Innovation Hub, Cyber City Sector 62</span>
-              </li>
+              </li> */}
               <li>
                 <span className="c-icon">📞</span>
-                <a href="tel:+919876543210">+91 98765 43210</a>
+                <a href="tel:+9183748 52001">+91 98765 43210</a>
               </li>
               <li>
                 <span className="c-icon">✉️</span>

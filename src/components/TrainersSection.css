@@ -1,13 +1,9 @@
 /* ==========================================================================
-   PREMIUM TECH ACADEMY TRAINERS SECTION
-   Theme: #050B08 (Main) + #0B1712 (Secondary) + #101B16 (Cards)
-   Accents: #A31C1B (Brand Red) + #D92332 (Highlight Red)
-   Typography: Space Grotesk (Headings) + Inter (Body)
-   Layout: Balanced Photo & Info Card with Subtle Tilt & Smooth Transitions
+   QUICK ED SOLUTIONS — PREMIUM SUPER FLOW-INSPIRED TRAINER CAROUSEL
    ========================================================================== */
 
 .trainers-section {
-  padding: 100px 24px 120px;
+  padding: 110px 24px 130px;
   background: #050B08;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -17,17 +13,17 @@
   font-family: var(--font-body, 'Inter', sans-serif);
 }
 
-/* Red atmospheric light streaks behind the cards */
+/* Atmospheric ambient red background glows */
 .trainers-section::before {
   content: '';
   position: absolute;
-  top: 25%;
-  left: -10%;
-  width: 50%;
+  top: 20%;
+  left: -8%;
+  width: 55%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(217, 35, 50, 0.3), transparent);
-  transform: rotate(6deg);
-  filter: blur(8px);
+  background: linear-gradient(90deg, transparent, rgba(217, 35, 50, 0.35), transparent);
+  transform: rotate(5deg);
+  filter: blur(10px);
   z-index: 0;
   pointer-events: none;
 }
@@ -35,29 +31,29 @@
 .trainers-section::after {
   content: '';
   position: absolute;
-  top: 75%;
-  right: -10%;
-  width: 50%;
+  bottom: 15%;
+  right: -8%;
+  width: 55%;
   height: 2px;
-  background: linear-gradient(270deg, transparent, rgba(163, 28, 27, 0.3), transparent);
-  transform: rotate(-6deg);
-  filter: blur(8px);
+  background: linear-gradient(270deg, transparent, rgba(163, 28, 27, 0.35), transparent);
+  transform: rotate(-5deg);
+  filter: blur(10px);
   z-index: 0;
   pointer-events: none;
 }
 
 .trainers-container {
-  max-width: 1360px;
+  max-width: 1240px;
   margin: 0 auto;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 /* ─── Section Header ─── */
 .trainers-header {
   text-align: center;
   max-width: 860px;
-  margin: 0 auto 70px;
+  margin: 0 auto 64px;
   position: relative;
   z-index: 2;
 }
@@ -66,159 +62,244 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: rgba(163, 28, 27, 0.12);
-  border: 1px solid rgba(217, 35, 50, 0.4);
+  background: rgba(163, 28, 27, 0.14);
+  border: 1px solid rgba(217, 35, 50, 0.45);
   color: #D92332;
   font-family: var(--font-display, 'Space Grotesk', sans-serif);
   font-size: 0.8rem;
   font-weight: 700;
   padding: 8px 22px;
   border-radius: 999px;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  box-shadow: 0 0 16px rgba(163, 28, 27, 0.15);
+  box-shadow: 0 0 18px rgba(163, 28, 27, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .trainers-badge:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 24px rgba(217, 35, 50, 0.3);
+  box-shadow: 0 0 26px rgba(217, 35, 50, 0.35);
 }
 
 .star-glow {
   color: #D92332;
-  text-shadow: 0 0 10px rgba(217, 35, 50, 0.8);
+  text-shadow: 0 0 10px rgba(217, 35, 50, 0.85);
 }
 
 .trainers-title {
   font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+  font-size: clamp(2.3rem, 4.2vw, 3.4rem);
   font-weight: 700;
   color: #F5F7F6;
-  line-height: 1.15;
+  line-height: 1.18;
   margin: 0 auto 20px;
   letter-spacing: -0.025em;
 }
 
-.trainers-gradient,
-.title-gradient {
+.trainers-gradient {
   background: linear-gradient(135deg, #F5F7F6 0%, #D92332 55%, #A31C1B 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 20px rgba(163, 28, 27, 0.35));
+  filter: drop-shadow(0 0 20px rgba(163, 28, 27, 0.4));
 }
 
 .trainers-sub {
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 1.08rem;
+  font-size: 1.05rem;
   color: #94A3A0;
   line-height: 1.68;
   margin: 0 auto;
-  max-width: 780px;
-  text-align: center;
+  max-width: 760px;
 }
 
-/* ─── Grid Layout: 4 Columns Desktop ─── */
-.trainers-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
+/* ─── Carousel Wrapper ─── */
+.trainers-carousel-wrapper {
   position: relative;
-  z-index: 2;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.trainers-swiper {
+  width: 100%;
+  border-radius: 28px;
+  overflow: visible !important;
+}
+
+.trainer-slide {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
   align-items: stretch;
 }
 
-/* ─── Premium 3D Card Styles ─── */
-.trainer-card {
-  position: relative;
+/* ─── Showcase Card: Two-Column Composition ─── */
+.trainer-showcase-card {
+  width: 100%;
   background: #101B16;
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
   overflow: hidden;
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.85),
+    0 0 45px -12px rgba(163, 28, 27, 0.3);
+  position: relative;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.trainer-showcase-card:hover {
+  border-color: rgba(217, 35, 50, 0.45);
+  box-shadow:
+    0 30px 75px rgba(0, 0, 0, 0.9),
+    0 0 55px -10px rgba(163, 28, 27, 0.45);
+}
+
+/* ─── LEFT COLUMN: Trainer Photograph Stage ─── */
+.trainer-photo-col {
+  position: relative;
+  background: #0B1712;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
-  flex-direction: column;
-  height: 100%;
-  
-  box-shadow: 
-    0 12px 32px rgba(0, 0, 0, 0.6),
-    0 0 20px -8px rgba(163, 28, 27, 0.2);
-  
-  transition: 
-    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
-  
-  /* Scroll entrance animation */
-  opacity: 0;
-  transform: translateY(40px);
-  animation: cardEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: calc(var(--i, 0) * 0.12s);
+  height: 460px;
+  min-height: 460px;
+  overflow: hidden;
 }
 
-/* Cursor spotlight overlay */
-.card-spotlight {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    circle at var(--mouseX, 50%) var(--mouseY, 50%),
-    rgba(255, 255, 255, 0.05) 0%,
-    transparent 55%
-  );
-  pointer-events: none;
-  z-index: 8;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: inherit;
-}
-
-.trainer-card:hover .card-spotlight {
-  opacity: 1;
-}
-
-/* Hover: Lift 6px, subtle brand accent illumination */
-.trainer-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(217, 35, 50, 0.5);
-  box-shadow: 
-    0 20px 48px rgba(0, 0, 0, 0.85),
-    0 0 28px rgba(163, 28, 27, 0.3);
-}
-
-/* ─── Photo Area ─── */
 .trainer-photo-wrapper {
   position: relative;
-  height: 330px;
-  overflow: hidden;
+  width: 100%;
+  height: 100%;
   background: #0B1712;
-  border-radius: 24px 24px 0 0;
+  overflow: hidden;
 }
 
-.trainer-photo {
+/* Ambient red atmospheric glow behind portrait */
+.trainer-photo-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: 20%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(217, 35, 50, 0.16) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Base Full-Res Photograph */
+.trainer-photo-main {
+  position: relative;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 20%;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+  display: block;
+  z-index: 2;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
   filter: brightness(1.02) contrast(1.04);
 }
 
-/* Gentle image scale on hover */
-.trainer-card:hover .trainer-photo {
-  transform: scale(1.04);
-  filter: brightness(1.06) contrast(1.06);
+.trainer-showcase-card:hover .trainer-photo-main {
+  transform: scale(1.025);
+  filter: brightness(1.05) contrast(1.06);
 }
 
-/* Gradient fade at bottom of photo to blend smoothly into info panel */
+/* Incoming photo subtle reveal during transition */
+.trainer-photo-wrapper.is-transitioning .trainer-photo-main {
+  animation: superFlowIncomingReveal 0.88s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes superFlowIncomingReveal {
+  0% {
+    transform: scale(0.96);
+    filter: brightness(0.85) contrast(1.08);
+  }
+
+  100% {
+    transform: scale(1);
+    filter: brightness(1.02) contrast(1.04);
+  }
+}
+
+/* ==========================================================================
+   SUPER FLOW TRIANGULAR FRAGMENT TRANSITION ENGINE
+   ========================================================================== */
+
+.super-flow-fragments-stage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  pointer-events: none;
+  z-index: 10;
+  overflow: visible;
+}
+
+.super-flow-fragment {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  will-change: transform, opacity, filter;
+  animation: superFlowDisperse 0.88s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--delay, 0ms);
+  filter: drop-shadow(0 0 10px rgba(217, 35, 50, 0.5));
+}
+
+.super-flow-fragment-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  pointer-events: none;
+}
+
+/* 3D Parallax Triangular Dispersal Keyframes */
+@keyframes superFlowDisperse {
+  0% {
+    transform: translate3d(0, 0, 0)
+      rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1);
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 0.95;
+    filter: drop-shadow(0 0 18px rgba(217, 35, 50, 0.75));
+  }
+
+  100% {
+    transform: translate3d(var(--tx, 0px), var(--ty, 0px), var(--tz, 0px))
+      rotateX(var(--rx, 0deg))
+      rotateY(var(--ry, 0deg))
+      rotateZ(var(--rz, 0deg))
+      scale(var(--scale, 0.9));
+    opacity: 0;
+    filter: drop-shadow(0 0 2px rgba(163, 28, 27, 0));
+  }
+}
+
+/* Gradient fade at bottom of photo */
 .photo-overlay-gradient {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 65%;
-  background: linear-gradient(to top, #101B16 0%, rgba(16, 27, 22, 0.8) 40%, transparent 100%);
-  z-index: 4;
+  height: 45%;
+  background: linear-gradient(
+    to top,
+    #101B16 0%,
+    rgba(16, 27, 22, 0.6) 40%,
+    transparent 100%
+  );
+  z-index: 5;
   pointer-events: none;
 }
 
@@ -227,120 +308,226 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 2px;
+  height: 3px;
   background: var(--accent, #A31C1B);
-  opacity: 0.6;
-  z-index: 5;
+  box-shadow: 0 0 12px var(--accent, #A31C1B);
+  opacity: 0.8;
+  z-index: 6;
 }
 
-/* ─── Info Panel ─── */
-.trainer-info-panel {
-  padding: 24px 22px 24px;
+/* ─── RIGHT COLUMN: Trainer Profile Information ─── */
+.trainer-info-col {
+  padding: 24px 34px;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  justify-content: center;
   position: relative;
-  z-index: 5;
-  background: #101B16;
+  z-index: 3;
 }
 
-.info-header {
-  margin-bottom: 16px;
+.trainer-meta-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
 }
 
-.trainer-name {
+.trainer-status-badge {
   font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 1.35rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1px solid;
+  display: inline-block;
+}
+
+.trainer-mentored-tag {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94A3A0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 5px 14px;
+  border-radius: 999px;
+}
+
+.trainer-showcase-name {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: clamp(1.9rem, 2.8vw, 2.5rem);
   font-weight: 700;
   color: #F5F7F6;
-  margin: 0 0 6px;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  transition: color 0.25s ease;
+  margin: 0 0 8px;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
 }
 
-.trainer-card:hover .trainer-name {
-  color: #FFFFFF;
-}
-
-.trainer-role {
+.trainer-showcase-role {
   font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 0.82rem;
+  font-size: 1.05rem;
   font-weight: 600;
-  line-height: 1.4;
+  margin-bottom: 14px;
   display: block;
+  line-height: 1.35;
 }
 
-/* Skills Container */
+/* Skills Block */
+.skills-block {
+  margin-bottom: 14px;
+}
+
+.skills-label {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94A3A0;
+  display: block;
+  margin-bottom: 7px;
+}
+
 .skills-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 16px;
+  gap: 8px;
 }
 
 .skill-tag {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   color: #F5F7F6;
-  padding: 4px 10px;
-  border-radius: 6px;
+  padding: 5px 12px;
+  border-radius: 8px;
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 500;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
-.trainer-card:hover .skill-tag {
-  border-color: rgba(255, 255, 255, 0.16);
+.skill-tag:hover {
   background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(217, 35, 50, 0.4);
+  transform: translateY(-1px);
 }
 
-/* Bio Text */
-.trainer-bio {
+/* Biography */
+.trainer-showcase-bio {
   font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.86rem;
+  font-size: 0.98rem;
   color: #94A3A0;
-  line-height: 1.6;
-  margin: 0 0 20px;
-  flex-grow: 1;
+  line-height: 1.58;
+  margin: 0 0 14px;
 }
 
-/* Footer Stats */
-.trainer-footer {
-  margin-top: auto;
+/* Institutional Footer Features */
+.trainer-footer-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
   padding-top: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.students-count {
+.feature-item {
   display: flex;
   align-items: center;
-}
-
-.mentored-count {
+  gap: 8px;
   font-family: var(--font-display, 'Space Grotesk', sans-serif);
   font-size: 0.82rem;
   font-weight: 600;
-  color: #94A3A0;
+  color: #F5F7F6;
+}
+
+.feature-check {
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+/* ─── MANUAL NAVIGATION CONTROLS BAR ─── */
+.trainers-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 36px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Circular Previous / Next Buttons */
+.trainer-nav-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(16, 27, 22, 0.85);
+  border: 1.5px solid rgba(217, 35, 50, 0.45);
+  color: #F5F7F6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.trainer-nav-btn:hover {
+  background: rgba(163, 28, 27, 0.35);
+  border-color: #D92332;
+  color: #FFFFFF;
+  transform: scale(1.08);
+  box-shadow: 0 0 22px rgba(217, 35, 50, 0.4);
+}
+
+.trainer-nav-btn:active {
+  transform: scale(0.96);
+}
+
+/* Pagination Indicators */
+.trainers-pagination-pills {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(16, 27, 22, 0.7);
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.trainer-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.trainer-pagination-bullet:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.trainer-pagination-bullet.active {
+  width: 38px;
+  background: linear-gradient(90deg, #A31C1B 0%, #D92332 100%);
+  box-shadow: 0 0 14px rgba(217, 35, 50, 0.65);
 }
 
 /* ─── Entrance Animations ─── */
-@keyframes cardEntrance {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Header reveal animations */
 .reveal-content {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(24px);
   animation: headerReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -351,89 +538,93 @@
   }
 }
 
-/* ─── Toast Notification ─── */
-.mentor-toast {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #101B16;
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  color: #F5F7F6;
-  border-radius: 18px;
-  padding: 18px 22px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  border: 1px solid rgba(217, 35, 50, 0.6);
-  box-shadow: 
-    0 20px 45px rgba(0, 0, 0, 0.85),
-    0 0 25px rgba(163, 28, 27, 0.35);
-  z-index: 3000;
-  max-width: 420px;
-  animation: toastSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
+/* ─── RESPONSIVE DESIGN ─── */
+@media (max-width: 1100px) {
+  .trainer-showcase-card {
+    grid-template-columns: 390px 1fr;
+  }
 
-@keyframes toastSlideIn {
-  from { transform: translateX(120%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
+  .trainer-info-col {
+    padding: 22px 28px;
+  }
 
-.mentor-toast strong {
-  display: block;
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 0.98rem;
-  margin-bottom: 4px;
-  color: #F5F7F6;
-}
+  .trainer-photo-col {
+    height: 430px;
+    min-height: 430px;
+  }
 
-.mentor-toast p {
-  margin: 0;
-  font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.84rem;
-  color: #94A3A0;
-  line-height: 1.5;
-}
-
-/* ─── Responsive Design ─── */
-@media (max-width: 1200px) {
-  .trainers-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .trainer-showcase-name {
+    font-size: 2.1rem;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .trainers-section {
-    padding: 70px 16px 90px;
+    padding: 75px 16px 95px;
   }
-  .trainers-grid {
+
+  .trainers-header {
+    margin-bottom: 44px;
+  }
+
+  .trainer-showcase-card {
     grid-template-columns: 1fr;
-    gap: 24px;
+    border-radius: 24px;
   }
-  .trainer-photo-wrapper {
-    height: 300px;
+
+  .trainer-photo-col {
+    min-height: 400px;
+    height: 400px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
-  .trainer-info-panel {
-    padding: 22px 18px;
+
+  .trainer-info-col {
+    padding: 28px 22px 32px;
   }
-  .trainer-name {
-    font-size: 1.3rem;
+
+  .trainer-showcase-name {
+    font-size: 1.85rem;
   }
-  .mentor-toast {
-    right: 16px;
-    bottom: 16px;
-    padding: 14px;
-    width: calc(100vw - 32px);
+
+  .trainer-showcase-role {
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+  }
+
+  .trainer-showcase-bio {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    margin-bottom: 22px;
+  }
+
+  .trainer-footer-features {
+    gap: 14px;
+    font-size: 0.78rem;
+  }
+
+  .trainers-controls-bar {
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .trainer-nav-btn {
+    width: 46px;
+    height: 46px;
   }
 }
 
-/* ─── Accessibility: Reduced Motion ─── */
+/* ─── ACCESSIBILITY: REDUCED MOTION ─── */
 @media (prefers-reduced-motion: reduce) {
-  .trainer-card,
+  .super-flow-fragments-stage {
+    display: none !important;
+  }
+
+  .super-flow-fragment,
+  .trainer-photo-main,
+  .trainer-showcase-card,
   .reveal-content,
-  .trainer-photo,
-  .trainers-badge,
-  .skill-tag {
+  .trainer-pagination-bullet {
     animation: none !important;
     transition: none !important;
     opacity: 1 !important;

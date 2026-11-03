@@ -27,8 +27,8 @@ export default function HelpModal({ isOpen, onClose }) {
             <div className="channel-icon-circle">📞</div>
             <div className="channel-info">
               <span className="channel-label">Direct Contact Number</span>
-              <strong className="channel-val">+91 98765 43210</strong>
-              <span className="channel-status">● Live Now • Mon-Sun (9AM - 9PM)</span>
+              <strong className="channel-val">+91 83748 52001</strong>
+              {/* <span className="channel-status">● Live Now • Mon-Sun (9AM - 9PM)</span> */}
             </div>
             <span className="channel-action-arrow">Call Now →</span>
           </a>
@@ -45,7 +45,7 @@ export default function HelpModal({ isOpen, onClose }) {
           </a>
 
           {/* 3. WhatsApp Direct Chat */}
-          <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="help-channel-card whatsapp-channel">
+          <a href="https://wa.me/918374852001" target="_blank" rel="noreferrer" className="help-channel-card whatsapp-channel">
             <div className="channel-icon-circle">💬</div>
             <div className="channel-info">
               <span className="channel-label">Instant WhatsApp Chat</span>
