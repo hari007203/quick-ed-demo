@@ -619,3 +619,570 @@
     width: 100%;
   }
 }
+
+/* ==========================================================================
+   Mobile Responsive — 480px breakpoint
+   ========================================================================== */
+@media (max-width: 480px) {
+  /* Section wrapper — tighter padding */
+  .courses-section-wrapper {
+    padding: 48px 14px 60px;
+  }
+
+  .courses-section-header {
+    margin-bottom: 32px;
+  }
+
+  /* Section pill tag — smaller on mobile */
+  .section-pill-tag {
+    font-size: 0.7rem;
+    padding: 5px 14px;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  /* Section heading — cap size for small screens */
+  .section-main-heading {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+    margin-bottom: 12px;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+
+  /* Brochure spotlight bar — reduce padding & font sizes */
+  .brochure-spotlight-bar {
+    padding: 14px 16px;
+    border-radius: 14px;
+    margin-bottom: 24px;
+    gap: 12px;
+  }
+
+  .brochure-bar-text {
+    gap: 10px;
+  }
+
+  .brochure-icon {
+    font-size: 1.6rem;
+  }
+
+  .brochure-bar-text strong {
+    font-size: 0.92rem;
+  }
+
+  .brochure-bar-text p {
+    font-size: 0.8rem;
+  }
+
+  .global-brochure-btn {
+    font-size: 0.85rem;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+
+  /* Filter pills — horizontally scrollable, no wrapping */
+  .courses-filter-pills {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 6px;
+    margin: 0 -14px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .courses-filter-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    font-size: 0.82rem;
+    padding: 7px 16px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Cards grid — single column, no minmax overflow */
+  .courses-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  /* Card body — reduce padding */
+  .card-body-content {
+    padding: 18px 16px;
+  }
+
+  /* Card header meta */
+  .card-header-meta {
+    margin-bottom: 10px;
+  }
+
+  /* Badge tag — smaller */
+  .badge-tag {
+    font-size: 0.66rem;
+    padding: 3px 10px;
+  }
+
+  .duration-tag {
+    font-size: 0.75rem;
+  }
+
+  /* Course title — reduced */
+  .course-title-text {
+    font-size: 1.12rem;
+    margin-bottom: 6px;
+  }
+
+  .course-summary {
+    font-size: 0.85rem;
+    margin-bottom: 14px;
+    line-height: 1.55;
+  }
+
+  /* Stats box — tighter */
+  .card-stats-box {
+    padding: 8px 12px;
+    margin-bottom: 14px;
+    border-radius: 10px;
+  }
+
+  .unit-label {
+    font-size: 0.6rem;
+  }
+
+  .unit-val {
+    font-size: 0.84rem;
+  }
+
+  .stat-separator {
+    margin: 0 8px;
+    height: 20px;
+  }
+
+  /* Skill pills — smaller */
+  .skill-pill {
+    font-size: 0.66rem;
+    padding: 3px 8px;
+    border-radius: 5px;
+  }
+
+  .skills-tag-cloud {
+    gap: 5px;
+    margin-bottom: 18px;
+  }
+
+  /* Card split footer — single column stacked buttons */
+  .card-split-footer {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding-top: 14px;
+  }
+
+  .split-btn {
+    font-size: 0.84rem;
+    padding: 10px 12px;
+    border-radius: 10px;
+  }
+
+  /* Syllabus overlay — full screen, reduced padding */
+  .syllabus-overlay {
+    padding: 10px;
+    align-items: flex-end;
+  }
+
+  .syllabus-content {
+    border-radius: 18px 18px 0 0;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-top {
+    padding: 18px 18px 14px;
+  }
+
+  .modal-heading {
+    font-size: 1.2rem;
+  }
+
+  .modal-tag {
+    font-size: 0.7rem;
+  }
+
+  .modal-scrollable {
+    padding: 18px;
+  }
+
+  .modal-description {
+    font-size: 0.88rem;
+    margin-bottom: 16px;
+  }
+
+  .block-title {
+    font-size: 0.95rem;
+    margin: 16px 0 8px;
+  }
+
+  .highlights-listing li {
+    font-size: 0.84rem;
+    gap: 8px;
+  }
+
+  .tech-chip {
+    font-size: 0.74rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+
+  .tech-badge-cloud {
+    gap: 6px;
+  }
+
+  /* Modal actions bar — stack buttons vertically */
+  .modal-actions-bar {
+    flex-direction: column;
+    padding: 14px 18px 20px;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .modal-brochure-action,
+  .modal-enroll-action {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    font-size: 0.88rem;
+    padding: 12px 16px;
+  }
+
+  /* Toast — full width on mobile */
+  .hud-toast {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    border-radius: 14px;
+    padding: 14px 16px;
+    gap: 10px;
+  }
+
+  .toast-emoji {
+    font-size: 1.3rem;
+  }
+
+  .hud-toast strong {
+    font-size: 0.88rem;
+  }
+
+  .hud-toast p {
+    font-size: 0.78rem;
+  }
+
+  /* Card — reduce border-radius for mobile feel */
+  .interactive-course-card {
+    border-radius: 16px;
+  }
+}
+
+/* ==========================================================================
+   Extra-small screens — 380px breakpoint
+   ========================================================================== */
+@media (max-width: 380px) {
+  .courses-section-wrapper {
+    padding: 40px 10px 50px;
+  }
+
+  .section-main-heading {
+    font-size: clamp(1.4rem, 6.5vw, 1.8rem);
+  }
+
+  .section-subtitle {
+    font-size: 0.88rem;
+  }
+
+  .brochure-spotlight-bar {
+    padding: 12px 12px;
+    border-radius: 12px;
+  }
+
+  .brochure-bar-text strong {
+    font-size: 0.84rem;
+  }
+
+  .brochure-bar-text p {
+    font-size: 0.76rem;
+  }
+
+  .brochure-icon {
+    font-size: 1.4rem;
+  }
+
+  .global-brochure-btn {
+    font-size: 0.8rem;
+    padding: 9px 16px;
+  }
+
+  .filter-btn {
+    font-size: 0.76rem;
+    padding: 6px 12px;
+  }
+
+  .card-body-content {
+    padding: 14px 12px;
+  }
+
+  .course-title-text {
+    font-size: 1.02rem;
+  }
+
+  .course-summary {
+    font-size: 0.8rem;
+  }
+
+  .card-stats-box {
+    padding: 6px 10px;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .stat-separator {
+    display: none;
+  }
+
+  .stat-unit {
+    min-width: calc(50% - 6px);
+  }
+
+  .skill-pill {
+    font-size: 0.62rem;
+    padding: 2px 6px;
+  }
+
+  .split-btn {
+    font-size: 0.8rem;
+    padding: 9px 10px;
+  }
+
+  .syllabus-content {
+    max-height: 92vh;
+  }
+
+  .modal-top {
+    padding: 14px 14px 12px;
+  }
+
+  .modal-heading {
+    font-size: 1.08rem;
+  }
+
+  .modal-scrollable {
+    padding: 14px;
+  }
+
+  .modal-actions-bar {
+    padding: 12px 14px 16px;
+  }
+
+  .hud-toast {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    padding: 12px 12px;
+    border-radius: 12px;
+  }
+
+  .interactive-course-card {
+    border-radius: 14px;
+  }
+}
+
+/* ==========================================================================
+   Reduced Motion — disable card hover lifts and transitions
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .interactive-course-card,
+  .interactive-course-card:hover,
+  .split-btn,
+  .split-btn:hover,
+  .global-brochure-btn,
+  .global-brochure-btn:hover,
+  .badge-tag,
+  .interactive-course-card:hover .badge-tag,
+  .card-laser-line,
+  .interactive-course-card:hover .card-laser-line {
+    transition: none;
+    transform: none;
+    animation: none;
+  }
+}
+
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS (≤480px and ≤380px)
+   CRITICAL: Desktop rules are untouched above.
+   ========================================================================== */
+@media (max-width: 480px) {
+  .courses-section-wrapper {
+    padding: 60px 16px 80px 16px;
+  }
+
+  .courses-header-block {
+    margin-bottom: 32px;
+  }
+
+  .courses-title-main {
+    font-size: clamp(1.85rem, 7vw, 2.4rem);
+  }
+
+  .courses-filter-pills {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 8px;
+    padding-bottom: 10px;
+    margin-bottom: 24px;
+    scrollbar-width: none;
+  }
+
+  .courses-filter-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-pill {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    padding: 7px 14px;
+    font-size: 0.8rem;
+  }
+
+  /* CRITICAL FIX: Eliminate 360px min width overflow */
+  .courses-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .course-card-enterprise {
+    border-radius: 14px;
+  }
+
+  .card-banner-media {
+    height: 180px;
+  }
+
+  .card-body-content {
+    padding: 20px 16px 16px 16px;
+  }
+
+  .course-title-text {
+    font-size: 1.25rem;
+    line-height: 1.25;
+  }
+
+  .course-synopsis-text {
+    font-size: 0.86rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .curriculum-highlights-list {
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .curriculum-item {
+    font-size: 0.82rem;
+  }
+
+  /* Single column footer for small screens */
+  .card-split-footer {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-top: 14px;
+  }
+
+  .card-action-btn-primary,
+  .card-action-btn-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+  }
+
+  .brochure-spotlight-bar {
+    padding: 24px 18px;
+    border-radius: 16px;
+    margin-top: 40px;
+  }
+
+  .spotlight-heading {
+    font-size: 1.25rem;
+  }
+
+  .spotlight-subtext {
+    font-size: 0.85rem;
+  }
+
+  .brochure-download-trigger {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 18px;
+    font-size: 0.88rem;
+  }
+
+  /* Syllabus Modal Mobile */
+  .syllabus-overlay {
+    padding: 12px;
+  }
+
+  .syllabus-content {
+    padding: 20px 16px;
+    max-height: 88vh;
+    border-radius: 16px;
+  }
+
+  .syllabus-header h2 {
+    font-size: 1.35rem;
+  }
+
+  .modal-actions-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .modal-actions-bar button {
+    width: 100%;
+  }
+
+  /* HUD Toast */
+  .hud-toast {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    max-width: calc(100vw - 24px);
+    font-size: 0.82rem;
+    padding: 12px 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .courses-section-wrapper {
+    padding: 50px 12px 70px 12px;
+  }
+
+  .card-body-content {
+    padding: 16px 12px 14px 12px;
+  }
+
+  .course-title-text {
+    font-size: 1.15rem;
+  }
+
+  .card-banner-media {
+    height: 160px;
+  }
+}

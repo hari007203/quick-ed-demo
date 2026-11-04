@@ -162,3 +162,68 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS (≤480px and ≤380px)
+   CRITICAL: Desktop rules are untouched above.
+   ========================================================================== */
+@media (max-width: 480px) {
+  .quick-contact-section {
+    padding: 60px 16px;
+  }
+
+  .strip-main-title {
+    font-size: clamp(1.8rem, 7vw, 2.3rem);
+  }
+
+  .strip-sub-line {
+    font-size: 0.9rem;
+  }
+
+  /* CRITICAL FIX: Eliminate 340px min width overflow */
+  .contact-trio-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .contact-action-box {
+    padding: 24px 18px;
+    border-radius: 16px;
+  }
+
+  .action-icon-circle {
+    width: 46px;
+    height: 46px;
+    font-size: 1.25rem;
+    margin-bottom: 14px;
+  }
+
+  .action-main-text {
+    font-size: 1.15rem;
+  }
+
+  .action-sub-text {
+    font-size: 0.82rem;
+  }
+
+  .action-detail {
+    font-size: 0.88rem;
+    word-break: break-all;
+    overflow-wrap: break-word;
+  }
+}
+
+@media (max-width: 380px) {
+  .quick-contact-section {
+    padding: 50px 12px;
+  }
+
+  .contact-action-box {
+    padding: 20px 14px;
+  }
+
+  .action-main-text {
+    font-size: 1.05rem;
+  }
+}

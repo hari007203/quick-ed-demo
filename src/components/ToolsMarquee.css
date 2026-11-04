@@ -149,3 +149,48 @@
     animation: none !important;
   }
 }
+
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS (≤480px and ≤380px)
+   CRITICAL: Desktop rules are untouched above.
+   ========================================================================== */
+@media (max-width: 480px) {
+  .tools-marquee-section {
+    padding: 36px 0;
+  }
+
+  .tools-marquee-title {
+    font-size: 0.74rem;
+    letter-spacing: 0.16em;
+    margin-bottom: 20px;
+    padding: 0 16px;
+  }
+
+  .tool-item-pill {
+    padding: 8px 16px;
+    gap: 8px;
+    font-size: 0.82rem;
+  }
+
+  .tool-pill-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .tools-marquee-edge-fade.left,
+  .tools-marquee-edge-fade.right {
+    width: 36px;
+  }
+}
+
+@media (max-width: 380px) {
+  .tools-marquee-section {
+    padding: 30px 0;
+  }
+
+  .tool-item-pill {
+    padding: 7px 13px;
+    font-size: 0.78rem;
+  }
+}

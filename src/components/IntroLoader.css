@@ -288,3 +288,87 @@
 .reticle-tr { top: 20px; right: 20px; border-width: 2px 2px 0 0; }
 .reticle-bl { bottom: 20px; left: 20px; border-width: 0 0 2px 2px; }
 .reticle-br { bottom: 20px; right: 20px; border-width: 0 2px 2px 0; }
+
+/* ==========================================================================
+   Mobile — 480px and below
+   Reduced spacing, accessible tap targets, tighter typography
+   ========================================================================== */
+@media (max-width: 480px) {
+  .intro-stage {
+    padding: 0 16px;
+    gap: 12px;
+  }
+
+  .intro-skip-btn {
+    top: 16px;
+    right: 16px;
+    padding: 10px 20px;
+    font-size: 0.82rem;
+    /* Ensure minimum 44×44 tap target */
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .intro-crimson-tagline {
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+  }
+
+  .intro-sub-programs {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+  }
+
+  .intro-status-row {
+    font-size: 0.66rem;
+  }
+
+  .intro-progress-box {
+    max-width: 100%;
+    margin-top: 10px;
+  }
+
+  .intro-brand-name {
+    gap: 8px;
+  }
+
+  /* Reduce flare sizes to prevent overflow */
+  .intro-flare-crimson {
+    width: 320px;
+    height: 320px;
+  }
+
+  .intro-flare-forest {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Tighten reticle corners */
+  .reticle-tl { top: 12px; left: 12px; }
+  .reticle-tr { top: 12px; right: 12px; }
+  .reticle-bl { bottom: 12px; left: 12px; }
+  .reticle-br { bottom: 12px; right: 12px; }
+}
+
+@media (max-width: 380px) {
+  .intro-crimson-tagline {
+    letter-spacing: 0.06em;
+    font-size: 0.78rem;
+  }
+
+  .intro-status-row {
+    font-size: 0.6rem;
+  }
+
+  .intro-skip-btn {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-halo-ring,
+  .intro-scan-line {
+    animation: none !important;
+  }
+}

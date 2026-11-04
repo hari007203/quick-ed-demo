@@ -631,3 +631,335 @@
     transform: none !important;
   }
 }
+
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS — 480px and below
+   ========================================================================== */
+@media (max-width: 480px) {
+  /* Overall section padding reduction */
+  .trainers-section {
+    padding: 56px 12px 70px;
+  }
+
+  .trainers-header {
+    margin-bottom: 32px;
+  }
+
+  .trainers-badge {
+    font-size: 0.7rem;
+    padding: 6px 16px;
+    gap: 7px;
+  }
+
+  .trainers-title {
+    font-size: 1.75rem;
+    margin-bottom: 14px;
+  }
+
+  .trainers-sub {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  /* Trainer card — reduce photo height for small phones */
+  .trainer-photo-col {
+    min-height: 280px;
+    height: 280px;
+  }
+
+  .trainer-showcase-card {
+    border-radius: 18px;
+  }
+
+  /* Info column — reduce padding */
+  .trainer-info-col {
+    padding: 20px 16px 24px;
+  }
+
+  /* Name — reduce font size */
+  .trainer-showcase-name {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+  }
+
+  /* Role — reduce font size */
+  .trainer-showcase-role {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+  }
+
+  /* Bio text — slight reduction */
+  .trainer-bio-text,
+  .trainer-showcase-bio {
+    font-size: 0.85rem;
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+
+  /* Skill tags — smaller */
+  .skill-tag {
+    padding: 4px 9px;
+    font-size: 0.7rem;
+  }
+
+  .skills-label {
+    font-size: 0.7rem;
+  }
+
+  .skills-block {
+    margin-bottom: 10px;
+  }
+
+  /* Footer features — stack vertically */
+  .trainer-footer-features {
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 12px;
+  }
+
+  .feature-item {
+    font-size: 0.76rem;
+    gap: 6px;
+  }
+
+  .feature-check {
+    font-size: 0.85rem;
+  }
+
+  /* Trainer meta badges */
+  .trainer-status-badge {
+    font-size: 0.67rem;
+    padding: 4px 10px;
+  }
+
+  .trainer-mentored-tag {
+    font-size: 0.72rem;
+    padding: 4px 10px;
+  }
+
+  /* Controls bar — smaller buttons and less gap */
+  .trainers-controls-bar {
+    gap: 12px;
+    margin-top: 22px;
+  }
+
+  .trainer-nav-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .trainers-pagination-pills {
+    padding: 6px 12px;
+    gap: 7px;
+  }
+
+  .trainer-pagination-bullet {
+    width: 10px;
+    height: 10px;
+  }
+
+  .trainer-pagination-bullet.active {
+    width: 28px;
+  }
+
+  .trainers-swiper {
+    border-radius: 18px;
+  }
+}
+
+/* ==========================================================================
+   EXTRA-SMALL SCREENS — 380px and below
+   ========================================================================== */
+@media (max-width: 380px) {
+  .trainers-section {
+    padding: 44px 8px 56px;
+  }
+
+  .trainers-title {
+    font-size: 1.5rem;
+  }
+
+  .trainers-sub {
+    font-size: 0.85rem;
+  }
+
+  .trainers-badge {
+    font-size: 0.64rem;
+    padding: 5px 12px;
+  }
+
+  .trainer-photo-col {
+    min-height: 240px;
+    height: 240px;
+  }
+
+  .trainer-info-col {
+    padding: 16px 12px 20px;
+  }
+
+  .trainer-showcase-name {
+    font-size: 1.3rem;
+  }
+
+  .trainer-showcase-role {
+    font-size: 0.78rem;
+  }
+
+  .trainer-bio-text,
+  .trainer-showcase-bio {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .skill-tag {
+    padding: 3px 7px;
+    font-size: 0.65rem;
+  }
+
+  .trainer-nav-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .trainers-controls-bar {
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .trainer-showcase-card {
+    border-radius: 14px;
+  }
+
+  .feature-item {
+    font-size: 0.72rem;
+  }
+}
+
+/* Reduce heavy animations on mobile for performance */
+@media (max-width: 480px) and (prefers-reduced-motion: no-preference) {
+  .reveal-content {
+    animation-duration: 0.5s;
+  }
+
+  .super-flow-fragment {
+    animation-duration: 0.6s;
+  }
+
+  .trainer-photo-wrapper.is-transitioning .trainer-photo-main {
+    animation-duration: 0.6s;
+  }
+}
+
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS (≤480px and ≤380px)
+   CRITICAL: Desktop rules are untouched above.
+   ========================================================================== */
+@media (max-width: 480px) {
+  .trainers-section-wrapper {
+    padding: 60px 16px 80px 16px;
+  }
+
+  .trainers-heading-block {
+    margin-bottom: 32px;
+  }
+
+  .trainers-title-main {
+    font-size: clamp(1.85rem, 7vw, 2.4rem);
+  }
+
+  .trainer-showcase-card {
+    border-radius: 18px;
+    margin-bottom: 24px;
+  }
+
+  .trainer-photo-col {
+    min-height: 280px;
+    height: 300px;
+    padding: 14px;
+  }
+
+  .trainer-photo-frame {
+    border-radius: 14px;
+  }
+
+  .trainer-info-col {
+    padding: 24px 18px;
+  }
+
+  .trainer-showcase-name {
+    font-size: 1.55rem;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .trainer-showcase-role {
+    font-size: 0.88rem;
+    margin-bottom: 16px;
+  }
+
+  .trainer-bio-text {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .trainer-skills-block {
+    margin-bottom: 20px;
+  }
+
+  .skills-pill-wrap {
+    gap: 6px;
+  }
+
+  .skill-tag {
+    padding: 4px 10px;
+    font-size: 0.74rem;
+  }
+
+  .trainer-footer-features {
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 16px;
+  }
+
+  .feature-item {
+    font-size: 0.8rem;
+  }
+
+  .trainers-controls-bar {
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .trainers-nav-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .trainers-nav-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 380px) {
+  .trainers-section-wrapper {
+    padding: 50px 12px 60px 12px;
+  }
+
+  .trainer-photo-col {
+    min-height: 240px;
+    height: 250px;
+    padding: 10px;
+  }
+
+  .trainer-info-col {
+    padding: 18px 14px;
+  }
+
+  .trainer-showcase-name {
+    font-size: 1.35rem;
+  }
+}

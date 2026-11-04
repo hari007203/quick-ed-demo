@@ -194,3 +194,68 @@
 .help-done-btn:hover {
   background: linear-gradient(135deg, #BF2022 0%, #E62A39 100%);
 }
+
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS (≤480px and ≤380px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  .help-modal-overlay {
+    padding: 12px;
+  }
+
+  .help-modal-box {
+    padding: 24px 18px;
+    border-radius: 18px;
+    max-height: 90vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .help-title {
+    font-size: 1.3rem;
+  }
+
+  .help-subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+
+  .help-channel-card {
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .channel-icon-circle {
+    width: 42px;
+    height: 42px;
+    font-size: 1.15rem;
+  }
+
+  .channel-lbl {
+    font-size: 0.74rem;
+  }
+
+  .channel-val {
+    font-size: 0.92rem;
+    word-break: break-all;
+    overflow-wrap: break-word;
+  }
+
+  .help-close-btn {
+    width: 36px;
+    height: 36px;
+    top: 14px;
+    right: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .help-modal-box {
+    padding: 20px 14px;
+  }
+
+  .help-title {
+    font-size: 1.18rem;
+  }
+}

@@ -494,3 +494,259 @@
     animation: none !important;
   }
 }
+
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS — 480px and below
+   ========================================================================== */
+@media (max-width: 480px) {
+  .about-agency-section {
+    padding: 76px 14px 40px;
+  }
+
+  .agency-container {
+    gap: 24px;
+    padding-bottom: 20px;
+  }
+
+  /* Badge — smaller on mobile */
+  .agency-badge {
+    font-size: 0.65rem;
+    padding: 5px 13px;
+    gap: 6px;
+    letter-spacing: 0.1em;
+    margin-bottom: 18px;
+  }
+
+  /* Hero title — override clamp for small screens */
+  .agency-hero-title {
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  /* Lead paragraph — slight reduction */
+  .agency-lead-paragraph {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  /* Actions row — stack vertically, full-width buttons */
+  .agency-actions-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  /* Primary CTA — near full-width */
+  .agency-primary-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+  }
+
+  /* Secondary CTA — near full-width */
+  .agency-brochure-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+    font-size: 0.9rem;
+  }
+
+  /* Metrics — reduce gap */
+  .agency-metrics-grid {
+    gap: 20px;
+  }
+
+  .metric-number {
+    font-size: 1.15rem;
+  }
+
+  .metric-label {
+    font-size: 0.62rem;
+  }
+
+  .metric-icon-wrap {
+    width: 34px;
+    height: 34px;
+  }
+
+  /* Highlights grid — single column */
+  .hero-highlights-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .hero-highlights-wrap {
+    margin-top: 10px;
+  }
+
+  /* Highlight cards — less padding */
+  .highlight-card {
+    padding: 14px 16px;
+    gap: 12px;
+    border-radius: 12px;
+  }
+
+  .highlight-icon-box {
+    width: 38px;
+    height: 38px;
+  }
+
+  .highlight-title {
+    font-size: 0.88rem;
+  }
+
+  .highlight-subtitle {
+    font-size: 0.82rem;
+  }
+}
+
+/* ==========================================================================
+   EXTRA-SMALL SCREENS — 380px and below
+   ========================================================================== */
+@media (max-width: 380px) {
+  .about-agency-section {
+    padding: 72px 10px 32px;
+  }
+
+  .agency-hero-title {
+    font-size: 1.7rem;
+    line-height: 1.15;
+  }
+
+  .agency-lead-paragraph {
+    font-size: 0.88rem;
+  }
+
+  .agency-badge {
+    font-size: 0.6rem;
+    padding: 4px 10px;
+  }
+
+  .agency-primary-btn {
+    padding: 12px 16px;
+    font-size: 0.88rem;
+  }
+
+  .agency-brochure-btn {
+    padding: 11px 16px;
+    font-size: 0.84rem;
+  }
+
+  .agency-metrics-grid {
+    gap: 16px;
+  }
+
+  .metric-number {
+    font-size: 1.05rem;
+  }
+
+  .highlight-card {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .highlight-icon-box {
+    width: 34px;
+    height: 34px;
+  }
+
+  .highlight-title {
+    font-size: 0.82rem;
+  }
+
+  .highlight-subtitle {
+    font-size: 0.76rem;
+  }
+}
+
+/* Reduce entrance animations on mobile for performance */
+@media (max-width: 480px) and (prefers-reduced-motion: no-preference) {
+  .hero-anim-badge,
+  .hero-anim-title,
+  .hero-anim-desc,
+  .hero-anim-actions,
+  .hero-anim-metrics,
+  .hero-anim-highlights,
+  .metric-stagger-1,
+  .metric-stagger-2,
+  .metric-stagger-3 {
+    animation-duration: 0.4s;
+  }
+}
+
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS (≤480px and ≤380px)
+   CRITICAL: Desktop rules are untouched above.
+   ========================================================================== */
+@media (max-width: 480px) {
+  .hero-agency-section {
+    padding: 100px 16px 60px 16px;
+  }
+
+  .agency-badge {
+    padding: 5px 12px;
+    font-size: 0.72rem;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .agency-lead-paragraph {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .agency-actions-row {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 36px;
+  }
+
+  .agency-primary-btn,
+  .agency-secondary-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
+    font-size: 0.92rem;
+  }
+
+  .hero-highlights-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .highlight-card {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .highlight-metric {
+    font-size: 1.75rem;
+  }
+
+  .highlight-label {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-agency-section {
+    padding: 90px 12px 50px 12px;
+  }
+
+  .agency-title-line {
+    font-size: 2.2rem !important;
+  }
+
+  .highlight-card {
+    padding: 16px 14px;
+  }
+}

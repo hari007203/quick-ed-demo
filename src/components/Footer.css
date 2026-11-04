@@ -254,3 +254,55 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ==========================================================================
+   MOBILE RESPONSIVENESS (≤480px and ≤380px)
+   CRITICAL: Desktop rules are untouched above.
+   ========================================================================== */
+@media (max-width: 480px) {
+  .footer-root {
+    padding: 50px 16px 28px 16px;
+  }
+
+  .footer-contact-list a {
+    word-break: break-all;
+    overflow-wrap: break-word;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .footer-social-cluster {
+    justify-content: center;
+  }
+
+  .footer-social-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .footer-newsletter-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-newsletter-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .footer-root {
+    padding: 40px 12px 24px 12px;
+  }
+
+  .footer-brand-title {
+    font-size: 1.15rem;
+  }
+}

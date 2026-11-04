@@ -344,3 +344,63 @@
     animation: none !important;
   }
 }
+
+/* ==========================================================================
+   Extra-Small Mobile — 380px and below
+   Tighter 3D scene, reduced decorative elements, no overflow at 320px
+   ========================================================================== */
+@media (max-width: 380px) {
+  .hero-3d-scene-container {
+    height: 250px;
+    max-width: 260px;
+    perspective: 800px;
+    overflow: hidden;
+  }
+
+  .hero-3d-stage {
+    width: 220px;
+    height: 220px;
+  }
+
+  .hero-3d-ambient-glow {
+    width: 200px;
+    height: 200px;
+    filter: blur(40px);
+  }
+
+  .ring-outer {
+    width: 220px;
+    height: 220px;
+  }
+
+  .ring-middle {
+    width: 170px;
+    height: 170px;
+  }
+
+  .hero-3d-laser-halo {
+    width: 130px;
+    height: 130px;
+  }
+
+  .hero-3d-monument-frame {
+    width: 90px;
+    height: 90px;
+    border-radius: 20px;
+  }
+
+  /* Prevent laser beam from causing horizontal overflow */
+  .hero-3d-laser-beam {
+    width: 200px;
+  }
+
+  /* Hide corner brackets on tiny screens — purely decorative */
+  .hero-corner-bracket {
+    display: none;
+  }
+
+  /* Nodes already hidden at ≤520px, reinforce */
+  .hero-3d-node {
+    display: none;
+  }
+}
