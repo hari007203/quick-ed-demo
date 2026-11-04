@@ -75,16 +75,40 @@
   display: flex;
   gap: 16px;
   width: max-content;
+  touch-action: pan-y;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
   animation: scrollInfinite 32s linear infinite;
+  -webkit-animation: scrollInfinite 32s linear infinite;
 }
 
-.marquee-track:hover {
-  animation-play-state: paused;
+/* Pause on hover only on desktop devices with true hover capability */
+@media (hover: hover) and (pointer: fine) {
+  .marquee-track:hover {
+    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+  }
 }
 
 @keyframes scrollInfinite {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+    -webkit-transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@-webkit-keyframes scrollInfinite {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-50%, 0, 0);
+  }
 }
 
 /* Pill Card in #101B16 */
@@ -167,19 +191,22 @@
     padding: 0 16px;
   }
 
-  .tool-item-pill {
+  .tool-item-pill,
+  .tool-pill-card {
     padding: 8px 16px;
     gap: 8px;
     font-size: 0.82rem;
   }
 
-  .tool-pill-icon {
-    width: 20px;
-    height: 20px;
+  .tool-pill-icon,
+  .tool-icon {
+    font-size: 1.15rem;
   }
 
   .tools-marquee-edge-fade.left,
-  .tools-marquee-edge-fade.right {
+  .tools-marquee-edge-fade.right,
+  .edge-fade.left,
+  .edge-fade.right {
     width: 36px;
   }
 }
@@ -189,7 +216,8 @@
     padding: 30px 0;
   }
 
-  .tool-item-pill {
+  .tool-item-pill,
+  .tool-pill-card {
     padding: 7px 13px;
     font-size: 0.78rem;
   }

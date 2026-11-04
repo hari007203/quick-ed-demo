@@ -85,6 +85,7 @@ export default function TrainersSection() {
   const [activeTrainerIndex, setActiveTrainerIndex] = useState(0);
   const [prevTrainerIndex, setPrevTrainerIndex] = useState(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isDispersing, setIsDispersing] = useState(false);
   const [transitionDirection, setTransitionDirection] = useState(1);
   const [swiperInstance, setSwiperInstance] = useState(null);
 
@@ -191,21 +192,43 @@ export default function TrainersSection() {
       setPrevTrainerIndex(oldIndex);
       setActiveTrainerIndex(newIndex);
       setIsTransitioning(true);
+      setIsDispersing(false);
 
-      // Safety fallback timer to guarantee transition state resets
+      // Trigger dispersal in next frame so the initial 0-transform state is painted
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setIsDispersing(true);
+        });
+      });
+
+      // Complete lifecycle timer for the full 1050ms staggered fragment dispersal
       if (transitionTimeoutRef.current) {
         clearTimeout(transitionTimeoutRef.current);
       }
       transitionTimeoutRef.current = setTimeout(() => {
         setIsTransitioning(false);
+        setIsDispersing(false);
         setPrevTrainerIndex(null);
-      }, 920);
+      }, 1050);
     }
   };
 
   const handleSlideChangeEnd = () => {
-    setIsTransitioning(false);
-    setPrevTrainerIndex(null);
+    // Preserve active dispersal until the complete 1050ms animation lifecycle finishes
+    // This prevents quick touch swipes on Android mobile from truncating the animation
+  };
+
+  // Desktop hover pause: only pauses on devices with actual hover capability (never on touch screens)
+  const handleMouseEnter = () => {
+    if (typeof window !== 'undefined' && window.matchMedia('(hover: hover) and (pointer: fine)').matches && swiperInstance?.autoplay) {
+      swiperInstance.autoplay.stop();
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (typeof window !== 'undefined' && window.matchMedia('(hover: hover) and (pointer: fine)').matches && swiperInstance?.autoplay) {
+      swiperInstance.autoplay.start();
+    }
   };
 
   const handlePrevClick = () => {
@@ -245,7 +268,11 @@ export default function TrainersSection() {
         </div>
 
         {/* Super Flow-Inspired Swiper Carousel */}
-        <div className="trainers-carousel-wrapper">
+        <div 
+          className="trainers-carousel-wrapper"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
           <Swiper
             modules={[Autoplay, Navigation, Pagination, Keyboard, EffectFade]}
             effect="fade"
@@ -256,7 +283,7 @@ export default function TrainersSection() {
             autoplay={{
               delay: 3000,
               disableOnInteraction: false,
-              pauseOnMouseEnter: true,
+              pauseOnMouseEnter: false, // Prevents simulated mouseenter on Android touch from permanently pausing autoplay
             }}
             keyboard={{
               enabled: true,
@@ -292,34 +319,46 @@ export default function TrainersSection() {
                         {/* Super Flow Triangular Fragment Overlay (Outgoing Image Fragment Dispersal) */}
                         {isIncomingTransition && outgoingImage && (
                           <div 
-                            className="super-flow-fragments-stage" 
+                            className={`super-flow-fragments-stage ${isDispersing ? 'is-active' : ''}`}
                             style={{ '--dir': transitionDirection }}
                             aria-hidden="true"
                           >
-                            {SUPER_FLOW_FRAGMENTS.map((frag) => (
-                              <div
-                                key={frag.id}
-                                className="super-flow-fragment"
-                                style={{
-                                  clipPath: frag.clip,
-                                  WebkitClipPath: frag.clip,
-                                  '--tx': `${frag.tx * transitionDirection}px`,
-                                  '--ty': `${frag.ty}px`,
-                                  '--tz': `${frag.tz}px`,
-                                  '--rx': `${frag.rx}deg`,
-                                  '--ry': `${frag.ry * transitionDirection}deg`,
-                                  '--rz': `${frag.rz * transitionDirection}deg`,
-                                  '--scale': frag.scale,
-                                  '--delay': `${frag.delay}ms`,
-                                }}
-                              >
-                                <img
-                                  src={outgoingImage}
-                                  alt=""
-                                  className="super-flow-fragment-img"
-                                />
-                              </div>
-                            ))}
+                            {SUPER_FLOW_FRAGMENTS.map((frag) => {
+                              const activeTransform = `translate3d(${frag.tx * transitionDirection}px, ${frag.ty}px, ${frag.tz}px) rotateX(${frag.rx}deg) rotateY(${frag.ry * transitionDirection}deg) rotateZ(${frag.rz * transitionDirection}deg) scale(${frag.scale})`;
+                              const baseTransform = 'translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1)';
+
+                              return (
+                                <div
+                                  key={frag.id}
+                                  className={`super-flow-fragment ${isDispersing ? 'is-dispersed' : ''}`}
+                                  style={{
+                                    clipPath: frag.clip,
+                                    WebkitClipPath: frag.clip,
+                                    transform: isDispersing ? activeTransform : baseTransform,
+                                    WebkitTransform: isDispersing ? activeTransform : baseTransform,
+                                    opacity: isDispersing ? 0 : 1,
+                                    transition: 'transform 0.82s cubic-bezier(0.16, 1, 0.3, 1), -webkit-transform 0.82s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.82s cubic-bezier(0.16, 1, 0.3, 1)',
+                                    WebkitTransition: '-webkit-transform 0.82s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.82s cubic-bezier(0.16, 1, 0.3, 1)',
+                                    transitionDelay: `${frag.delay}ms`,
+                                    WebkitTransitionDelay: `${frag.delay}ms`,
+                                    '--tx': `${frag.tx * transitionDirection}px`,
+                                    '--ty': `${frag.ty}px`,
+                                    '--tz': `${frag.tz}px`,
+                                    '--rx': `${frag.rx}deg`,
+                                    '--ry': `${frag.ry * transitionDirection}deg`,
+                                    '--rz': `${frag.rz * transitionDirection}deg`,
+                                    '--scale': frag.scale,
+                                    '--delay': `${frag.delay}ms`,
+                                  }}
+                                >
+                                  <img
+                                    src={outgoingImage}
+                                    alt=""
+                                    className="super-flow-fragment-img"
+                                  />
+                                </div>
+                              );
+                            })}
                           </div>
                         )}
 

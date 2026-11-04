@@ -1,4 +1,3 @@
-import React from 'react';
 import './ToolsMarquee.css';
 
 export default function ToolsMarquee() {
