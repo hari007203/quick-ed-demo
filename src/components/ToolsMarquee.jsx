@@ -1,6 +1,18 @@
+import { useState, useEffect } from 'react';
 import './ToolsMarquee.css';
 
-export default function ToolsMarquee() {
+export default function ToolsMarquee({ isAppReady = true }) {
+  const [isMarqueeActive, setIsMarqueeActive] = useState(false);
+
+  useEffect(() => {
+    if (isAppReady) {
+      const timer = setTimeout(() => {
+        setIsMarqueeActive(true);
+      }, 60);
+      return () => clearTimeout(timer);
+    }
+  }, [isAppReady]);
+
   const tools = [
     { name: 'Java 21', icon: '☕', tag: 'Backend' },
     { name: 'Python', icon: '🐍', tag: 'AI & Backend' },
@@ -29,7 +41,7 @@ export default function ToolsMarquee() {
         <div className="edge-fade left" />
         <div className="edge-fade right" />
 
-        <div className="marquee-track">
+        <div className={`marquee-track ${isMarqueeActive ? 'is-animated' : ''}`}>
           {marqueeList.map((tool, idx) => (
             <div key={idx} className="tool-pill-card">
               <span className="tool-icon">{tool.icon}</span>

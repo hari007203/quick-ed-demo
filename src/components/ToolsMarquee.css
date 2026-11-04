@@ -79,6 +79,9 @@
   will-change: transform;
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
+}
+
+.marquee-track.is-animated {
   animation: scrollInfinite 32s linear infinite;
   -webkit-animation: scrollInfinite 32s linear infinite;
 }
@@ -169,8 +172,18 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track {
+  .marquee-track-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .marquee-track,
+  .marquee-track.is-animated {
     animation: none !important;
+    -webkit-animation: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
   }
 }
 

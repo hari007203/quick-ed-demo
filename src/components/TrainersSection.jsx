@@ -10,10 +10,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
 import './TrainersSection.css';
-import Hari from '../assets/Hari.png';
-import Karthik from '../assets/Karthik.png';
-import Ameesha from '../assets/Ameesha.png';
-import Akash from '../assets/Akash.png';
+import Hari from '../assets/Hari.webp';
+import Karthik from '../assets/Karthik.webp';
+import Ameesha from '../assets/Ameesha.webp';
+import Akash from '../assets/Akash.webp';
 
 /* ==========================================================================
    24 SEAMLESS TRIANGULAR FRAGMENTS GENERATOR
@@ -81,7 +81,56 @@ const SUPER_FLOW_FRAGMENTS = RAW_TRIANGLES.map((tri, i) => {
   };
 });
 
+// Four existing trainers strictly preserved
+const TRAINERS = [
+  {
+    id: 1,
+    name: 'Sri Hari Chilumuri',
+    role: 'Java Developer | Frontend & Backend Development',
+    companies: [],
+    image: Hari,
+    accentColor: '#A31C1B',
+    mentored: '430+ Engineers',
+    specialty: 'Java, HTML5, CSS3, JavaScript, React.js & SQL',
+    bio: 'Computer Science graduate with a strong foundation in Java programming, frontend development and database management. Focused on building responsive web applications, developing practical software solutions and continuously strengthening technical skills.',
+  },
+  {
+    id: 2,
+    name: 'Akash Katam',
+    role: 'GenAI & Python Full-Stack Developer',
+    companies: [],
+    image: Akash,
+    accentColor: '#8B5CF6',
+    mentored: '380+ Engineers',
+    specialty: 'Generative AI, LLMs, Prompt Engineering, Python, Django, FastAPI, REST APIs & Full-Stack Development',
+    bio: 'Specializes in Generative AI concepts and Python-based application development, with a focus on building intelligent applications, developing backend services and integrating AI capabilities into modern full-stack solutions.',
+  },
+  {
+    id: 3,
+    name: 'Karthik Neelagiri',
+    role: 'Cybersecurity & Network Security Specialist',
+    companies: [],
+    image: Karthik,
+    accentColor: '#10B981',
+    mentored: '310+ Engineers',
+    specialty: 'Ethical Hacking, Network Security, TCP/IP, Routing & Switching, Linux, SOC Operations & SIEM Tools',
+    bio: 'Focuses on cybersecurity fundamentals and network infrastructure, covering ethical hacking, network defense, Linux security and security monitoring. Emphasizes hands-on lab exercises, practical troubleshooting and real-world security concepts.',
+  },
+  {
+    id: 4,
+    name: 'Ameesha Gade',
+    role: 'Software Testing & QA Trainer',
+    companies: [],
+    image: Ameesha,
+    accentColor: '#F43F5E',
+    mentored: '390+ Engineers',
+    specialty: 'Manual Testing, Automation Testing, Selenium, Playwright, API Testing, SQL & Test Case Design',
+    bio: 'Focuses on software testing fundamentals and quality assurance practices, covering manual and automation testing, test case design, API validation and defect tracking. Emphasizes practical exercises and hands-on projects to help learners develop industry-relevant testing skills.',
+  },
+];
+
 export default function TrainersSection() {
+  const trainers = TRAINERS;
   const [activeTrainerIndex, setActiveTrainerIndex] = useState(0);
   const [prevTrainerIndex, setPrevTrainerIndex] = useState(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -91,54 +140,7 @@ export default function TrainersSection() {
 
   const sectionRef = useRef(null);
   const transitionTimeoutRef = useRef(null);
-
-  // Four existing trainers strictly preserved
-  const trainers = [
-    {
-      id: 1,
-      name: 'Sri Hari Chilumuri',
-      role: 'Java Developer | Frontend & Backend Development',
-      companies: [],
-      image: Hari,
-      accentColor: '#A31C1B',
-      mentored: '430+ Engineers',
-      specialty: 'Java, HTML5, CSS3, JavaScript, React.js & SQL',
-      bio: 'Computer Science graduate with a strong foundation in Java programming, frontend development and database management. Focused on building responsive web applications, developing practical software solutions and continuously strengthening technical skills.',
-    },
-    {
-      id: 2,
-      name: 'Akash Katam',
-      role: 'GenAI & Python Full-Stack Developer',
-      companies: [],
-      image: Akash,
-      accentColor: '#8B5CF6',
-      mentored: '380+ Engineers',
-      specialty: 'Generative AI, LLMs, Prompt Engineering, Python, Django, FastAPI, REST APIs & Full-Stack Development',
-      bio: 'Specializes in Generative AI concepts and Python-based application development, with a focus on building intelligent applications, developing backend services and integrating AI capabilities into modern full-stack solutions.',
-    },
-    {
-      id: 3,
-      name: 'Karthik Neelagiri',
-      role: 'Cybersecurity & Network Security Specialist',
-      companies: [],
-      image: Karthik,
-      accentColor: '#10B981',
-      mentored: '310+ Engineers',
-      specialty: 'Ethical Hacking, Network Security, TCP/IP, Routing & Switching, Linux, SOC Operations & SIEM Tools',
-      bio: 'Focuses on cybersecurity fundamentals and network infrastructure, covering ethical hacking, network defense, Linux security and security monitoring. Emphasizes hands-on lab exercises, practical troubleshooting and real-world security concepts.',
-    },
-    {
-      id: 4,
-      name: 'Ameesha Gade',
-      role: 'Software Testing & QA Trainer',
-      companies: [],
-      image: Ameesha,
-      accentColor: '#F43F5E',
-      mentored: '390+ Engineers',
-      specialty: 'Manual Testing, Automation Testing, Selenium, Playwright, API Testing, SQL & Test Case Design',
-      bio: 'Focuses on software testing fundamentals and quality assurance practices, covering manual and automation testing, test case design, API validation and defect tracking. Emphasizes practical exercises and hands-on projects to help learners develop industry-relevant testing skills.',
-    },
-  ];
+  const activeTrainerIndexRef = useRef(0);
 
   // Scroll entrance observer
   useEffect(() => {
@@ -168,6 +170,17 @@ export default function TrainersSection() {
     }
   }, [swiperInstance]);
 
+  // Pre-decode all trainer images so transitions never stall or render blank bitmaps
+  useEffect(() => {
+    TRAINERS.forEach((t) => {
+      const img = new Image();
+      img.src = t.image;
+      if (img.decode) {
+        img.decode().catch(() => {});
+      }
+    });
+  }, []);
+
   // Clean up any pending transition safety timer
   useEffect(() => {
     return () => {
@@ -180,7 +193,7 @@ export default function TrainersSection() {
   // Swiper Slide Change Event Handlers
   const handleSlideChangeStart = (swiper) => {
     const newIndex = swiper.realIndex;
-    const oldIndex = activeTrainerIndex;
+    const oldIndex = activeTrainerIndexRef.current;
 
     if (newIndex !== oldIndex) {
       // Determine forward or backward direction
@@ -191,6 +204,7 @@ export default function TrainersSection() {
       setTransitionDirection(dir);
       setPrevTrainerIndex(oldIndex);
       setActiveTrainerIndex(newIndex);
+      activeTrainerIndexRef.current = newIndex;
       setIsTransitioning(true);
       setIsDispersing(false);
 
@@ -273,6 +287,56 @@ export default function TrainersSection() {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
+          {/* PERSISTENT 24-FRAGMENT OVERLAY: Decoupled from Swiper loop cloning */}
+          {isTransitioning && prevTrainerIndex !== null && trainers[prevTrainerIndex] && (
+            <div 
+              className="trainers-persistent-fragments-overlay" 
+              aria-hidden="true"
+            >
+              <div 
+                className={`super-flow-fragments-stage ${isDispersing ? 'is-active' : ''}`}
+                style={{ '--dir': transitionDirection }}
+              >
+                {SUPER_FLOW_FRAGMENTS.map((frag) => {
+                  const activeTransform = `translate3d(${frag.tx * transitionDirection}px, ${frag.ty}px, ${frag.tz}px) rotateX(${frag.rx}deg) rotateY(${frag.ry * transitionDirection}deg) rotateZ(${frag.rz * transitionDirection}deg) scale(${frag.scale})`;
+                  const baseTransform = 'translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1)';
+
+                  return (
+                    <div
+                      key={frag.id}
+                      className={`super-flow-fragment ${isDispersing ? 'is-dispersed' : ''}`}
+                      style={{
+                        clipPath: frag.clip,
+                        WebkitClipPath: frag.clip,
+                        transform: isDispersing ? activeTransform : baseTransform,
+                        WebkitTransform: isDispersing ? activeTransform : baseTransform,
+                        opacity: isDispersing ? 0 : 1,
+                        transition: 'transform 0.82s cubic-bezier(0.16, 1, 0.3, 1), -webkit-transform 0.82s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.82s cubic-bezier(0.16, 1, 0.3, 1)',
+                        WebkitTransition: '-webkit-transform 0.82s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.82s cubic-bezier(0.16, 1, 0.3, 1)',
+                        transitionDelay: `${frag.delay}ms`,
+                        WebkitTransitionDelay: `${frag.delay}ms`,
+                        '--tx': `${frag.tx * transitionDirection}px`,
+                        '--ty': `${frag.ty}px`,
+                        '--tz': `${frag.tz}px`,
+                        '--rx': `${frag.rx}deg`,
+                        '--ry': `${frag.ry * transitionDirection}deg`,
+                        '--rz': `${frag.rz * transitionDirection}deg`,
+                        '--scale': frag.scale,
+                        '--delay': `${frag.delay}ms`,
+                      }}
+                    >
+                      <img
+                        src={trainers[prevTrainerIndex].image}
+                        alt=""
+                        className="super-flow-fragment-img"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
           <Swiper
             modules={[Autoplay, Navigation, Pagination, Keyboard, EffectFade]}
             effect="fade"
@@ -293,11 +357,8 @@ export default function TrainersSection() {
             onSlideChangeTransitionEnd={handleSlideChangeEnd}
             className="trainers-swiper"
           >
-            {trainers.map((trainer, index) => {
+            {trainers.map((trainer) => {
               const skills = trainer.specialty.split(',').map((s) => s.trim());
-              const isCurrentActive = activeTrainerIndex === index;
-              const isIncomingTransition = isCurrentActive && isTransitioning && prevTrainerIndex !== null;
-              const outgoingImage = isIncomingTransition ? trainers[prevTrainerIndex].image : null;
 
               return (
                 <SwiperSlide key={trainer.id} className="trainer-slide">
@@ -305,9 +366,9 @@ export default function TrainersSection() {
                     className="trainer-showcase-card"
                     style={{ '--accent': trainer.accentColor }}
                   >
-                    {/* LEFT COLUMN: Trainer Photograph with Super Flow Triangular Fragment Engine */}
+                    {/* LEFT COLUMN: Trainer Photograph */}
                     <div className="trainer-photo-col">
-                      <div className={`trainer-photo-wrapper ${isIncomingTransition ? 'is-transitioning' : ''}`}>
+                      <div className="trainer-photo-wrapper">
                         {/* Base High-Resolution Trainer Portrait */}
                         <img
                           src={trainer.image}
@@ -315,52 +376,6 @@ export default function TrainersSection() {
                           className="trainer-photo-main"
                           loading="eager"
                         />
-
-                        {/* Super Flow Triangular Fragment Overlay (Outgoing Image Fragment Dispersal) */}
-                        {isIncomingTransition && outgoingImage && (
-                          <div 
-                            className={`super-flow-fragments-stage ${isDispersing ? 'is-active' : ''}`}
-                            style={{ '--dir': transitionDirection }}
-                            aria-hidden="true"
-                          >
-                            {SUPER_FLOW_FRAGMENTS.map((frag) => {
-                              const activeTransform = `translate3d(${frag.tx * transitionDirection}px, ${frag.ty}px, ${frag.tz}px) rotateX(${frag.rx}deg) rotateY(${frag.ry * transitionDirection}deg) rotateZ(${frag.rz * transitionDirection}deg) scale(${frag.scale})`;
-                              const baseTransform = 'translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1)';
-
-                              return (
-                                <div
-                                  key={frag.id}
-                                  className={`super-flow-fragment ${isDispersing ? 'is-dispersed' : ''}`}
-                                  style={{
-                                    clipPath: frag.clip,
-                                    WebkitClipPath: frag.clip,
-                                    transform: isDispersing ? activeTransform : baseTransform,
-                                    WebkitTransform: isDispersing ? activeTransform : baseTransform,
-                                    opacity: isDispersing ? 0 : 1,
-                                    transition: 'transform 0.82s cubic-bezier(0.16, 1, 0.3, 1), -webkit-transform 0.82s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.82s cubic-bezier(0.16, 1, 0.3, 1)',
-                                    WebkitTransition: '-webkit-transform 0.82s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.82s cubic-bezier(0.16, 1, 0.3, 1)',
-                                    transitionDelay: `${frag.delay}ms`,
-                                    WebkitTransitionDelay: `${frag.delay}ms`,
-                                    '--tx': `${frag.tx * transitionDirection}px`,
-                                    '--ty': `${frag.ty}px`,
-                                    '--tz': `${frag.tz}px`,
-                                    '--rx': `${frag.rx}deg`,
-                                    '--ry': `${frag.ry * transitionDirection}deg`,
-                                    '--rz': `${frag.rz * transitionDirection}deg`,
-                                    '--scale': frag.scale,
-                                    '--delay': `${frag.delay}ms`,
-                                  }}
-                                >
-                                  <img
-                                    src={outgoingImage}
-                                    alt=""
-                                    className="super-flow-fragment-img"
-                                  />
-                                </div>
-                              );
-                            })}
-                          </div>
-                        )}
 
                         {/* Visual Depth Gradient & Red Accent Details */}
                         <div className="photo-overlay-gradient"></div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import IntroLoader from './components/IntroLoader';
 import LogoBackgroundAnimation from './components/LogoBackgroundAnimation';
 import Navbar from './components/Navbar';
@@ -86,7 +86,7 @@ export default function App() {
         />
 
         {/* Tools Display Scroll */}
-        <ToolsMarquee />
+        <ToolsMarquee isAppReady={introComplete} />
 
         {/* Hero + About Agency */}
         <RevealSection id="about">
