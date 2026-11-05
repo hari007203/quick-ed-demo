@@ -1,4 +1,3 @@
-import React from 'react';
 import './QuickContactStrip.css';
 // 1. Import official brand icons from react-icons
 import { FaLinkedin, FaYoutube, FaInstagram, FaGithub, FaXTwitter } from 'react-icons/fa6';

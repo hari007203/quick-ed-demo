@@ -86,6 +86,11 @@
   -webkit-animation: scrollInfinite 32s linear infinite;
 }
 
+.marquee-track.is-paused {
+  animation-play-state: paused !important;
+  -webkit-animation-play-state: paused !important;
+}
+
 /* Pause on hover only on desktop devices with true hover capability */
 @media (hover: hover) and (pointer: fine) {
   .marquee-track:hover {
@@ -162,6 +167,9 @@
 }
 
 @media (max-width: 768px) {
+  .marquee-track {
+    will-change: auto;
+  }
   .tools-marquee-section {
     padding: 28px 0 32px;
     margin-top: 64px;

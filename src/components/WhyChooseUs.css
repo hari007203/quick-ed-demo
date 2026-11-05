@@ -286,6 +286,10 @@
   .why-choose-section {
     padding: 70px 16px 90px;
   }
+  .pillar-card {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
   .motivational-speech-card {
     grid-template-columns: 1fr;
     gap: 36px;

@@ -1,5 +1,4 @@
-import React from 'react';
-import quickLogo from '../assets/quick-ed-logo.png';
+import quickLogo from '../assets/quick-ed-logo.webp';
 
 /**
  * Brand Logo Component for Quick Ed Solutions
@@ -43,6 +42,9 @@ export default function Logo({ size = 'default', showSubtitle = true }) {
         <img 
           src={quickLogo} 
           alt="Quick Ed Solutions"
+          width={imgDimension}
+          height={imgDimension}
+          decoding="async"
           style={{
             width: '100%',
             height: '100%',

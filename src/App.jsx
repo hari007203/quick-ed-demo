@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback, memo } from 'react';
 import IntroLoader from './components/IntroLoader';
 import LogoBackgroundAnimation from './components/LogoBackgroundAnimation';
 import Navbar from './components/Navbar';
@@ -26,14 +26,14 @@ function useRevealOnScroll(ref) {
           observer.unobserve(el);
         }
       },
-      { threshold: 0.08 }
+      { rootMargin: '0px 0px -40px 0px', threshold: 0.02 }
     );
     observer.observe(el);
     return () => observer.disconnect();
   }, [ref]);
 }
 
-function RevealSection({ id, className = '', children }) {
+const RevealSection = memo(function RevealSection({ id, className = '', children }) {
   const ref = useRef(null);
   useRevealOnScroll(ref);
   return (
@@ -41,14 +41,14 @@ function RevealSection({ id, className = '', children }) {
       {children}
     </div>
   );
-}
+});
 
 export default function App() {
   const [introComplete, setIntroComplete] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [globalBrochureOpen, setGlobalBrochureOpen] = useState(false);
 
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = useCallback((sectionId) => {
     setActiveSection(sectionId);
     if (sectionId === 'home') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -58,7 +58,7 @@ export default function App() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  };
+  }, []);
 
   return (
     <>

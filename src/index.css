@@ -81,6 +81,15 @@ body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Prevent pull-to-refresh and elastic bounce stealing scroll frames on Android */
+  overscroll-behavior-y: none;
+}
+
+/* Mobile scroll optimization: eliminate expensive full-viewport CPU/GPU repaints on Android Chrome */
+@media (max-width: 768px), (pointer: coarse) {
+  body {
+    background-attachment: scroll;
+  }
 }
 
 /* Headings use Space Grotesk with crisp spacing */

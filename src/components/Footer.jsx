@@ -1,8 +1,7 @@
-import React from 'react';
 import Logo from './Logo';
 import './Footer.css';
 // 1. Import official brand icons from react-icons
-import { FaLinkedin, FaYoutube, FaInstagram, FaGithub, FaDiscord } from 'react-icons/fa6';
+import { FaLinkedin, FaYoutube, FaInstagram, FaGithub } from 'react-icons/fa6';
 
 export default function Footer({ onNavigate }) {
   const currentYear = new Date().getFullYear();

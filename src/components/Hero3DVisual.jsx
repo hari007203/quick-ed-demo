@@ -1,5 +1,5 @@
-import { useState, useRef } from 'react';
-import quickLogo from '../assets/quick-ed-logo.png';
+import { useState, useRef, useEffect } from 'react';
+import quickLogo from '../assets/quick-ed-logo.webp';
 import './Hero3DVisual.css';
 
 /**
@@ -13,8 +13,25 @@ import './Hero3DVisual.css';
 export default function Hero3DVisual() {
   const containerRef = useRef(null);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [isInView, setIsInView] = useState(true);
+
+  // Pause continuous 3D rotation & levitation animations when scrolled out of viewport
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const handleMouseMove = (e) => {
+    // Only calculate tilt on devices with a mouse/fine pointer to prevent touch event churn
+    if (typeof window !== 'undefined' && !window.matchMedia('(pointer: fine)').matches) return;
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
@@ -31,7 +48,7 @@ export default function Hero3DVisual() {
 
   return (
     <div 
-      className="hero-3d-scene-container" 
+      className={`hero-3d-scene-container ${!isInView ? 'is-paused' : ''}`}
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -74,6 +91,10 @@ export default function Hero3DVisual() {
               src={quickLogo} 
               alt="Quick Ed Solutions Emblem" 
               className="hero-3d-logo-img" 
+              width="140"
+              height="140"
+              loading="eager"
+              decoding="async"
             />
             {/* Soft Reflection Sheen */}
             <div className="hero-3d-sheen" />

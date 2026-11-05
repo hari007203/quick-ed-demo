@@ -1,8 +1,7 @@
-import React from 'react';
 import './WhyChooseUs.css';
 
 // Clean single import for the founder photo
-import Founder from '../assets/Founder.png'; 
+import Founder from '../assets/Founder.webp'; 
 
 export default function WhyChooseUs() {
   const pillars = [
@@ -83,6 +82,10 @@ export default function WhyChooseUs() {
                 src={Founder} 
                 alt="Nagulapalli Suhas - Founder" 
                 className="founder-img"
+                loading="lazy"
+                decoding="async"
+                width="440"
+                height="500"
               />
             </div>
           </div>

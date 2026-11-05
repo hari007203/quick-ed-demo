@@ -320,6 +320,24 @@
   }
 }
 
+/* When container is scrolled out of viewport, pause nonessential 3D animations */
+.hero-3d-scene-container.is-paused .hero-3d-stage,
+.hero-3d-scene-container.is-paused .ring-outer,
+.hero-3d-scene-container.is-paused .ring-middle,
+.hero-3d-scene-container.is-paused .hero-3d-ambient-glow,
+.hero-3d-scene-container.is-paused .hero-3d-laser-halo,
+.hero-3d-scene-container.is-paused .hero-3d-node {
+  animation-play-state: paused !important;
+}
+
+@media (max-width: 768px) {
+  .hero-3d-ambient-glow {
+    filter: blur(32px);
+    width: 260px;
+    height: 260px;
+  }
+}
+
 @media (max-width: 520px) {
   .hero-3d-scene-container {
     height: 300px;

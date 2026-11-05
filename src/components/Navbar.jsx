@@ -1,25 +1,20 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import Logo from './Logo';
 import HelpModal from './HelpModal';
 import './Navbar.css';
 
 export default function Navbar({ activeSection = 'home', onNavigate }) {
-  const [currentTab, setCurrentTab] = useState(activeSection);
+  const currentTab = activeSection;
   const [coursesHovered, setCoursesHovered] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [helpModalOpen, setHelpModalOpen] = useState(false);
   const dropdownRef = useRef(null);
-
-  useEffect(() => {
-    setCurrentTab(activeSection);
-  }, [activeSection]);
 
   const handleLinkClick = (tabKey) => {
     if (tabKey === 'help') {
       setHelpModalOpen(true);
       return;
     }
-    setCurrentTab(tabKey);
     setCoursesHovered(false);
     setMobileMenuOpen(false);
     if (onNavigate) {

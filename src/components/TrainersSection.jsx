@@ -142,6 +142,11 @@ export default function TrainersSection() {
   const transitionTimeoutRef = useRef(null);
   const activeTrainerIndexRef = useRef(0);
 
+  // Detect touch/coarse devices: disable the 24-fragment dispersal animation on mobile
+  // (each fragment has will-change:transform,opacity — 24 GPU layers is too expensive on Android)
+  const isMobileDevice = typeof window !== 'undefined' &&
+    window.matchMedia('(pointer: coarse)').matches;
+
   // Scroll entrance observer
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -205,25 +210,32 @@ export default function TrainersSection() {
       setPrevTrainerIndex(oldIndex);
       setActiveTrainerIndex(newIndex);
       activeTrainerIndexRef.current = newIndex;
-      setIsTransitioning(true);
-      setIsDispersing(false);
 
-      // Trigger dispersal in next frame so the initial 0-transform state is painted
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          setIsDispersing(true);
-        });
-      });
-
-      // Complete lifecycle timer for the full 1050ms staggered fragment dispersal
-      if (transitionTimeoutRef.current) {
-        clearTimeout(transitionTimeoutRef.current);
-      }
-      transitionTimeoutRef.current = setTimeout(() => {
-        setIsTransitioning(false);
+      // Skip 24-fragment dispersal on touch/mobile devices: too expensive (24 GPU layers)
+      if (!isMobileDevice) {
+        setIsTransitioning(true);
         setIsDispersing(false);
+
+        // Trigger dispersal in next frame so the initial 0-transform state is painted
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            setIsDispersing(true);
+          });
+        });
+
+        // Complete lifecycle timer for the full 1050ms staggered fragment dispersal
+        if (transitionTimeoutRef.current) {
+          clearTimeout(transitionTimeoutRef.current);
+        }
+        transitionTimeoutRef.current = setTimeout(() => {
+          setIsTransitioning(false);
+          setIsDispersing(false);
+          setPrevTrainerIndex(null);
+        }, 1050);
+      } else {
+        // On mobile: instant crossfade — no fragment dispersal, no GPU layer flood
         setPrevTrainerIndex(null);
-      }, 1050);
+      }
     }
   };
 
@@ -349,6 +361,10 @@ export default function TrainersSection() {
               disableOnInteraction: false,
               pauseOnMouseEnter: false, // Prevents simulated mouseenter on Android touch from permanently pausing autoplay
             }}
+            touchEventsTarget="wrapper"
+            passiveListeners={true}
+            touchRatio={1}
+            resistanceRatio={0.85}
             keyboard={{
               enabled: true,
             }}
@@ -374,6 +390,9 @@ export default function TrainersSection() {
                           src={trainer.image}
                           alt={trainer.name}
                           className="trainer-photo-main"
+                          width="460"
+                          height="460"
+                          decoding="async"
                           loading="eager"
                         />
 

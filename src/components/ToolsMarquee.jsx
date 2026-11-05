@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './ToolsMarquee.css';
 
 export default function ToolsMarquee({ isAppReady = true }) {
   const [isMarqueeActive, setIsMarqueeActive] = useState(false);
+  const [isInView, setIsInView] = useState(true);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     if (isAppReady) {
@@ -12,6 +14,20 @@ export default function ToolsMarquee({ isAppReady = true }) {
       return () => clearTimeout(timer);
     }
   }, [isAppReady]);
+
+  // Pause horizontal marquee when scrolled out of view to save mobile GPU cycles
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const tools = [
     { name: 'Java 21', icon: '☕', tag: 'Backend' },
@@ -30,7 +46,7 @@ export default function ToolsMarquee({ isAppReady = true }) {
   const marqueeList = [...tools, ...tools];
 
   return (
-    <section className="tools-marquee-section" id="tools">
+    <section className="tools-marquee-section" id="tools" ref={sectionRef}>
       <div className="marquee-label-row">
         <span className="marquee-badge">Enterprise Stacks Mastered</span>
         <h4 className="marquee-title">Industry Tools & Frameworks You Will Command</h4>
@@ -41,7 +57,7 @@ export default function ToolsMarquee({ isAppReady = true }) {
         <div className="edge-fade left" />
         <div className="edge-fade right" />
 
-        <div className={`marquee-track ${isMarqueeActive ? 'is-animated' : ''}`}>
+        <div className={`marquee-track ${isMarqueeActive ? 'is-animated' : ''} ${!isInView ? 'is-paused' : ''}`}>
           {marqueeList.map((tool, idx) => (
             <div key={idx} className="tool-pill-card">
               <span className="tool-icon">{tool.icon}</span>

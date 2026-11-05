@@ -457,6 +457,11 @@
 }
 
 @media (max-width: 990px) {
+  .agency-orb {
+    filter: blur(45px);
+    width: 320px;
+    height: 320px;
+  }
   .about-agency-section {
     padding: 88px 20px 50px;
     min-height: auto;

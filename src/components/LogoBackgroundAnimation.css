@@ -415,22 +415,79 @@
 }
 
 @media (max-width: 768px) {
-  .qe-hero-3d-col {
-    opacity: 0.28; /* Subtle background presence on mobile */
+  /* Optimize heavy runtime blur filters for mobile GPU */
+  .qe-top-emerald-glow {
+    filter: blur(40px);
+    width: 100%;
+    max-width: 500px;
+    height: 280px;
   }
+
+  .qe-bottom-crimson-warmth {
+    filter: blur(40px);
+    width: 100%;
+    max-width: 450px;
+    height: 280px;
+  }
+
+  /* Remove expensive full-screen masks on mobile to avoid offscreen framebuffer copies */
+  .qe-bg-grid {
+    mask-image: none;
+    -webkit-mask-image: none;
+    opacity: 0.28;
+  }
+
+  .qe-hero-3d-col {
+    mask-image: none;
+    -webkit-mask-image: none;
+    opacity: 0.22; /* Subtle background presence on mobile */
+  }
+
+  /* Pause continuous background atmosphere transform & release will-change GPU memory */
+  .qe-ambient-atmosphere {
+    animation: none;
+    will-change: auto;
+  }
+
+  .qe-hero-monument-inner {
+    will-change: auto;
+  }
+
+  /* Hide continuous ember particles on mobile */
+  .qe-hero-particles-layer {
+    display: none;
+  }
+
+  /* Keep laser beam appearance but pause continuous filter drop-shadow repainting */
+  .qe-hero-laser-beam {
+    animation: none;
+    box-shadow:
+      0 0 10px #FF303A,
+      0 0 22px rgba(255, 48, 58, 0.7);
+  }
+
   .qe-hero-crimson-nebula {
     left: 50%;
   }
+
   .qe-hero-monument-wrap {
     transform: translateX(0) perspective(700px) rotateY(-4deg) rotateX(6deg);
   }
+
   .qe-hero-brand-text {
     font-size: clamp(24px, 6.5vw, 42px);
     white-space: normal;
+    animation: none;
+    text-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.9),
+      0 6px 18px rgba(200, 32, 40, 0.35);
   }
+
   .qe-hero-tagline {
     font-size: clamp(9px, 2vw, 12px);
     letter-spacing: 0.25em;
+    animation: none;
+    text-shadow: 0 0 12px rgba(255, 48, 58, 0.7);
   }
 }
 

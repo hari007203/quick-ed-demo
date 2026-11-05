@@ -1,4 +1,3 @@
-import React from 'react';
 import './LogoBackgroundAnimation.css';
 
 // Subtle ambient ember particles behind the monument

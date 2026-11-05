@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import quickLogo from '../assets/quick-ed-logo.png';
+import { useState, useEffect } from 'react';
+import quickLogo from '../assets/quick-ed-logo.webp';
 import './IntroLoader.css';
 
 /**
@@ -70,6 +70,9 @@ export default function IntroLoader({ onComplete }) {
               src={quickLogo} 
               alt="Quick Ed Solutions" 
               className="intro-logo-img"
+              width="120"
+              height="120"
+              decoding="async"
             />
           </div>
           <div className="intro-scan-line" />

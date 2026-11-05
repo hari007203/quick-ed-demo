@@ -607,13 +607,20 @@
 }
 
 @media (max-width: 768px) {
-  .courses-cards-grid {
-    grid-template-columns: 1fr;
+  .interactive-course-card {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
   }
   .brochure-spotlight-bar {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     flex-direction: column;
     gap: 16px;
     align-items: flex-start;
+  }
+  .courses-cards-grid {
+    grid-template-columns: 1fr;
   }
   .global-brochure-btn {
     width: 100%;
@@ -790,16 +797,24 @@
     border-radius: 10px;
   }
 
-  /* Syllabus overlay — full screen, reduced padding */
+  /* Syllabus overlay — full screen, reduced padding; drop blur for mobile GPU */
   .syllabus-overlay {
     padding: 10px;
     align-items: flex-end;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(5, 11, 8, 0.97);
   }
 
   .syllabus-content {
     border-radius: 18px 18px 0 0;
     max-height: 90vh;
     overflow-y: auto;
+  }
+
+  .hud-toast {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
   .modal-top {

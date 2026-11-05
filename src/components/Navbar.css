@@ -361,6 +361,16 @@
 
 /* ── Responsive ──────────────────────────────────────────────────────────── */
 @media (max-width: 920px) {
+  .qed-navbar {
+    background: rgba(5, 11, 8, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .qed-mobile-drawer {
+    background: #0B1712;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
   .qed-menu {
     display: none;
   }

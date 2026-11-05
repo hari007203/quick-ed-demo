@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './BrochureModal.css';
 
 export default function BrochureModal({ isOpen, onClose, courseTitle = 'All Flagship Programs' }) {
