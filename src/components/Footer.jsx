@@ -1,7 +1,7 @@
 import Logo from './Logo';
 import './Footer.css';
 // 1. Import official brand icons from react-icons
-import { FaLinkedin, FaYoutube, FaInstagram, FaGithub } from 'react-icons/fa6';
+import { FaLinkedin, FaInstagram, FaWhatsapp, FaTelegram } from 'react-icons/fa6';
 
 export default function Footer({ onNavigate }) {
   const currentYear = new Date().getFullYear();
@@ -9,10 +9,9 @@ export default function Footer({ onNavigate }) {
   // Social media configuration with official brand colors
   const footerSocials = [
     { name: 'LinkedIn', url: 'https://linkedin.com', icon: <FaLinkedin />, color: '#0A66C2' },
-    { name: 'YouTube', url: 'https://youtube.com', icon: <FaYoutube />, color: '#FF0000' },
-    { name: 'Instagram', url: 'https://instagram.com', icon: <FaInstagram />, color: '#E4405F' },
-    { name: 'GitHub', url: 'https://github.com', icon: <FaGithub />, color: '#FFFFFF' },
-    // { name: 'Discord', url: 'https://discord.com', icon: <FaDiscord />, color: '#5865F2' },
+    { name: 'Instagram', url: 'https://www.instagram.com/quick_ed_solutions?vrfl=MTY5dndvc2xhOTZncA==', icon: <FaInstagram />, color: '#E4405F' },
+    { name: 'WhatsApp', url: 'https://whatsapp.com/channel/0029VbDpypODDmFZVIBAxY0n', icon: <FaWhatsapp />, color: '#25D366' },
+    { name: 'Telegram', url: 'https://t.me/QuickEdJobs', icon: <FaTelegram />, color: '#26A5E4' },
   ];
 
   return (
@@ -52,11 +51,11 @@ export default function Footer({ onNavigate }) {
               </li> */}
               <li>
                 <span className="c-icon">📞</span>
-                <a href="tel:+9183748 52001">+91 98765 43210</a>
+                <a href="tel:+918374852001">+91 83748 52001</a>
               </li>
               <li>
                 <span className="c-icon">✉️</span>
-                <a href="mailto:admissions@quickedsolutions.com">admissions@quickedsolutions.com</a>
+                <a href="mailto:quickedsolutions@gmail.com">quickedsolutions@gmail.com</a>
               </li>
             </ul>
           </div>

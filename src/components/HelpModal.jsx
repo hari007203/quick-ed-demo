@@ -22,7 +22,7 @@ export default function HelpModal({ isOpen, onClose }) {
         {/* The two core channels drawn in your sketch arrow: email, contact no */}
         <div className="help-channels-grid">
           {/* 1. Contact Number */}
-          <a href="tel:+919876543210" className="help-channel-card phone-channel">
+          <a href="tel:+918374852001" className="help-channel-card phone-channel">
             <div className="channel-icon-circle">📞</div>
             <div className="channel-info">
               <span className="channel-label">Direct Contact Number</span>
@@ -33,11 +33,11 @@ export default function HelpModal({ isOpen, onClose }) {
           </a>
 
           {/* 2. Email Address */}
-          <a href="mailto:admissions@quickedsolutions.com" className="help-channel-card email-channel">
+          <a href="mailto:quickedsolutions@gmail.com" className="help-channel-card email-channel">
             <div className="channel-icon-circle">✉️</div>
             <div className="channel-info">
               <span className="channel-label">Admissions Email Support</span>
-              <strong className="channel-val">admissions@quickedsolutions.com</strong>
+              <strong className="channel-val">quickedsolutions@gmail.com</strong>
               <span className="channel-status">⚡ Guaranteed reply within 15 minutes</span>
             </div>
             <span className="channel-action-arrow">Send Mail →</span>

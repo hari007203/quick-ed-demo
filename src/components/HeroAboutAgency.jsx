@@ -66,7 +66,7 @@ export default function HeroAboutAgency({ onExploreCoursesClick }) {
 
           {/* Hero Main Headline */}
           <h1 className="agency-hero-title hero-anim-title">
-            <span className="hero-title-line1">Engineeting Elite</span> <br />
+            <span className="hero-title-line1">Engineering Elite</span> <br />
             <span className="hero-title-line1">Careers With</span><br />
             <span className="agency-gradient-text">Quick-Ed Solutions</span>
           </h1>

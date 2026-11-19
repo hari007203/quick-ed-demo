@@ -195,18 +195,6 @@
   pointer-events: none;
 }
 
-/* Horizontal Laser Horizon Beam */
-.hero-3d-laser-beam {
-  position: absolute;
-  width: 320px;
-  height: 1.5px;
-  background: linear-gradient(90deg, transparent 0%, rgba(217, 35, 50, 0.3) 20%, #F5F7F6 50%, rgba(217, 35, 50, 0.3) 80%, transparent 100%);
-  box-shadow: 0 0 12px #D92332, 0 0 24px rgba(163, 28, 27, 0.6);
-  pointer-events: none;
-  z-index: 5;
-  opacity: 0.85;
-}
-
 /* Abstract Network Nodes / Floating Pills */
 .hero-3d-node {
   position: absolute;
@@ -239,27 +227,39 @@
 }
 
 .node-1 {
-  top: 18px;
-  right: 8px;
-  animation: nodeFloat1 7s ease-in-out infinite;
+  top: 4px;
+  left: 50%;
+  animation: nodeFloatCenter 7s ease-in-out infinite;
 }
 
 .node-2 {
-  bottom: 34px;
-  right: 12px;
+  top: 74px;
+  right: 0;
   animation: nodeFloat2 6.5s ease-in-out infinite 1s;
 }
 
 .node-3 {
-  bottom: 24px;
-  left: 6px;
+  bottom: 74px;
+  right: 0;
   animation: nodeFloat1 8s ease-in-out infinite 0.5s;
 }
 
 .node-4 {
-  top: 36px;
-  left: 10px;
+  top: 74px;
+  left: 0;
   animation: nodeFloat2 7.5s ease-in-out infinite 1.5s;
+}
+
+.node-5 {
+  bottom: 4px;
+  left: 50%;
+  animation: nodeFloatCenter 7s ease-in-out infinite 0.75s;
+}
+
+.node-6 {
+  bottom: 74px;
+  left: 0;
+  animation: nodeFloat2 7.5s ease-in-out infinite 1.25s;
 }
 
 @keyframes nodeFloat1 {
@@ -270,6 +270,11 @@
 @keyframes nodeFloat2 {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(7px); }
+}
+
+@keyframes nodeFloatCenter {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -7px); }
 }
 
 /* Corner Reticle Brackets */
@@ -405,11 +410,6 @@
     width: 90px;
     height: 90px;
     border-radius: 20px;
-  }
-
-  /* Prevent laser beam from causing horizontal overflow */
-  .hero-3d-laser-beam {
-    width: 200px;
   }
 
   /* Hide corner brackets on tiny screens — purely decorative */

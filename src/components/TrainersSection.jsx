@@ -11,9 +11,9 @@ import 'swiper/css/effect-fade';
 
 import './TrainersSection.css';
 import Hari from '../assets/Hari.webp';
-import Karthik from '../assets/Karthik.webp';
-import Ameesha from '../assets/Ameesha.webp';
-import Akash from '../assets/Akash.webp';
+import Karthik from '../assets/KArthik.png';
+import Ameesha from '../assets/Ameesha.png';
+import gnana from '../assets/Gnana.png';
 
 /* ==========================================================================
    24 SEAMLESS TRIANGULAR FRAGMENTS GENERATOR
@@ -81,7 +81,7 @@ const SUPER_FLOW_FRAGMENTS = RAW_TRIANGLES.map((tri, i) => {
   };
 });
 
-// Four existing trainers strictly preserved
+// Trainer profiles shown in the carousel
 const TRAINERS = [
   {
     id: 1,
@@ -99,7 +99,7 @@ const TRAINERS = [
     name: 'Akash Katam',
     role: 'GenAI & Python Full-Stack Developer',
     companies: [],
-    image: Akash,
+    // image: Akash,
     accentColor: '#8B5CF6',
     mentored: '380+ Engineers',
     specialty: 'Generative AI, LLMs, Prompt Engineering, Python, Django, FastAPI, REST APIs & Full-Stack Development',
@@ -126,6 +126,34 @@ const TRAINERS = [
     mentored: '390+ Engineers',
     specialty: 'Manual Testing, Automation Testing, Selenium, Playwright, API Testing, SQL & Test Case Design',
     bio: 'Focuses on software testing fundamentals and quality assurance practices, covering manual and automation testing, test case design, API validation and defect tracking. Emphasizes practical exercises and hands-on projects to help learners develop industry-relevant testing skills.',
+  },
+  {
+    id: 5,
+    name: 'Soft Skills Trainer',
+    role: 'Communication & Career Readiness Mentor',
+    image: null,
+    initials: 'SS',
+    accentColor: '#F59E0B',
+    mentored: '250+',
+    specialty: 'Communication, Public Speaking, Interview Preparation, Teamwork, Leadership & Workplace Etiquette',
+    expertiseLabel: 'Core Expertise:',
+    statusLabel: 'Soft Skills Mentor',
+    features: ['Public Speaking Practice', 'Interview Preparation', 'Workplace Communication'],
+    bio: 'Helps learners build confidence for professional settings through practical communication exercises, public speaking, interview preparation, teamwork and workplace etiquette.',
+  },
+  {
+    id: 6,
+    name: 'Digital Marketing Trainer',
+    role: 'Digital Marketing & Growth Mentor',
+    image: gnana,
+    initials: 'DM',
+    accentColor: '#06B6D4',
+    mentored: 'Marketing Strategy & Analytics',
+    specialty: 'SEO, Social Media Marketing, Content Strategy, Google Ads, Email Marketing & Analytics',
+    expertiseLabel: 'Core Expertise:',
+    statusLabel: 'Marketing Mentor',
+    features: ['SEO & Content Strategy', 'Social Media Campaigns', 'Paid Ads & Analytics'],
+    bio: 'Introduces learners to practical digital marketing, from search optimization and content planning to social media campaigns, paid advertising and performance analytics.',
   },
 ];
 
@@ -178,6 +206,7 @@ export default function TrainersSection() {
   // Pre-decode all trainer images so transitions never stall or render blank bitmaps
   useEffect(() => {
     TRAINERS.forEach((t) => {
+      if (!t.image) return;
       const img = new Image();
       img.src = t.image;
       if (img.decode) {
@@ -337,11 +366,17 @@ export default function TrainersSection() {
                         '--delay': `${frag.delay}ms`,
                       }}
                     >
-                      <img
-                        src={trainers[prevTrainerIndex].image}
-                        alt=""
-                        className="super-flow-fragment-img"
-                      />
+                        {trainers[prevTrainerIndex].image ? (
+                          <img
+                            src={trainers[prevTrainerIndex].image}
+                            alt=""
+                            className="super-flow-fragment-img"
+                          />
+                        ) : (
+                          <div className="super-flow-fragment-placeholder" style={{ '--accent': trainers[prevTrainerIndex].accentColor }}>
+                            {trainers[prevTrainerIndex].initials}
+                          </div>
+                        )}
                     </div>
                   );
                 })}
@@ -385,16 +420,22 @@ export default function TrainersSection() {
                     {/* LEFT COLUMN: Trainer Photograph */}
                     <div className="trainer-photo-col">
                       <div className="trainer-photo-wrapper">
-                        {/* Base High-Resolution Trainer Portrait */}
-                        <img
-                          src={trainer.image}
-                          alt={trainer.name}
-                          className="trainer-photo-main"
-                          width="460"
-                          height="460"
-                          decoding="async"
-                          loading="eager"
-                        />
+                        {trainer.image ? (
+                          <img
+                            src={trainer.image}
+                            alt={trainer.name}
+                            className="trainer-photo-main"
+                            width="460"
+                            height="460"
+                            decoding="async"
+                            loading="eager"
+                          />
+                        ) : (
+                          <div className="trainer-photo-placeholder" style={{ '--accent': trainer.accentColor }}>
+                            <span className="trainer-placeholder-monogram">{trainer.initials}</span>
+                            <span className="trainer-placeholder-label">Quick Ed Solutions</span>
+                          </div>
+                        )}
 
                         {/* Visual Depth Gradient & Red Accent Details */}
                         <div className="photo-overlay-gradient"></div>
@@ -416,7 +457,7 @@ export default function TrainersSection() {
                             backgroundColor: `${trainer.accentColor}18` 
                           }}
                         >
-                          Verified Senior Mentor
+                          {trainer.statusLabel || 'Verified Senior Mentor'}
                         </span>
                         <span className="trainer-mentored-tag">
                           👥 {trainer.mentored}
@@ -430,7 +471,7 @@ export default function TrainersSection() {
 
                       {/* Technical Skills and Specialties */}
                       <div className="skills-block">
-                        <span className="skills-label">Core Technical Expertise:</span>
+                        <span className="skills-label">{trainer.expertiseLabel || 'Core Technical Expertise:'}</span>
                         <div className="skills-container">
                           {skills.map((skill, idx) => (
                             <span 
@@ -449,18 +490,12 @@ export default function TrainersSection() {
 
                       {/* Additional Institutional Features */}
                       <div className="trainer-footer-features">
-                        <div className="feature-item">
-                          <span className="feature-check" style={{ color: trainer.accentColor }}>✓</span>
-                          <span>1-on-1 Code Reviews</span>
-                        </div>
-                        <div className="feature-item">
-                          <span className="feature-check" style={{ color: trainer.accentColor }}>✓</span>
-                          <span>Industry Project Guidance</span>
-                        </div>
-                        <div className="feature-item">
-                          <span className="feature-check" style={{ color: trainer.accentColor }}>✓</span>
-                          <span>Career & Interview Mentorship</span>
-                        </div>
+                        {(trainer.features || ['1-on-1 Code Reviews', 'Industry Project Guidance', 'Career & Interview Mentorship']).map((feature) => (
+                          <div className="feature-item" key={feature}>
+                            <span className="feature-check" style={{ color: trainer.accentColor }}>✓</span>
+                            <span>{feature}</span>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -481,7 +516,7 @@ export default function TrainersSection() {
               <FiChevronLeft size={22} />
             </button>
 
-            {/* Pagination Indicators (4 Trainers) */}
+            {/* Trainer pagination indicators */}
             <div className="trainers-pagination-pills" role="tablist" aria-label="Trainers pagination">
               {trainers.map((t, idx) => {
                 const isActive = activeTrainerIndex === idx;

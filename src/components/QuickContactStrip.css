@@ -3,7 +3,7 @@
    Accents: #A31C1B (Brand Red) + #D92332 (Highlight Red)
 */
 .contact-strip-section {
-  padding: 70px 24px 90px;
+  padding: 48px 24px 56px;
   background: #0B1712;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
@@ -156,7 +156,7 @@
 
 @media (max-width: 768px) {
   .contact-strip-section {
-    padding: 50px 16px 70px;
+    padding: 38px 16px 46px;
   }
   .contact-trio-grid {
     grid-template-columns: 1fr;
@@ -170,7 +170,7 @@
    ========================================================================== */
 @media (max-width: 480px) {
   .quick-contact-section {
-    padding: 60px 16px;
+    padding: 46px 16px;
   }
 
   .strip-main-title {
@@ -216,7 +216,7 @@
 
 @media (max-width: 380px) {
   .quick-contact-section {
-    padding: 50px 12px;
+    padding: 38px 12px;
   }
 
   .contact-action-box {

@@ -99,9 +99,6 @@ export default function Hero3DVisual() {
             {/* Soft Reflection Sheen */}
             <div className="hero-3d-sheen" />
           </div>
-
-          {/* Core Red Laser Horizon */}
-          <div className="hero-3d-laser-beam" />
         </div>
 
         {/* Abstract Digital Network Elements / Orbital Nodes */}
@@ -123,6 +120,16 @@ export default function Hero3DVisual() {
         <div className="hero-3d-node node-4">
           <span className="node-dot" />
           <span className="node-label">QA Automation</span>
+        </div>
+
+        <div className="hero-3d-node node-5">
+          <span className="node-dot" />
+          <span className="node-label">Digital Marketing</span>
+        </div>
+
+        <div className="hero-3d-node node-6">
+          <span className="node-dot" />
+          <span className="node-label">Soft Skills</span>
         </div>
 
         {/* Floating Geometric Corner Accents */}

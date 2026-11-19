@@ -8,7 +8,7 @@
 .courses-section-wrapper {
   max-width: 1320px;
   margin: 0 auto;
-  padding: 90px 24px 110px;
+  padding: 64px 24px 72px;
   position: relative;
   z-index: 1;
 }
@@ -633,7 +633,7 @@
 @media (max-width: 480px) {
   /* Section wrapper — tighter padding */
   .courses-section-wrapper {
-    padding: 48px 14px 60px;
+    padding: 38px 14px 44px;
   }
 
   .courses-section-header {
@@ -1042,7 +1042,7 @@
    ========================================================================== */
 @media (max-width: 480px) {
   .courses-section-wrapper {
-    padding: 60px 16px 80px 16px;
+    padding: 46px 16px 56px 16px;
   }
 
   .courses-header-block {
@@ -1186,7 +1186,7 @@
 
 @media (max-width: 380px) {
   .courses-section-wrapper {
-    padding: 50px 12px 70px 12px;
+    padding: 40px 12px 46px 12px;
   }
 
   .card-body-content {

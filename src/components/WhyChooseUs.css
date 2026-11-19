@@ -1,12 +1,12 @@
 /* ==========================================================================
-   Why Choose Us & Founder Spotlight Section
+   Why Choose Us Section
    Theme: #050B08 (Main) + #0B1712 (Secondary) + #101B16 (Cards)
    Accents: #A31C1B (Brand Red) + #D92332 (Highlight Red)
    Typography: Space Grotesk (Headings) + Inter (Body)
    ========================================================================== */
 
 .why-choose-section {
-  padding: 90px 24px 110px;
+  padding: 64px 24px 72px;
   position: relative;
   z-index: 1;
   background: #050B08;
@@ -71,7 +71,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 28px;
-  margin-bottom: 64px;
+  margin-bottom: 42px;
 }
 
 .pillar-card {
@@ -137,8 +137,8 @@
   border-radius: 28px;
   padding: 48px;
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 48px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
   align-items: center;
   box-shadow: 
     0 24px 60px rgba(0, 0, 0, 0.85),
@@ -162,6 +162,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
 }
 
 .speech-quote-badge {
@@ -284,7 +287,7 @@
 /* ─── Responsive Adjustments ─── */
 @media (max-width: 960px) {
   .why-choose-section {
-    padding: 70px 16px 90px;
+    padding: 52px 16px 60px;
   }
   .pillar-card {
     backdrop-filter: none;
@@ -292,18 +295,8 @@
   }
   .motivational-speech-card {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 0;
     padding: 32px 24px;
-  }
-  .speech-left-col {
-    order: 1;
-  }
-  .speech-image-col {
-    order: 2;
-  }
-  .image-wrapper {
-    min-height: 340px;
-    max-height: 400px;
   }
 }
 
@@ -314,7 +307,7 @@
    ========================================================================== */
 @media (max-width: 480px) {
   .why-choose-us-section {
-    padding: 60px 16px;
+    padding: 46px 16px;
   }
 
   .speech-heading {
@@ -324,7 +317,7 @@
   .motivational-speech-card {
     padding: 22px 16px;
     border-radius: 18px;
-    margin-bottom: 40px;
+    margin-bottom: 28px;
   }
 
   .image-wrapper {
@@ -378,7 +371,7 @@
 
 @media (max-width: 380px) {
   .why-choose-us-section {
-    padding: 50px 12px;
+    padding: 40px 12px;
   }
 
   .motivational-speech-card {

@@ -1,6 +1,6 @@
 import './QuickContactStrip.css';
 // 1. Import official brand icons from react-icons
-import { FaLinkedin, FaYoutube, FaInstagram, FaGithub, FaXTwitter } from 'react-icons/fa6';
+import { FaLinkedin, FaInstagram, FaWhatsapp, FaTelegram } from 'react-icons/fa6';
 
 export default function QuickContactStrip() {
   const socials = [
@@ -11,28 +11,22 @@ export default function QuickContactStrip() {
       color: '#0A66C2' 
     },
     { 
-      name: 'YouTube', 
-      icon: <FaYoutube />, 
-      url: 'https://youtube.com', 
-      color: '#FF0000' 
-    },
-    { 
       name: 'Instagram', 
       icon: <FaInstagram />, 
-      url: 'https://instagram.com', 
+      url: 'https://www.instagram.com/quick_ed_solutions?vrfl=MTY5dndvc2xhOTZncA==', 
       color: '#E4405F' 
     },
     { 
-      name: 'GitHub', 
-      icon: <FaGithub />, 
-      url: 'https://github.com', 
-      color: '#FFFFFF' // Crisp white for GitHub on dark charcoal background
+      name: 'WhatsApp',
+      icon: <FaWhatsapp />,
+      url: 'https://wa.me/918374852001',
+      color: '#25D366'
     },
     { 
-      name: 'X / Twitter', 
-      icon: <FaXTwitter />, 
-      url: 'https://x.com', 
-      color: '#FFFFFF' // Crisp white for the modern X logo
+      name: 'Telegram',
+      icon: <FaTelegram />,
+      url: 'https://t.me/QuickEdJobs',
+      color: '#26A5E4'
     },
   ];
 
@@ -42,28 +36,28 @@ export default function QuickContactStrip() {
         {/* Wireframe Section 6: make a call | send an email | social media logos */}
         <div className="contact-trio-grid">
           {/* 1. Make A Call - PRESERVED EXACTLY AS IS */}
-          <a href="tel:+9183748 52001" className="contact-action-box call-box">
+          <a href="tel:+918374852001" className="contact-action-box call-box">
             <div className="action-icon-circle call-icon-bg">
               <span>📞</span>
             </div>
             <div className="action-text-content">
               <span className="action-eyebrow">Direct Admissions Hotline</span>
               <h3 className="action-main-text">Make a Call</h3>
-              <p className="action-detail">+91 98765 43210</p>
+              <p className="action-detail">+91 83748 52001</p>
               <span className="action-avail">● Available 24/7 for Inquiries</span>
             </div>
             <span className="action-arrow-tag">Call Now ↗</span>
           </a>
 
           {/* 2. Send An Email - PRESERVED EXACTLY AS IS */}
-          <a href="mailto:admissions@quickedsolutions.com" className="contact-action-box email-box">
+          <a href="mailto:quickedsolutions@gmail.com" className="contact-action-box email-box">
             <div className="action-icon-circle email-icon-bg">
               <span>✉️</span>
             </div>
             <div className="action-text-content">
               <span className="action-eyebrow">Academic Desk</span>
               <h3 className="action-main-text">Send an Email</h3>
-              <p className="action-detail">admissions@quickedsolutions.com</p>
+              <p className="action-detail">quickedsolutions@gmail.com</p>
               <span className="action-avail">⚡ Instant response in &lt; 15 mins</span>
             </div>
             <span className="action-arrow-tag">Write Mail ↗</span>

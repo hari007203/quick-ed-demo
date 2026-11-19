@@ -17,7 +17,7 @@
 
 .about-agency-section {
   position: relative;
-  padding: 96px 24px 70px; /* 72px navbar + 24px breathing room */
+  padding: 80px 24px 52px; /* 72px navbar + compact breathing room */
   overflow: hidden;
   background-color: transparent;
   min-height: 100vh;
@@ -463,7 +463,7 @@
     height: 320px;
   }
   .about-agency-section {
-    padding: 88px 20px 50px;
+    padding: 72px 20px 40px;
     min-height: auto;
   }
   .agency-container {
@@ -506,7 +506,7 @@
    ========================================================================== */
 @media (max-width: 480px) {
   .about-agency-section {
-    padding: 76px 14px 40px;
+    padding: 64px 14px 32px;
   }
 
   .agency-container {
@@ -615,7 +615,7 @@
    ========================================================================== */
 @media (max-width: 380px) {
   .about-agency-section {
-    padding: 72px 10px 32px;
+    padding: 60px 10px 26px;
   }
 
   .agency-hero-title {

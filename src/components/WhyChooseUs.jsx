@@ -1,7 +1,5 @@
 import './WhyChooseUs.css';
 
-// Clean single import for the founder photo
-import Founder from '../assets/Founder.webp'; 
 
 export default function WhyChooseUs() {
   const pillars = [
@@ -67,27 +65,6 @@ export default function WhyChooseUs() {
               and the ownership you bring to the team. At Quick Ed Solutions, our motto is simple: 
               <strong> LEARN. BUILD. SUCCEED.</strong>"
             </blockquote>
-            <div className="speaker-meta">
-              <div>
-                <strong>Suhas Nagulapalli</strong>
-                <span>Founder & Chief Mentor, Quick Ed Solutions •Hr, Marketing, Enterpreneur</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Founder Photo (60%) */}
-          <div className="speech-image-col">
-            <div className="image-wrapper">
-              <img 
-                src={Founder} 
-                alt="Nagulapalli Suhas - Founder" 
-                className="founder-img"
-                loading="lazy"
-                decoding="async"
-                width="440"
-                height="500"
-              />
-            </div>
           </div>
         </div>
 
