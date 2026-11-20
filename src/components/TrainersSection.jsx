@@ -11,9 +11,9 @@ import 'swiper/css/effect-fade';
 
 import './TrainersSection.css';
 import Hari from '../assets/Hari.webp';
+import Akash from '../assets/akash.png';
 import Karthik from '../assets/KArthik.png';
 import Ameesha from '../assets/Ameesha.png';
-import gnana from '../assets/Gnana.png';
 
 /* ==========================================================================
    24 SEAMLESS TRIANGULAR FRAGMENTS GENERATOR
@@ -99,7 +99,7 @@ const TRAINERS = [
     name: 'Akash Katam',
     role: 'GenAI & Python Full-Stack Developer',
     companies: [],
-    // image: Akash,
+    image: Akash,
     accentColor: '#8B5CF6',
     mentored: '380+ Engineers',
     specialty: 'Generative AI, LLMs, Prompt Engineering, Python, Django, FastAPI, REST APIs & Full-Stack Development',
@@ -141,20 +141,7 @@ const TRAINERS = [
     features: ['Public Speaking Practice', 'Interview Preparation', 'Workplace Communication'],
     bio: 'Helps learners build confidence for professional settings through practical communication exercises, public speaking, interview preparation, teamwork and workplace etiquette.',
   },
-  {
-    id: 6,
-    name: 'Digital Marketing Trainer',
-    role: 'Digital Marketing & Growth Mentor',
-    image: gnana,
-    initials: 'DM',
-    accentColor: '#06B6D4',
-    mentored: 'Marketing Strategy & Analytics',
-    specialty: 'SEO, Social Media Marketing, Content Strategy, Google Ads, Email Marketing & Analytics',
-    expertiseLabel: 'Core Expertise:',
-    statusLabel: 'Marketing Mentor',
-    features: ['SEO & Content Strategy', 'Social Media Campaigns', 'Paid Ads & Analytics'],
-    bio: 'Introduces learners to practical digital marketing, from search optimization and content planning to social media campaigns, paid advertising and performance analytics.',
-  },
+
 ];
 
 export default function TrainersSection() {

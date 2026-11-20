@@ -38,7 +38,6 @@ export default function Navbar({ activeSection = 'home', onNavigate }) {
     { name: 'Cybersecurity', desc: 'Ethical Hacking, SOC, PenTesting & Defense', color: '#10B981' },
     { name: 'GenAI & LLMs', desc: 'LangChain, RAG Pipelines & Autonomous Agents', color: '#8B5CF6' },
     { name: 'Software Testing', desc: 'Playwright, Selenium & QA Automation', color: '#F43F5E' },
-    { name: 'Digital Marketing', desc: 'SEO, Social Media & Performance Marketing', color: '#F59E0B' },
   ];
 
   return (
@@ -70,7 +69,7 @@ export default function Navbar({ activeSection = 'home', onNavigate }) {
                       onClick={() => handleLinkClick('courses')}
                     >
                       <span>{item.label}</span>
-                      <span className="qed-courses-counter">6</span>
+                      <span className="qed-courses-counter">5</span>
                       <svg 
                         className={`chevron-icon ${coursesHovered ? 'rotated' : ''}`} 
                         width="12" 
@@ -173,7 +172,7 @@ export default function Navbar({ activeSection = 'home', onNavigate }) {
                 onClick={() => handleLinkClick(item.key)}
               >
                 <span>{item.label}</span>
-                {item.key === 'courses' && <span className="mobile-badge">6 Programs</span>}
+                {item.key === 'courses' && <span className="mobile-badge">5 Programs</span>}
                 {item.key === 'help' && <span className="mobile-badge" style={{ color: '#DC2626', borderColor: '#DC2626' }}>Phone / Mail</span>}
               </button>
             ))}

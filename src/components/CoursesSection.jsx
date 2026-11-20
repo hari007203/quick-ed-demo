@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react';
-import BrochureModal from './BrochureModal';
+import { FaBrain, FaJava, FaPython, FaShieldHalved, FaVial } from 'react-icons/fa6';
 import './CoursesSection.css';
 
 export default function CoursesSection() {
   const [activeCourseIndex, setActiveCourseIndex] = useState(0);
   const [activeCourseModal, setActiveCourseModal] = useState(null);
-  const [brochureModalOpen, setBrochureModalOpen] = useState(false);
-  const [selectedBrochureCourse, setSelectedBrochureCourse] = useState('All Flagship Programs');
-  const [enrolledCourse, setEnrolledCourse] = useState(null);
 
   const courses = [
     {
@@ -22,7 +19,7 @@ export default function CoursesSection() {
       duration: '16 Weeks',
       projects: '8 Enterprise Projects',
       level: 'Beginner to Advanced',
-      skills: ['Core Java', 'Spring Boot', 'Microservices', 'React.js', 'Hibernate', 'RESTful APIs', 'MySQL', 'Docker', 'AWS'],
+      skills: ['Java, HTML5, CSS3, JavaScript, React.js & SQL'],
       highlights: [
         'End-to-End Enterprise Microservices Architecture',
         'Spring Security with JWT & OAuth2',
@@ -42,7 +39,7 @@ export default function CoursesSection() {
       duration: '14 Weeks',
       projects: '6+ Production Apps',
       level: 'All Levels',
-      skills: ['Python 3', 'Django', 'FastAPI', 'Next.js', 'PostgreSQL', 'Redis', 'Tailwind CSS', 'Docker'],
+      skills: ['Generative AI, LLMs, Prompt Engineering, Python, Django, FastAPI, REST APIs & Full-Stack Development'],
       highlights: [
         'Async microservices using FastAPI & Pydantic',
         'Modern SSR Web Apps with Next.js & React',
@@ -82,7 +79,7 @@ export default function CoursesSection() {
       duration: '12 Weeks',
       projects: '12 Hands-on Virtual Labs',
       level: 'Beginner to Advanced',
-      skills: ['Kali Linux', 'Network Defense', 'Penetration Testing', 'Wireshark', 'Metasploit', 'OWASP Top 10', 'SOC Analysis', 'SIEM'],
+      skills: ['Ethical Hacking, Network Security, TCP/IP, Routing & Switching, Linux, SOC Operations & SIEM Tools'],
       highlights: [
         'Real-world offensive penetration testing in isolated cyber ranges',
         'Vulnerability assessment & exploit development basics',
@@ -102,7 +99,7 @@ export default function CoursesSection() {
       duration: '10 Weeks',
       projects: '4 Real Automation Suites',
       level: 'Beginner Friendly',
-      skills: ['Manual Testing', 'Selenium WebDriver', 'Playwright', 'Postman API Testing', 'RestAssured', 'JUnit/TestNG', 'JIRA', 'Jenkins'],
+      skills: ['Manual Testing, Automation Testing, Selenium, Playwright, API Testing, SQL & Test Case Design'],
       highlights: [
         'Modern Web Automation with Playwright & TypeScript/Java',
         'Comprehensive REST API Testing & Automation with Postman',
@@ -114,30 +111,42 @@ export default function CoursesSection() {
 
   const currentCourse = courses[activeCourseIndex];
   const courseSymbols = {
-    'java-fullstack': '☕',
-    'python-fullstack': 'Py',
-    genai: '✳',
-    cybersecurity: '⬡',
-    'software-testing': '✓',
+    'java-fullstack': <FaJava aria-hidden="true" />,
+    'python-fullstack': <FaPython aria-hidden="true" />,
+    genai: <FaBrain aria-hidden="true" />,
+    cybersecurity: <FaShieldHalved aria-hidden="true" />,
+    'software-testing': <FaVial aria-hidden="true" />,
   };
 
   useEffect(() => {
-    if (activeCourseModal || brochureModalOpen) return undefined;
+    if (activeCourseModal) return undefined;
 
     const intervalId = window.setInterval(() => {
       setActiveCourseIndex((index) => (index + 1) % courses.length);
     }, 5000);
 
     return () => window.clearInterval(intervalId);
-  }, [activeCourseModal, brochureModalOpen, courses.length]);
+  }, [activeCourseModal, courses.length]);
+
+  useEffect(() => {
+    if (!activeCourseModal) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') setActiveCourseModal(null);
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [activeCourseModal]);
 
   const navigateCourse = (direction) => {
     setActiveCourseIndex((index) => (index + direction + courses.length) % courses.length);
-  };
-
-  const handleOpenBrochure = (courseTitle = 'All Flagship Programs') => {
-    setSelectedBrochureCourse(courseTitle);
-    setBrochureModalOpen(true);
   };
 
   return (
@@ -156,8 +165,6 @@ export default function CoursesSection() {
             key={currentCourse.id}
             className="qe-course-card"
             style={{ '--course-accent': currentCourse.accentColor }}
-            aria-roledescription="slide"
-            aria-label={`Course ${activeCourseIndex + 1} of ${courses.length}: ${currentCourse.title}`}
           >
             <div className="qe-course-card-top">
               <span className="qe-course-number">Course / {String(activeCourseIndex + 1).padStart(2, '0')}</span>
@@ -173,48 +180,23 @@ export default function CoursesSection() {
               <h3>{currentCourse.title}</h3>
               <p className="qe-course-subtitle">{currentCourse.projects}</p>
               <p className="qe-course-description">{currentCourse.tagline}</p>
-              <p className="qe-course-technologies" aria-label="Technologies">
-                {currentCourse.skills.join(' / ')}
-              </p>
+              <div className="qe-course-skills-block">
+                <span className="qe-course-skills-label">Core Technical Expertise:</span>
+                <div className="qe-course-skills">
+                  {currentCourse.skills.map((skill) => (
+                    <span className="qe-course-skill" key={skill}>{skill}</span>
+                  ))}
+                </div>
+              </div>
             </div>
 
             <div className="qe-course-card-bottom">
               <div className="qe-course-info">
-                <span>Duration</span>
-                <strong>{currentCourse.duration}</strong>
-              </div>
-              <div className="qe-course-info">
                 <span>Level</span>
                 <strong>{currentCourse.level}</strong>
               </div>
-              <button
-                className="qe-course-explore"
-                type="button"
-                onClick={() => setActiveCourseModal(currentCourse)}
-                aria-label={`Explore ${currentCourse.title} syllabus`}
-              >
-                Explore <span aria-hidden="true">↗</span>
-              </button>
             </div>
           </article>
-
-          <div className="qe-course-actions">
-            <button
-              type="button"
-              className="qe-course-brochure"
-              onClick={() => handleOpenBrochure(currentCourse.title)}
-              aria-label={`View brochure for ${currentCourse.title}`}
-            >
-              Course brochure <span aria-hidden="true">↗</span>
-            </button>
-            <button
-              type="button"
-              className="qe-course-brochure qe-course-all-brochures"
-              onClick={() => handleOpenBrochure('All 5 Flagship Curriculums')}
-            >
-              View all brochures <span aria-hidden="true">↗</span>
-            </button>
-          </div>
 
           <nav className="qe-course-controls" aria-label="Course carousel navigation">
             <button
@@ -250,23 +232,22 @@ export default function CoursesSection() {
         </div>
       </div>
 
-      {/* Brochure Modal */}
-      <BrochureModal 
-        isOpen={brochureModalOpen} 
-        onClose={() => setBrochureModalOpen(false)} 
-        courseTitle={selectedBrochureCourse}
-      />
-
       {/* Syllabus Modal */}
       {activeCourseModal && (
         <div className="syllabus-overlay" onClick={() => setActiveCourseModal(null)}>
-          <div className="syllabus-content" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="syllabus-content"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="course-syllabus-title"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="modal-top" style={{ borderTop: `4px solid ${activeCourseModal.accentColor}` }}>
               <div>
                 <span className="modal-tag" style={{ color: activeCourseModal.accentColor }}>Curriculum Overview</span>
-                <h3 className="modal-heading">{activeCourseModal.title}</h3>
+                <h3 className="modal-heading" id="course-syllabus-title">{activeCourseModal.title}</h3>
               </div>
-              <button type="button" className="close-x" onClick={() => setActiveCourseModal(null)}>✕</button>
+              <button type="button" className="close-x" onClick={() => setActiveCourseModal(null)} aria-label="Close course syllabus">✕</button>
             </div>
 
             <div className="modal-scrollable">
@@ -292,42 +273,7 @@ export default function CoursesSection() {
               </div>
             </div>
 
-            <div className="modal-actions-bar">
-              <button 
-                type="button" 
-                className="modal-brochure-action"
-                onClick={() => {
-                  handleOpenBrochure(activeCourseModal.title);
-                  setActiveCourseModal(null);
-                }}
-              >
-                Download PDF Brochure
-              </button>
-              <button 
-                type="button" 
-                className="modal-enroll-action"
-                style={{ background: activeCourseModal.accentGradient }}
-                onClick={() => {
-                  setEnrolledCourse(activeCourseModal.title);
-                  setActiveCourseModal(null);
-                }}
-              >
-                Apply for Next Batch →
-              </button>
-            </div>
           </div>
-        </div>
-      )}
-
-      {/* Enrollment Toast Notification */}
-      {enrolledCourse && (
-        <div className="hud-toast">
-          <span className="toast-emoji">🚀</span>
-          <div>
-            <strong>Application Submitted!</strong>
-            <p>You applied for <span>{enrolledCourse}</span>. Our advisor will connect shortly.</p>
-          </div>
-          <button type="button" className="toast-dismiss" onClick={() => setEnrolledCourse(null)}>✕</button>
         </div>
       )}
     </section>

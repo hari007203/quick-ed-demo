@@ -104,7 +104,7 @@ export default function Hero3DVisual() {
         {/* Abstract Digital Network Elements / Orbital Nodes */}
         <div className="hero-3d-node node-1">
           <span className="node-dot" />
-          <span className="node-label">Full Stack Stacks</span>
+          <span className="node-label">Java Full Stack</span>
         </div>
 
         <div className="hero-3d-node node-2">
@@ -124,7 +124,7 @@ export default function Hero3DVisual() {
 
         <div className="hero-3d-node node-5">
           <span className="node-dot" />
-          <span className="node-label">Digital Marketing</span>
+          <span className="node-label">Python Full Stack</span>
         </div>
 
         <div className="hero-3d-node node-6">

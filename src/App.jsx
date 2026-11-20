@@ -8,6 +8,7 @@ import CoursesSection from './components/CoursesSection';
 import TrainersSection from './components/TrainersSection';
 import WhyChooseUs from './components/WhyChooseUs';
 import QuickContactStrip from './components/QuickContactStrip';
+import ChatWidget from './components/ChatWidget';
 import Footer from './components/Footer';
 import BrochureModal from './components/BrochureModal';
 import './App.css';
@@ -125,7 +126,11 @@ export default function App() {
           onClose={() => setGlobalBrochureOpen(false)}
           courseTitle="Quick Ed Solutions All Flagship Programs"
         />
-      </div>
+            </div>
+
+      {/* Floating Quick Ed Assistant - shown after intro completes */}
+      {introComplete && <ChatWidget />}
+
     </>
   );
 }
