@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BrochureModal from './BrochureModal';
 import './CoursesSection.css';
 
 export default function CoursesSection() {
-  const [selectedFilter, setSelectedFilter] = useState('all');
+  const [activeCourseIndex, setActiveCourseIndex] = useState(0);
   const [activeCourseModal, setActiveCourseModal] = useState(null);
   const [brochureModalOpen, setBrochureModalOpen] = useState(false);
   const [selectedBrochureCourse, setSelectedBrochureCourse] = useState('All Flagship Programs');
@@ -112,9 +112,28 @@ export default function CoursesSection() {
     }
   ];
 
-  const filteredCourses = selectedFilter === 'all' 
-    ? courses 
-    : courses.filter(c => c.category === selectedFilter);
+  const currentCourse = courses[activeCourseIndex];
+  const courseSymbols = {
+    'java-fullstack': '☕',
+    'python-fullstack': 'Py',
+    genai: '✳',
+    cybersecurity: '⬡',
+    'software-testing': '✓',
+  };
+
+  useEffect(() => {
+    if (activeCourseModal || brochureModalOpen) return undefined;
+
+    const intervalId = window.setInterval(() => {
+      setActiveCourseIndex((index) => (index + 1) % courses.length);
+    }, 5000);
+
+    return () => window.clearInterval(intervalId);
+  }, [activeCourseModal, brochureModalOpen, courses.length]);
+
+  const navigateCourse = (direction) => {
+    setActiveCourseIndex((index) => (index + direction + courses.length) % courses.length);
+  };
 
   const handleOpenBrochure = (courseTitle = 'All Flagship Programs') => {
     setSelectedBrochureCourse(courseTitle);
@@ -123,159 +142,112 @@ export default function CoursesSection() {
 
   return (
     <section className="courses-section-wrapper" id="courses">
-      <div className="courses-section-header">
-        <div className="section-pill-tag">
-          <span className="live-pulse" />
-          <span>Explore Our Courses</span>
-        </div>
+      <div className="qe-course-carousel">
+        <header className="qe-course-intro">
+          <span className="qe-course-eyebrow">Learn · Build · Grow</span>
+          <h2>Build your <span>future.</span></h2>
+          <p>Explore practical courses designed to turn your ambition into real-world skills.</p>
+          <span className="qe-course-intro-line" aria-hidden="true" />
+          <span className="qe-course-caption">Your journey starts here</span>
+        </header>
 
-        <h2 className="section-main-heading">
-          Explore Our <span className="heading-gradient">Signature Programs</span>
-        </h2>
-        <p className="section-subtitle">
-          Engineered for corporate standards. Pick a domain, master high-scale architecture, and learn directly from industry leads.
-        </p>
-
-        {/* Top Brochure Banner - As prominent in wireframe sketch */}
-        <div className="brochure-spotlight-bar">
-          <div className="brochure-bar-text">
-            <span className="brochure-icon">📑</span>
-            <div>
-              <strong>Looking for Full Curriculum & Placement Details?</strong>
-              <p>Download our consolidated 2026 course brochure with day-wise roadmap.</p>
-            </div>
-          </div>
-          <button 
-            type="button" 
-            className="global-brochure-btn"
-            onClick={() => handleOpenBrochure('All 5 Flagship Curriculums')}
+        <div className="qe-course-stage">
+          <article
+            key={currentCourse.id}
+            className="qe-course-card"
+            style={{ '--course-accent': currentCourse.accentColor }}
+            aria-roledescription="slide"
+            aria-label={`Course ${activeCourseIndex + 1} of ${courses.length}: ${currentCourse.title}`}
           >
-            <span>📥 View All Brochures</span>
-          </button>
-        </div>
-
-        {/* Filter Tabs */}
-        <div className="courses-filter-pills">
-          <button 
-            type="button" 
-            className={`filter-btn ${selectedFilter === 'all' ? 'active' : ''}`}
-            onClick={() => setSelectedFilter('all')}
-          >
-            All Courses ({courses.length})
-          </button>
-          <button 
-            type="button" 
-            className={`filter-btn ${selectedFilter === 'fullstack' ? 'active' : ''}`}
-            onClick={() => setSelectedFilter('fullstack')}
-          >
-            Full Stack (2)
-          </button>
-          <button 
-            type="button" 
-            className={`filter-btn ${selectedFilter === 'ai' ? 'active' : ''}`}
-            onClick={() => setSelectedFilter('ai')}
-          >
-            GenAI (1)
-          </button>
-          <button 
-            type="button" 
-            className={`filter-btn ${selectedFilter === 'security' ? 'active' : ''}`}
-            onClick={() => setSelectedFilter('security')}
-          >
-            Cybersecurity (1)
-          </button>
-          <button 
-            type="button" 
-            className={`filter-btn ${selectedFilter === 'testing' ? 'active' : ''}`}
-            onClick={() => setSelectedFilter('testing')}
-          >
-            Software Testing (1)
-          </button>
-        </div>
-      </div>
-
-      {/* Courses Cards Grid */}
-      <div className="courses-cards-grid">
-        {filteredCourses.map((course) => (
-          <div 
-            key={course.id} 
-            className="interactive-course-card"
-            style={{ 
-              '--card-accent': course.accentColor,
-              '--card-accent-rgb': course.accentRgb
-            }}
-          >
-            {/* Top Color Accent Line */}
-            <div className="card-laser-line" style={{ background: course.accentGradient }} />
-
-            <div className="card-body-content">
-              {/* Meta Row */}
-              <div className="card-header-meta">
-                <span 
-                  className="badge-tag" 
-                  style={{ 
-                    color: course.accentColor, 
-                    borderColor: `${course.accentColor}70`, 
-                    background: `${course.accentColor}18` 
-                  }}
-                >
-                  {course.badge}
-                </span>
-                <span className="duration-tag">⏱ {course.duration}</span>
-              </div>
-
-              {/* Title & Description */}
-              <h3 className="course-title-text">{course.title}</h3>
-              <p className="course-summary">{course.tagline}</p>
-
-              {/* Stats Bar */}
-              <div className="card-stats-box">
-                <div className="stat-unit">
-                  <span className="unit-label">Projects</span>
-                  <span className="unit-val">{course.projects}</span>
-                </div>
-                <div className="stat-separator" />
-                <div className="stat-unit">
-                  <span className="unit-label">Level</span>
-                  <span className="unit-val">{course.level}</span>
-                </div>
-              </div>
-
-              {/* Key Skills */}
-              <div className="skills-tag-cloud">
-                {course.skills.slice(0, 5).map((skill, idx) => (
-                  <span key={idx} className="skill-pill">
-                    {skill}
-                  </span>
-                ))}
-                {course.skills.length > 5 && (
-                  <span className="skill-pill more">+{course.skills.length - 5} more</span>
-                )}
-              </div>
-
-              {/* Split Bottom Buttons as drawn in the wireframe sketch: [ View Brochure ] | [ Enroll / Syllabus ] */}
-              <div className="card-split-footer">
-                <button 
-                  type="button" 
-                  className="split-btn brochure-btn"
-                  onClick={() => handleOpenBrochure(course.title)}
-                  title="View Brochure for this course"
-                >
-                  <span>📄 View Brochure</span>
-                </button>
-
-                <button 
-                  type="button" 
-                  className="split-btn enroll-btn"
-                  style={{ background: course.accentGradient }}
-                  onClick={() => setActiveCourseModal(course)}
-                >
-                  <span>⚡ Syllabus & Enroll</span>
-                </button>
+            <div className="qe-course-card-top">
+              <span className="qe-course-number">Course / {String(activeCourseIndex + 1).padStart(2, '0')}</span>
+              <div className="qe-course-visual" aria-hidden="true">
+                <span className="qe-course-symbol">{courseSymbols[currentCourse.id]}</span>
+                <span className="qe-course-orbit qe-orbit-one" />
+                <span className="qe-course-orbit qe-orbit-two" />
               </div>
             </div>
+
+            <div className="qe-course-content">
+              <span className="qe-course-featured">Featured program · {currentCourse.badge}</span>
+              <h3>{currentCourse.title}</h3>
+              <p className="qe-course-subtitle">{currentCourse.projects}</p>
+              <p className="qe-course-description">{currentCourse.tagline}</p>
+              <p className="qe-course-technologies" aria-label="Technologies">
+                {currentCourse.skills.join(' / ')}
+              </p>
+            </div>
+
+            <div className="qe-course-card-bottom">
+              <div className="qe-course-info">
+                <span>Duration</span>
+                <strong>{currentCourse.duration}</strong>
+              </div>
+              <div className="qe-course-info">
+                <span>Level</span>
+                <strong>{currentCourse.level}</strong>
+              </div>
+              <button
+                className="qe-course-explore"
+                type="button"
+                onClick={() => setActiveCourseModal(currentCourse)}
+                aria-label={`Explore ${currentCourse.title} syllabus`}
+              >
+                Explore <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </article>
+
+          <div className="qe-course-actions">
+            <button
+              type="button"
+              className="qe-course-brochure"
+              onClick={() => handleOpenBrochure(currentCourse.title)}
+              aria-label={`View brochure for ${currentCourse.title}`}
+            >
+              Course brochure <span aria-hidden="true">↗</span>
+            </button>
+            <button
+              type="button"
+              className="qe-course-brochure qe-course-all-brochures"
+              onClick={() => handleOpenBrochure('All 5 Flagship Curriculums')}
+            >
+              View all brochures <span aria-hidden="true">↗</span>
+            </button>
           </div>
-        ))}
+
+          <nav className="qe-course-controls" aria-label="Course carousel navigation">
+            <button
+              type="button"
+              className="qe-course-arrow"
+              onClick={() => navigateCourse(-1)}
+              aria-label="Previous course"
+            >
+              ←
+            </button>
+            <div className="qe-course-indicators" role="group" aria-label="Choose a course">
+              {courses.map((course, index) => (
+                <button
+                  key={course.id}
+                  type="button"
+                  className={`qe-course-indicator ${index === activeCourseIndex ? 'is-active' : ''}`}
+                  onClick={() => setActiveCourseIndex(index)}
+                  aria-label={`Show course ${index + 1}: ${course.title}`}
+                  aria-current={index === activeCourseIndex ? 'true' : undefined}
+                />
+              ))}
+            </div>
+            <button
+              type="button"
+              className="qe-course-arrow"
+              onClick={() => navigateCourse(1)}
+              aria-label="Next course"
+            >
+              →
+            </button>
+          </nav>
+          <p className="qe-course-autoplay-note">Auto exploring · Every 5 seconds</p>
+        </div>
       </div>
 
       {/* Brochure Modal */}

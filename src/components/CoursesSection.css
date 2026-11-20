@@ -1,10 +1,4 @@
-/* ==========================================================================
-   Courses Section — Premium Tech Academy Design
-   Theme: #050B08 (Main) + #0B1712 (Secondary) + #101B16 (Cards)
-   Accents: #A31C1B (Brand Red) + #D92332 (Highlight Red)
-   Typography: Space Grotesk (Headings) + Inter (Body)
-   ========================================================================== */
-
+/* Courses section layout. Carousel presentation is isolated under its wrapper. */
 .courses-section-wrapper {
   max-width: 1320px;
   margin: 0 auto;
@@ -13,1191 +7,492 @@
   z-index: 1;
 }
 
-.courses-section-header {
+.qe-course-carousel {
+  --qe-course-red: #e83450;
+  --qe-course-burgundy: #a9142d;
+  width: 100%;
+  padding: clamp(30px, 5vw, 55px) clamp(0px, 2vw, 24px) 34px;
+  overflow: hidden;
+  border-radius: 28px;
+  background: radial-gradient(ellipse at 50% 55%, rgba(150, 12, 35, 0.2), transparent 58%);
+  color: #fff;
   text-align: center;
-  max-width: 840px;
-  margin: 0 auto 50px;
 }
 
-.section-pill-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(163, 28, 27, 0.12);
-  border: 1px solid rgba(217, 35, 50, 0.35);
-  color: #D92332;
+.qe-course-carousel .qe-course-intro {
+  width: 100%;
+  margin: 0 auto 36px;
+}
+
+.qe-course-carousel .qe-course-eyebrow {
+  color: #ff405b;
+  letter-spacing: 3px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.qe-course-carousel .qe-course-intro h2 {
+  margin: 16px 0 0;
+  color: #fff;
   font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: clamp(2.8rem, 6vw, 4.75rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+  text-shadow: 0 3px 25px rgba(255, 255, 255, 0.15);
+}
+
+.qe-course-carousel .qe-course-intro h2 span {
+  color: #ff334f;
+  text-shadow: 0 0 28px rgba(255, 40, 70, 0.4);
+}
+
+.qe-course-carousel .qe-course-intro p {
+  max-width: 520px;
+  margin: 16px auto 0;
+  color: #c5c5c5;
+  font-size: 0.94rem;
+  line-height: 1.8;
+}
+
+.qe-course-carousel .qe-course-intro-line {
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 20px auto 0;
+  border-radius: 5px;
+  background: #ed304c;
+}
+
+.qe-course-carousel .qe-course-caption {
+  display: block;
+  margin-top: 10px;
+  color: #999;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.qe-course-carousel .qe-course-stage {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.qe-course-carousel .qe-course-card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 410px;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: clamp(22px, 4vw, 35px);
+  border: 1px solid rgba(255, 55, 82, 0.45);
+  border-radius: 23px;
+  background:
+    radial-gradient(circle at 85% 12%, rgba(191, 25, 47, 0.24), transparent 35%),
+    linear-gradient(135deg, #201417, #111 72%);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5), 0 0 35px rgba(180, 20, 45, 0.08);
+  text-align: left;
+  animation: qeCourseCardEnter 0.65s ease both;
+}
+
+.qe-course-carousel .qe-course-card::before {
+  position: absolute;
+  right: -95px;
+  bottom: -100px;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: rgba(210, 30, 58, 0.12);
+  content: '';
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.qe-course-carousel .qe-course-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80px;
+}
+
+.qe-course-carousel .qe-course-number {
+  color: #bbb;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.qe-course-carousel .qe-course-visual {
+  position: relative;
+  display: grid;
+  width: 80px;
+  height: 80px;
+  flex: 0 0 80px;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--course-accent) 58%, #ff3752);
+  border-radius: 20px;
+  background: linear-gradient(145deg, #35121c, #170d10);
+  box-shadow: 0 0 25px rgba(255, 40, 70, 0.18);
+}
+
+.qe-course-carousel .qe-course-symbol {
+  z-index: 2;
+  color: var(--course-accent, #ff4058);
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  animation: qeCourseIconFloat 2.5s ease-in-out infinite;
+  text-shadow: 0 0 18px rgba(255, 50, 80, 0.6);
+}
+
+.qe-course-carousel .qe-course-orbit {
+  position: absolute;
+  inset: -7px;
+  border: 1px solid rgba(255, 55, 82, 0.35);
+  border-radius: 24px;
+  animation: qeCourseOrbitPulse 3s ease-in-out infinite;
+}
+
+.qe-course-carousel .qe-orbit-two {
+  inset: -14px;
+  border-color: rgba(255, 55, 82, 0.18);
+  animation-delay: 0.7s;
+}
+
+.qe-course-carousel .qe-course-content {
+  position: relative;
+  z-index: 1;
+  margin: 24px 0;
+}
+
+.qe-course-carousel .qe-course-featured {
+  color: #ff536b;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.qe-course-carousel .qe-course-content h3 {
+  margin: 12px 0 0;
+  color: #ff4058;
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  text-shadow: 0 0 22px rgba(255, 45, 75, 0.25);
+}
+
+.qe-course-carousel .qe-course-subtitle {
+  margin: 8px 0 0;
+  color: #f0b4bd;
+  font-size: 0.94rem;
+  font-weight: 600;
+}
+
+.qe-course-carousel .qe-course-description {
+  max-width: 650px;
+  margin: 14px 0 0;
+  color: #c0b9ba;
+  font-size: 0.84rem;
+  line-height: 1.8;
+}
+
+.qe-course-carousel .qe-course-technologies {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 14px 0 0;
+  color: #ff6479;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.qe-course-carousel .qe-course-card-bottom {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: end;
+  gap: clamp(16px, 4vw, 35px);
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.qe-course-carousel .qe-course-info {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.qe-course-carousel .qe-course-info span {
+  color: #999;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.qe-course-carousel .qe-course-info strong {
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.qe-course-carousel .qe-course-explore {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-left: auto;
+  padding: 11px 20px;
+  border: 0;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #e83450, #a9142d);
+  color: #fff;
   font-size: 0.78rem;
   font-weight: 700;
-  padding: 6px 18px;
-  border-radius: 999px;
-  margin-bottom: 18px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.live-pulse {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #D92332;
-  box-shadow: 0 0 10px #D92332, 0 0 20px #D92332;
-}
-
-.section-main-heading {
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: clamp(2.4rem, 4.5vw, 3.4rem);
-  font-weight: 700;
-  color: #F5F7F6;
-  line-height: 1.15;
-  margin: 0 0 16px;
-  letter-spacing: -0.025em;
-}
-
-.heading-gradient {
-  background: linear-gradient(135deg, #F5F7F6 0%, #D92332 50%, #A31C1B 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 20px rgba(163, 28, 27, 0.35));
-}
-
-.section-subtitle {
-  font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 1.1rem;
-  color: #94A3A0;
-  line-height: 1.65;
-  margin: 0 auto 30px;
-}
-
-/* Brochure Spotlight Bar in #101B16 */
-.brochure-spotlight-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #101B16;
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  border-radius: 18px;
-  padding: 18px 26px;
-  margin-bottom: 32px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-  text-align: left;
-}
-
-.brochure-bar-text {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.brochure-icon {
-  font-size: 2.2rem;
-  flex-shrink: 0;
-}
-
-.brochure-bar-text strong {
-  display: block;
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: #F5F7F6;
-}
-
-.brochure-bar-text p {
-  margin: 3px 0 0;
-  font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.88rem;
-  color: #94A3A0;
-}
-
-.global-brochure-btn {
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 0.95rem;
-  font-weight: 700;
-  padding: 12px 26px;
-  border-radius: 12px;
-  border: none;
-  background: linear-gradient(135deg, #A31C1B 0%, #D92332 100%);
-  color: #FFFFFF;
   cursor: pointer;
-  flex-shrink: 0;
-  box-shadow: 0 4px 18px rgba(163, 28, 27, 0.4);
-  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+  transition: background 0.25s, transform 0.25s;
 }
 
-.global-brochure-btn:hover {
-  background: linear-gradient(135deg, #BF2022 0%, #E62A39 100%);
+.qe-course-carousel .qe-course-explore:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(217, 35, 50, 0.5);
+  background: #f13a56;
 }
 
-/* Filter Pills */
-.courses-filter-pills {
+.qe-course-carousel .qe-course-actions {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
+  gap: 12px 22px;
+  margin-top: 16px;
 }
 
-.filter-btn {
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 0.9rem;
-  font-weight: 600;
-  padding: 8px 22px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  background: #101B16;
-  color: #94A3A0;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.filter-btn:hover {
-  color: #F5F7F6;
-  border-color: rgba(217, 35, 50, 0.45);
-  background: rgba(163, 28, 27, 0.15);
-}
-
-.filter-btn.active {
-  background: #A31C1B;
-  color: #FFFFFF;
-  font-weight: 700;
-  border-color: #D92332;
-  box-shadow: 0 0 16px rgba(163, 28, 27, 0.45);
-}
-
-/* Cards Grid: Perfectly balanced heights & spacing */
-.courses-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  gap: 28px;
-  align-items: stretch;
-}
-
-/* Course Card in #101B16 */
-.interactive-course-card {
-  background: #101B16;
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  border-radius: 22px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
-}
-
-/* Hover Animation: 5-7px lift, transition border subtly towards brand red, restrained shadow */
-.interactive-course-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--card-accent, #D92332);
-  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.9), 0 0 24px rgba(163, 28, 27, 0.25);
-}
-
-.card-laser-line {
-  height: 4.5px;
-  width: 100%;
-  transition: height 0.2s ease;
-}
-
-.interactive-course-card:hover .card-laser-line {
-  height: 5.5px;
-}
-
-.card-body-content {
-  padding: 26px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.card-header-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 14px;
-}
-
-.badge-tag {
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 4px 12px;
-  border-radius: 999px;
-  border: 1px solid;
-  transition: transform 0.2s ease;
-}
-
-.interactive-course-card:hover .badge-tag {
-  transform: scale(1.04);
-}
-
-.duration-tag {
-  font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.8rem;
-  color: #94A3A0;
-  font-weight: 500;
-}
-
-.course-title-text {
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: #F5F7F6;
-  margin: 0 0 8px;
-  line-height: 1.25;
-}
-
-.course-summary {
-  font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.92rem;
-  color: #94A3A0;
-  line-height: 1.6;
-  margin: 0 0 20px;
-  flex-grow: 1;
-}
-
-/* Stats Box */
-.card-stats-box {
-  display: flex;
-  align-items: center;
-  background: #0B1712;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 12px;
-  padding: 10px 16px;
-  margin-bottom: 20px;
-}
-
-.stat-unit {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.unit-label {
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 0.66rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #6B7B76;
-  letter-spacing: 0.05em;
-}
-
-.unit-val {
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: #F5F7F6;
-  margin-top: 2px;
-}
-
-.stat-separator {
-  width: 1px;
-  height: 24px;
-  background: rgba(255, 255, 255, 0.08);
-  margin: 0 12px;
-}
-
-/* Skills Cloud */
-.skills-tag-cloud {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 24px;
-}
-
-.skill-pill {
-  font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.72rem;
-  font-weight: 500;
-  padding: 4px 10px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  color: #F5F7F6;
-  transition: border-color 0.2s ease, background 0.2s ease;
-}
-
-.interactive-course-card:hover .skill-pill {
-  border-color: rgba(255, 255, 255, 0.15);
-}
-
-.skill-pill.more {
+.qe-course-carousel .qe-course-brochure {
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 0;
   background: transparent;
-  color: #94A3A0;
-  border: 1px dashed rgba(255, 255, 255, 0.2);
-}
-
-/* Split Bottom Buttons */
-.card-split-footer {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 10px;
-  margin-top: auto;
-  padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.split-btn {
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 0.88rem;
+  color: #c5c5c5;
+  font-size: 0.78rem;
   font-weight: 600;
-  padding: 11px 12px;
-  border-radius: 12px;
   cursor: pointer;
+}
+
+.qe-course-carousel .qe-course-brochure:hover {
+  color: #ff536b;
+}
+
+.qe-course-carousel .qe-course-controls {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  gap: 28px;
+  margin-top: 22px;
 }
 
-.split-btn.brochure-btn {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #F5F7F6;
+.qe-course-carousel .qe-course-arrow {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  place-items: center;
+  border: 1px solid #484044;
+  border-radius: 50%;
+  background: #151112;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: border-color 0.25s, background 0.25s;
 }
 
-.split-btn.brochure-btn:hover {
-  background: rgba(163, 28, 27, 0.18);
-  border-color: #D92332;
-  box-shadow: 0 0 15px rgba(163, 28, 27, 0.3);
-  transform: translateY(-2px);
+.qe-course-carousel .qe-course-arrow:hover {
+  border-color: #ff4058;
+  background: #b91f34;
 }
 
-.split-btn.enroll-btn {
-  border: none;
-  color: #FFFFFF;
-  background: linear-gradient(135deg, #A31C1B 0%, #D92332 100%);
+.qe-course-carousel .qe-course-indicators {
+  display: flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.qe-course-carousel .qe-course-indicator {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: #666;
+  cursor: pointer;
+  transition: width 0.3s, background 0.3s, box-shadow 0.3s;
+}
+
+.qe-course-carousel .qe-course-indicator.is-active {
+  width: 28px;
+  background: #ff4058;
+  box-shadow: 0 0 10px rgba(255, 64, 88, 0.4);
+}
+
+.qe-course-carousel .qe-course-autoplay-note {
+  margin: 8px 0 0;
+  color: #999;
+  font-size: 0.55rem;
   font-weight: 700;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-.split-btn.enroll-btn:hover {
-  transform: translateY(-2px);
-  background: linear-gradient(135deg, #BF2022 0%, #E62A39 100%);
-  box-shadow: 0 6px 20px rgba(217, 35, 50, 0.45);
+@keyframes qeCourseCardEnter {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* Syllabus Overlay */
+@keyframes qeCourseIconFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-7px) scale(1.08); }
+}
+
+@keyframes qeCourseOrbitPulse {
+  0%, 100% { transform: scale(0.95); opacity: 0.3; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+/* Existing syllabus dialog and enrollment toast presentation. */
 .syllabus-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(5, 11, 8, 0.94);
-  backdrop-filter: blur(16px);
+  inset: 0;
+  z-index: 2400;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100vw;
+  height: 100vh;
   padding: 20px;
-  z-index: 2400;
+  background: rgba(5, 11, 8, 0.94);
+  backdrop-filter: blur(16px);
 }
 
 .syllabus-content {
-  background: #101B16;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 24px;
-  max-width: 640px;
   width: 100%;
+  max-width: 640px;
   max-height: 85vh;
   overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  background: #101b16;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.95), 0 0 25px rgba(163, 28, 27, 0.2);
 }
 
-.modal-top {
-  padding: 24px 28px 16px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.modal-top { display: flex; align-items: flex-start; justify-content: space-between; padding: 24px 28px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.modal-tag { font-family: var(--font-display, 'Space Grotesk', sans-serif); font-size: 0.76rem; font-weight: 700; text-transform: uppercase; }
+.modal-heading { margin: 4px 0 0; color: #f5f7f6; font-family: var(--font-display, 'Space Grotesk', sans-serif); font-size: 1.5rem; font-weight: 700; }
+.close-x { display: flex; width: 36px; height: 36px; flex: 0 0 36px; align-items: center; justify-content: center; border: 0; border-radius: 50%; background: rgba(255, 255, 255, 0.08); color: #94a3a0; cursor: pointer; transition: background 0.2s, color 0.2s; }
+.close-x:hover { background: rgba(163, 28, 27, 0.3); color: #fff; }
+.modal-scrollable { padding: 24px 28px; }
+.modal-description { margin-bottom: 22px; color: #94a3a0; font-family: var(--font-body, 'Inter', sans-serif); font-size: 0.95rem; line-height: 1.6; }
+.block-title { margin: 20px 0 10px; color: #f5f7f6; font-family: var(--font-display, 'Space Grotesk', sans-serif); font-size: 1.05rem; font-weight: 700; }
+.highlights-listing { display: flex; flex-direction: column; gap: 10px; margin: 0 0 24px; padding: 0; list-style: none; }
+.highlights-listing li { display: flex; align-items: flex-start; gap: 10px; color: #94a3a0; font-family: var(--font-body, 'Inter', sans-serif); font-size: 0.9rem; }
+.bullet-point { width: 6px; height: 6px; flex: 0 0 6px; margin-top: 7px; border-radius: 50%; }
+.tech-badge-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+.tech-chip { padding: 5px 12px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; background: rgba(255, 255, 255, 0.06); color: #f5f7f6; font-family: var(--font-body, 'Inter', sans-serif); font-size: 0.8rem; }
+.modal-actions-bar { display: flex; align-items: center; justify-content: flex-end; gap: 12px; padding: 16px 28px 24px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+.modal-brochure-action, .modal-enroll-action { min-height: 44px; padding: 11px 20px; border-radius: 12px; font-family: var(--font-display, 'Space Grotesk', sans-serif); font-size: 0.92rem; cursor: pointer; transition: background 0.2s, border-color 0.2s; }
+.modal-brochure-action { border: 1px solid rgba(255, 255, 255, 0.15); background: transparent; color: #f5f7f6; font-weight: 600; }
+.modal-brochure-action:hover { border-color: #d92332; background: rgba(163, 28, 27, 0.18); }
+.modal-enroll-action { border: 0; background: linear-gradient(135deg, #a31c1b 0%, #d92332 100%); color: #fff; font-weight: 700; }
+.modal-enroll-action:hover { background: linear-gradient(135deg, #bf2022 0%, #e62a39 100%); }
+
+.hud-toast { position: fixed; right: 28px; bottom: 28px; z-index: 2500; display: flex; align-items: center; gap: 14px; padding: 16px 22px; border: 1px solid rgba(217, 35, 50, 0.5); border-radius: 16px; background: #101b16; color: #f5f7f6; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(163, 28, 27, 0.3); backdrop-filter: blur(20px); }
+.toast-emoji { font-size: 1.5rem; }
+.hud-toast strong { display: block; color: #f5f7f6; font-family: var(--font-display, 'Space Grotesk', sans-serif); font-size: 0.95rem; }
+.hud-toast p { margin: 2px 0 0; color: #94a3a0; font-family: var(--font-body, 'Inter', sans-serif); font-size: 0.82rem; }
+.hud-toast p span { color: #d92332; font-weight: 700; }
+.toast-dismiss { min-width: 32px; min-height: 32px; border: 0; background: transparent; color: #94a3a0; cursor: pointer; }
+
+@media (max-width: 850px) {
+  .courses-section-wrapper { padding-right: 18px; padding-left: 18px; }
+  .qe-course-carousel .qe-course-card { min-height: 410px; }
 }
 
-.modal-tag {
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 0.76rem;
-  font-weight: 700;
-  text-transform: uppercase;
+@media (max-width: 600px) {
+  .courses-section-wrapper { padding: 42px 14px 52px; }
+  .qe-course-carousel { padding: 34px 0 24px; border-radius: 18px; }
+  .qe-course-carousel .qe-course-intro { margin-bottom: 28px; }
+  .qe-course-carousel .qe-course-eyebrow { font-size: 0.6rem; letter-spacing: 2px; }
+  .qe-course-carousel .qe-course-intro h2 { font-size: clamp(2.65rem, 12vw, 3.5rem); }
+  .qe-course-carousel .qe-course-intro p { max-width: 360px; padding: 0 8px; font-size: 0.84rem; }
+  .qe-course-carousel .qe-course-card { min-height: 430px; padding: 22px 18px; border-radius: 18px; }
+  .qe-course-carousel .qe-course-visual { width: 66px; height: 66px; flex-basis: 66px; border-radius: 17px; }
+  .qe-course-carousel .qe-course-symbol { font-size: 1.9rem; }
+  .qe-course-carousel .qe-course-content { margin: 18px 0; }
+  .qe-course-carousel .qe-course-content h3 { font-size: clamp(1.75rem, 8vw, 2.15rem); }
+  .qe-course-carousel .qe-course-subtitle { font-size: 0.84rem; }
+  .qe-course-carousel .qe-course-description { font-size: 0.78rem; line-height: 1.65; }
+  .qe-course-carousel .qe-course-technologies { font-size: 0.56rem; letter-spacing: 1px; }
+  .qe-course-carousel .qe-course-card-bottom { flex-wrap: wrap; gap: 14px 18px; padding-top: 16px; }
+  .qe-course-carousel .qe-course-info { flex: 1 1 34%; }
+  .qe-course-carousel .qe-course-info strong { font-size: 0.72rem; }
+  .qe-course-carousel .qe-course-explore { min-height: 42px; margin-left: auto; padding: 10px 14px; }
+  .qe-course-carousel .qe-course-controls { gap: 18px; }
+  .qe-course-carousel .qe-course-arrow { width: 40px; height: 40px; flex-basis: 40px; }
+  .qe-course-carousel .qe-course-indicators { gap: 7px; }
+  .qe-course-carousel .qe-course-indicator { width: 9px; height: 9px; }
+  .qe-course-carousel .qe-course-indicator.is-active { width: 24px; }
+  .syllabus-overlay { align-items: flex-end; padding: 10px; backdrop-filter: none; }
+  .syllabus-content { max-height: 90vh; border-radius: 18px 18px 0 0; }
+  .modal-top { padding: 18px 18px 14px; }
+  .modal-heading { font-size: 1.2rem; }
+  .modal-scrollable { padding: 18px; }
+  .modal-description { font-size: 0.88rem; }
+  .modal-actions-bar { flex-direction: column; align-items: stretch; padding: 14px 18px 20px; }
+  .modal-actions-bar button { width: 100%; }
+  .hud-toast { right: 12px; bottom: 12px; left: 12px; padding: 14px 16px; backdrop-filter: none; }
 }
 
-.modal-heading {
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #F5F7F6;
-  margin: 4px 0 0;
-}
-
-.close-x {
-  background: rgba(255, 255, 255, 0.08);
-  border: none;
-  color: #94A3A0;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s;
-}
-
-.close-x:hover {
-  background: rgba(163, 28, 27, 0.3);
-  color: #FFFFFF;
-}
-
-.modal-scrollable {
-  padding: 24px 28px;
-}
-
-.modal-description {
-  font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.95rem;
-  color: #94A3A0;
-  line-height: 1.6;
-  margin-bottom: 22px;
-}
-
-.block-title {
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #F5F7F6;
-  margin: 20px 0 10px;
-}
-
-.highlights-listing {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.highlights-listing li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.9rem;
-  color: #94A3A0;
-}
-
-.bullet-point {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  margin-top: 7px;
-  flex-shrink: 0;
-}
-
-.tech-badge-cloud {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.tech-chip {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 5px 12px;
-  font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.8rem;
-  color: #F5F7F6;
-}
-
-.modal-actions-bar {
-  padding: 16px 28px 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 12px;
-}
-
-.modal-brochure-action {
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 0.92rem;
-  font-weight: 600;
-  padding: 11px 20px;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  color: #F5F7F6;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.modal-brochure-action:hover {
-  border-color: #D92332;
-  background: rgba(163, 28, 27, 0.18);
-}
-
-.modal-enroll-action {
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 0.92rem;
-  font-weight: 700;
-  padding: 11px 22px;
-  border: none;
-  border-radius: 12px;
-  color: #FFFFFF;
-  background: linear-gradient(135deg, #A31C1B 0%, #D92332 100%);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.modal-enroll-action:hover {
-  background: linear-gradient(135deg, #BF2022 0%, #E62A39 100%);
-}
-
-/* Toast in #101B16 with Crimson Accent */
-.hud-toast {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  background: #101B16;
-  backdrop-filter: blur(20px);
-  color: #F5F7F6;
-  border-radius: 16px;
-  padding: 16px 22px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  border: 1px solid rgba(217, 35, 50, 0.5);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(163, 28, 27, 0.3);
-  z-index: 2500;
-}
-
-.toast-emoji {
-  font-size: 1.5rem;
-}
-
-.hud-toast strong {
-  display: block;
-  font-family: var(--font-display, 'Space Grotesk', sans-serif);
-  font-size: 0.95rem;
-  color: #F5F7F6;
-}
-
-.hud-toast p {
-  margin: 2px 0 0;
-  font-family: var(--font-body, 'Inter', sans-serif);
-  font-size: 0.82rem;
-  color: #94A3A0;
-}
-
-.hud-toast span {
-  color: #D92332;
-  font-weight: 700;
-}
-
-.toast-dismiss {
-  background: transparent;
-  border: none;
-  color: #94A3A0;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .interactive-course-card {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-  }
-  .brochure-spotlight-bar {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    flex-direction: column;
-    gap: 16px;
-    align-items: flex-start;
-  }
-  .courses-cards-grid {
-    grid-template-columns: 1fr;
-  }
-  .global-brochure-btn {
-    width: 100%;
-  }
-}
-
-/* ==========================================================================
-   Mobile Responsive — 480px breakpoint
-   ========================================================================== */
-@media (max-width: 480px) {
-  /* Section wrapper — tighter padding */
-  .courses-section-wrapper {
-    padding: 38px 14px 44px;
-  }
-
-  .courses-section-header {
-    margin-bottom: 32px;
-  }
-
-  /* Section pill tag — smaller on mobile */
-  .section-pill-tag {
-    font-size: 0.7rem;
-    padding: 5px 14px;
-    gap: 6px;
-    margin-bottom: 14px;
-  }
-
-  /* Section heading — cap size for small screens */
-  .section-main-heading {
-    font-size: clamp(1.6rem, 7vw, 2.2rem);
-    margin-bottom: 12px;
-  }
-
-  .section-subtitle {
-    font-size: 0.95rem;
-    line-height: 1.55;
-    margin-bottom: 20px;
-  }
-
-  /* Brochure spotlight bar — reduce padding & font sizes */
-  .brochure-spotlight-bar {
-    padding: 14px 16px;
-    border-radius: 14px;
-    margin-bottom: 24px;
-    gap: 12px;
-  }
-
-  .brochure-bar-text {
-    gap: 10px;
-  }
-
-  .brochure-icon {
-    font-size: 1.6rem;
-  }
-
-  .brochure-bar-text strong {
-    font-size: 0.92rem;
-  }
-
-  .brochure-bar-text p {
-    font-size: 0.8rem;
-  }
-
-  .global-brochure-btn {
-    font-size: 0.85rem;
-    padding: 10px 20px;
-    border-radius: 10px;
-  }
-
-  /* Filter pills — horizontally scrollable, no wrapping */
-  .courses-filter-pills {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 6px;
-    margin: 0 -14px;
-    padding-left: 14px;
-    padding-right: 14px;
-  }
-
-  .courses-filter-pills::-webkit-scrollbar {
-    display: none;
-  }
-
-  .filter-btn {
-    font-size: 0.82rem;
-    padding: 7px 16px;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  /* Cards grid — single column, no minmax overflow */
-  .courses-cards-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  /* Card body — reduce padding */
-  .card-body-content {
-    padding: 18px 16px;
-  }
-
-  /* Card header meta */
-  .card-header-meta {
-    margin-bottom: 10px;
-  }
-
-  /* Badge tag — smaller */
-  .badge-tag {
-    font-size: 0.66rem;
-    padding: 3px 10px;
-  }
-
-  .duration-tag {
-    font-size: 0.75rem;
-  }
-
-  /* Course title — reduced */
-  .course-title-text {
-    font-size: 1.12rem;
-    margin-bottom: 6px;
-  }
-
-  .course-summary {
-    font-size: 0.85rem;
-    margin-bottom: 14px;
-    line-height: 1.55;
-  }
-
-  /* Stats box — tighter */
-  .card-stats-box {
-    padding: 8px 12px;
-    margin-bottom: 14px;
-    border-radius: 10px;
-  }
-
-  .unit-label {
-    font-size: 0.6rem;
-  }
-
-  .unit-val {
-    font-size: 0.84rem;
-  }
-
-  .stat-separator {
-    margin: 0 8px;
-    height: 20px;
-  }
-
-  /* Skill pills — smaller */
-  .skill-pill {
-    font-size: 0.66rem;
-    padding: 3px 8px;
-    border-radius: 5px;
-  }
-
-  .skills-tag-cloud {
-    gap: 5px;
-    margin-bottom: 18px;
-  }
-
-  /* Card split footer — single column stacked buttons */
-  .card-split-footer {
-    grid-template-columns: 1fr;
-    gap: 8px;
-    padding-top: 14px;
-  }
-
-  .split-btn {
-    font-size: 0.84rem;
-    padding: 10px 12px;
-    border-radius: 10px;
-  }
-
-  /* Syllabus overlay — full screen, reduced padding; drop blur for mobile GPU */
-  .syllabus-overlay {
-    padding: 10px;
-    align-items: flex-end;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    background: rgba(5, 11, 8, 0.97);
-  }
-
-  .syllabus-content {
-    border-radius: 18px 18px 0 0;
-    max-height: 90vh;
-    overflow-y: auto;
-  }
-
-  .hud-toast {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-
-  .modal-top {
-    padding: 18px 18px 14px;
-  }
-
-  .modal-heading {
-    font-size: 1.2rem;
-  }
-
-  .modal-tag {
-    font-size: 0.7rem;
-  }
-
-  .modal-scrollable {
-    padding: 18px;
-  }
-
-  .modal-description {
-    font-size: 0.88rem;
-    margin-bottom: 16px;
-  }
-
-  .block-title {
-    font-size: 0.95rem;
-    margin: 16px 0 8px;
-  }
-
-  .highlights-listing li {
-    font-size: 0.84rem;
-    gap: 8px;
-  }
-
-  .tech-chip {
-    font-size: 0.74rem;
-    padding: 4px 10px;
-    border-radius: 6px;
-  }
-
-  .tech-badge-cloud {
-    gap: 6px;
-  }
-
-  /* Modal actions bar — stack buttons vertically */
-  .modal-actions-bar {
-    flex-direction: column;
-    padding: 14px 18px 20px;
-    gap: 10px;
-    align-items: stretch;
-  }
-
-  .modal-brochure-action,
-  .modal-enroll-action {
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    font-size: 0.88rem;
-    padding: 12px 16px;
-  }
-
-  /* Toast — full width on mobile */
-  .hud-toast {
-    left: 16px;
-    right: 16px;
-    bottom: 16px;
-    border-radius: 14px;
-    padding: 14px 16px;
-    gap: 10px;
-  }
-
-  .toast-emoji {
-    font-size: 1.3rem;
-  }
-
-  .hud-toast strong {
-    font-size: 0.88rem;
-  }
-
-  .hud-toast p {
-    font-size: 0.78rem;
-  }
-
-  /* Card — reduce border-radius for mobile feel */
-  .interactive-course-card {
-    border-radius: 16px;
-  }
-}
-
-/* ==========================================================================
-   Extra-small screens — 380px breakpoint
-   ========================================================================== */
 @media (max-width: 380px) {
-  .courses-section-wrapper {
-    padding: 40px 10px 50px;
-  }
-
-  .section-main-heading {
-    font-size: clamp(1.4rem, 6.5vw, 1.8rem);
-  }
-
-  .section-subtitle {
-    font-size: 0.88rem;
-  }
-
-  .brochure-spotlight-bar {
-    padding: 12px 12px;
-    border-radius: 12px;
-  }
-
-  .brochure-bar-text strong {
-    font-size: 0.84rem;
-  }
-
-  .brochure-bar-text p {
-    font-size: 0.76rem;
-  }
-
-  .brochure-icon {
-    font-size: 1.4rem;
-  }
-
-  .global-brochure-btn {
-    font-size: 0.8rem;
-    padding: 9px 16px;
-  }
-
-  .filter-btn {
-    font-size: 0.76rem;
-    padding: 6px 12px;
-  }
-
-  .card-body-content {
-    padding: 14px 12px;
-  }
-
-  .course-title-text {
-    font-size: 1.02rem;
-  }
-
-  .course-summary {
-    font-size: 0.8rem;
-  }
-
-  .card-stats-box {
-    padding: 6px 10px;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .stat-separator {
-    display: none;
-  }
-
-  .stat-unit {
-    min-width: calc(50% - 6px);
-  }
-
-  .skill-pill {
-    font-size: 0.62rem;
-    padding: 2px 6px;
-  }
-
-  .split-btn {
-    font-size: 0.8rem;
-    padding: 9px 10px;
-  }
-
-  .syllabus-content {
-    max-height: 92vh;
-  }
-
-  .modal-top {
-    padding: 14px 14px 12px;
-  }
-
-  .modal-heading {
-    font-size: 1.08rem;
-  }
-
-  .modal-scrollable {
-    padding: 14px;
-  }
-
-  .modal-actions-bar {
-    padding: 12px 14px 16px;
-  }
-
-  .hud-toast {
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    padding: 12px 12px;
-    border-radius: 12px;
-  }
-
-  .interactive-course-card {
-    border-radius: 14px;
-  }
+  .courses-section-wrapper { padding-right: 10px; padding-left: 10px; }
+  .qe-course-carousel .qe-course-card { min-height: 450px; padding: 20px 14px; }
+  .qe-course-carousel .qe-course-number { font-size: 0.56rem; letter-spacing: 1.4px; }
+  .qe-course-carousel .qe-course-featured { font-size: 0.55rem; letter-spacing: 1.2px; }
+  .qe-course-carousel .qe-course-card-bottom { gap: 12px; }
+  .qe-course-carousel .qe-course-info strong { font-size: 0.68rem; }
+  .qe-course-carousel .qe-course-explore { width: 100%; margin: 0; }
+  .qe-course-carousel .qe-course-controls { gap: 14px; }
+  .qe-course-carousel .qe-course-autoplay-note { font-size: 0.48rem; letter-spacing: 1.4px; }
+  .modal-top { padding: 14px 14px 12px; }
+  .modal-heading { font-size: 1.08rem; }
+  .modal-scrollable { padding: 14px; }
+  .modal-actions-bar { padding: 12px 14px 16px; }
+  .hud-toast { right: 10px; bottom: 10px; left: 10px; padding: 12px; }
 }
 
-/* ==========================================================================
-   Reduced Motion — disable card hover lifts and transitions
-   ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
-  .interactive-course-card,
-  .interactive-course-card:hover,
-  .split-btn,
-  .split-btn:hover,
-  .global-brochure-btn,
-  .global-brochure-btn:hover,
-  .badge-tag,
-  .interactive-course-card:hover .badge-tag,
-  .card-laser-line,
-  .interactive-course-card:hover .card-laser-line {
-    transition: none;
-    transform: none;
-    animation: none;
-  }
-}
-
-
-/* ==========================================================================
-   MOBILE RESPONSIVENESS (≤480px and ≤380px)
-   CRITICAL: Desktop rules are untouched above.
-   ========================================================================== */
-@media (max-width: 480px) {
-  .courses-section-wrapper {
-    padding: 46px 16px 56px 16px;
-  }
-
-  .courses-header-block {
-    margin-bottom: 32px;
-  }
-
-  .courses-title-main {
-    font-size: clamp(1.85rem, 7vw, 2.4rem);
-  }
-
-  .courses-filter-pills {
-    display: flex;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    gap: 8px;
-    padding-bottom: 10px;
-    margin-bottom: 24px;
-    scrollbar-width: none;
-  }
-
-  .courses-filter-pills::-webkit-scrollbar {
-    display: none;
-  }
-
-  .filter-pill {
-    flex-shrink: 0;
-    scroll-snap-align: start;
-    padding: 7px 14px;
-    font-size: 0.8rem;
-  }
-
-  /* CRITICAL FIX: Eliminate 360px min width overflow */
-  .courses-cards-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .course-card-enterprise {
-    border-radius: 14px;
-  }
-
-  .card-banner-media {
-    height: 180px;
-  }
-
-  .card-body-content {
-    padding: 20px 16px 16px 16px;
-  }
-
-  .course-title-text {
-    font-size: 1.25rem;
-    line-height: 1.25;
-  }
-
-  .course-synopsis-text {
-    font-size: 0.86rem;
-    line-height: 1.5;
-    margin-bottom: 16px;
-  }
-
-  .curriculum-highlights-list {
-    gap: 6px;
-    margin-bottom: 16px;
-  }
-
-  .curriculum-item {
-    font-size: 0.82rem;
-  }
-
-  /* Single column footer for small screens */
-  .card-split-footer {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding-top: 14px;
-  }
-
-  .card-action-btn-primary,
-  .card-action-btn-secondary {
-    width: 100%;
-    justify-content: center;
-    padding: 10px 14px;
-    font-size: 0.82rem;
-  }
-
-  .brochure-spotlight-bar {
-    padding: 24px 18px;
-    border-radius: 16px;
-    margin-top: 40px;
-  }
-
-  .spotlight-heading {
-    font-size: 1.25rem;
-  }
-
-  .spotlight-subtext {
-    font-size: 0.85rem;
-  }
-
-  .brochure-download-trigger {
-    width: 100%;
-    justify-content: center;
-    padding: 12px 18px;
-    font-size: 0.88rem;
-  }
-
-  /* Syllabus Modal Mobile */
-  .syllabus-overlay {
-    padding: 12px;
-  }
-
-  .syllabus-content {
-    padding: 20px 16px;
-    max-height: 88vh;
-    border-radius: 16px;
-  }
-
-  .syllabus-header h2 {
-    font-size: 1.35rem;
-  }
-
-  .modal-actions-bar {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .modal-actions-bar button {
-    width: 100%;
-  }
-
-  /* HUD Toast */
-  .hud-toast {
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-    max-width: calc(100vw - 24px);
-    font-size: 0.82rem;
-    padding: 12px 14px;
-  }
-}
-
-@media (max-width: 380px) {
-  .courses-section-wrapper {
-    padding: 40px 12px 46px 12px;
-  }
-
-  .card-body-content {
-    padding: 16px 12px 14px 12px;
-  }
-
-  .course-title-text {
-    font-size: 1.15rem;
-  }
-
-  .card-banner-media {
-    height: 160px;
+  .qe-course-carousel *,
+  .qe-course-carousel *::before,
+  .qe-course-carousel *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
